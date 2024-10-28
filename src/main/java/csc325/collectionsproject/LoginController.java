@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
-public class CollectionsController {
+public class LoginController {
 
     @FXML
     private HBox LoginButtonBox;
@@ -28,6 +28,9 @@ public class CollectionsController {
 
     @FXML
     private TextField usernameTextField;
+
+
+    //All of this is on hold until Firebase is sorted
 
     @FXML
     void onLoginButtonClick(ActionEvent event) {
