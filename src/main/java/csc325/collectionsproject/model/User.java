@@ -1,12 +1,12 @@
-package csc325.collectionsproject;
+package csc325.collectionsproject.model;
 
 import java.util.List;
 import java.util.Objects;
 
-public class User /* implements Serializable */ {
+public class User {
     public String username;
     public String password;
-    public List collections; //undecided on data type atm
+ //   public List collections; //undecided on data type atm
 
     public User(String username, String password) {
         this.username = username;
