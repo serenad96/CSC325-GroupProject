@@ -50,6 +50,8 @@ public class LoginController {
     @FXML
     void signInUser(ActionEvent event) throws IOException {
         //Signs user in via email matching, password does not presently work
+        //Needs some more setup of user classs and what we want to store before this can
+        //proceed
         String email = usernameTextField.getText();
         String password = pwTextField.getText();
         try {
