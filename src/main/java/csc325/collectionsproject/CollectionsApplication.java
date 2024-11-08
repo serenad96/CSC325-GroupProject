@@ -31,7 +31,7 @@ public class CollectionsApplication extends Application {
         fstoreDB = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
 
- //     FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("collectionview.fxml"));
+ //     FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("collection-view.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("registration-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 860, 640);
         stage.setTitle("CollectionsApp");

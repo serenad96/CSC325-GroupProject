@@ -1,4 +1,4 @@
-package csc325.collectionsproject;
+package csc325.collectionsproject.controller;
 
 
 import javafx.scene.image.ImageView;
