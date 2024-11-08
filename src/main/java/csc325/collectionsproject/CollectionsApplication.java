@@ -14,7 +14,7 @@ public class CollectionsApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("collectionview.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("collection-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 860, 640);
         stage.setTitle("CollectionsApp");
         stage.setScene(scene);
