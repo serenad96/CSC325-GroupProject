@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="0.0" prefWidth="310.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.LoginController">
+<VBox alignment="CENTER" prefHeight="175.0" prefWidth="415.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.LoginController">
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
   </padding>
@@ -24,13 +24,16 @@
       <HBox fx:id="UserBox" alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
         <children>
 
-          <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" text="Username">
+          <Label fx:id="usernameLabel" alignment="CENTER" text="Username">
             <padding>
               <Insets right="30.0" />
             </padding>
           </Label>
           <TextField fx:id="usernameTextField" prefHeight="26.0" prefWidth="177.0" />
         </children>
+            <BorderPane.margin>
+               <Insets left="40.0" />
+            </BorderPane.margin>
       </HBox>
     </top>
     <center>
@@ -43,6 +46,9 @@
           </Label>
           <TextField fx:id="pwTextField" prefHeight="26.0" prefWidth="173.0" />
         </children>
+            <BorderPane.margin>
+               <Insets left="40.0" />
+            </BorderPane.margin>
       </HBox>
     </center>
   </BorderPane>
