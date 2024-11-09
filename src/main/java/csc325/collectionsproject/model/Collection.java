@@ -37,6 +37,6 @@ public class Collection {
 Tags
 Other important fields
 Rating, etc.
-
  */
+
 }

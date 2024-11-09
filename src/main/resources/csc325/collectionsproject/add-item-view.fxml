@@ -19,19 +19,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="488.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325/collectionsproject/controller/AddItemController.java">
+<BorderPane prefHeight="488.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325/collectionsproject/controller/AddItemController">
    <top>
       <ToolBar prefHeight="25.0" prefWidth="648.0" BorderPane.alignment="CENTER">
         <items>
             <ImageView fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@trilo.jpg" />
+                  <Image url="@imgs/trilo.jpg" />
                </image>
             </ImageView>
           <Button mnemonicParsing="false" text="MINIBAR AREA" />
             <ImageView fitHeight="42.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" translateX="420.0">
                <image>
-                  <Image url="@qt.png" />
+                  <Image url="@imgs/qt.png" />
                </image>
             </ImageView>
         </items>
@@ -115,7 +115,7 @@
          <children>
             <HBox fx:id="privateToggle" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label text="Public" />
+                  <Label fx:id="publicToggleLbl" text="Public" />
                   <ToggleButtonGroup selectionType="SINGLE">
                       <toggles>
                           <ToggleButton>
@@ -125,7 +125,7 @@
                           </ToggleButton>
                       </toggles>
                   </ToggleButtonGroup>
-                  <Label text="Private" />
+                  <Label fx:id="privToggleLbl" text="Private" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -136,7 +136,7 @@
                   <Insets bottom="-5.0" left="5.0" right="5.0" />
                </VBox.margin>
                <image>
-                  <Image url="@yello.jpg" />
+                  <Image url="@imgs/yello.jpg" />
                </image>
             </ImageView>
             <Button fx:id="addImgBtn" mnemonicParsing="false" text="Add Image">
@@ -173,7 +173,7 @@
                   </ToggleButton>
                 </toggles>
                <VBox.margin>
-                  <Insets left="20.0" />
+                  <Insets />
                </VBox.margin>
             </ToggleButtonGroup>
             <Button maxHeight="90.0" maxWidth="100.0" minHeight="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="ADD" />
