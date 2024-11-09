@@ -6,8 +6,10 @@ import java.util.List;
 public class Collection {
 
     public String collectionTitle;
+    public String collectionDescription;
     public List<String> tags;
-    public int rating; //make all ratings an eNum
+    public int rating;
+    //make all ratings an eNum
 
     public Collection(String collectionTitle, List<String> tags) {
         this.collectionTitle = collectionTitle;
