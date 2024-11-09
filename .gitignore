@@ -11,6 +11,8 @@ target/
 *.iws
 *.iml
 *.ipr
+key.json
+src/main/resources/csc325/collectionsproject/key.json
 
 ### Eclipse ###
 .apt_generated
@@ -36,3 +38,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
+###src/main/resources/csc325/collectionsproject/key.json###
