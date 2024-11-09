@@ -7,11 +7,29 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+import java.io.IOException;
+
 public class RegistrationController {
+
+    @FXML
+    private Button loginBtn;
 
     @FXML
     private Button registerBtn;
 
+    @FXML
+    private Button writeBtn;
+
+    @FXML
+    void loginClicked(ActionEvent event) throws IOException {
+        System.out.println("Login clicked");
+      CollectionsApplication.setRoot("collection-view");
+    }
+
+    @FXML
+    void writeBtnClicked(ActionEvent event) {
+        System.out.println("Write clicked");
+    }
     @FXML
     void registerButtonClicked(ActionEvent event) {
         registerUser();

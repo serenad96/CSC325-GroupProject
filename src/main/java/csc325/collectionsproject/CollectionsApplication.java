@@ -1,5 +1,6 @@
 package csc325.collectionsproject;
 
+import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.FirestoreContext;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,9 @@ import com.google.firebase.auth.*;
 import com.google.cloud.firestore.*;
 import com.google.api.core.ApiFuture;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class CollectionsApplication extends Application {
     public static Scene scene;    // Firestore reference
@@ -33,10 +37,11 @@ public class CollectionsApplication extends Application {
 
  //     FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("collection-view.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("registration-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 860, 640);
+        scene = new Scene(fxmlLoader.load(), 860, 640);
         stage.setTitle("CollectionsApp");
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -51,6 +56,8 @@ public class CollectionsApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+
 
 
 }
