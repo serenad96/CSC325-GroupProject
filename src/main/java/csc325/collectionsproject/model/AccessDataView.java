@@ -18,7 +18,7 @@ public class AccessDataView{
         writePossible.bind(username.isNotEmpty());
     }
 
-    public StringProperty userameProperty() {
+    public StringProperty usernameProperty() {
         return username;
     }
 
@@ -27,4 +27,5 @@ public class AccessDataView{
     public ReadOnlyBooleanProperty isWritePossibleProperty() {
         return writePossible.getReadOnlyProperty();
     }
+
 }
