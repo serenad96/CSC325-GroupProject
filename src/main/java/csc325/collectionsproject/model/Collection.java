@@ -9,9 +9,13 @@ public class Collection {
     public List<String> tags;
     public int rating; //make all ratings an eNum
 
-    public Collection(String collectionTitle) {
+    public Collection(String collectionTitle, List<String> tags) {
         this.collectionTitle = collectionTitle;
         this.tags = new ArrayList<String>();
+    }
+
+    public Collection() {
+
     }
 
     public String getCollectionTitle() {

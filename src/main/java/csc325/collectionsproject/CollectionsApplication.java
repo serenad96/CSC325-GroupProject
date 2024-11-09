@@ -42,8 +42,6 @@ public class CollectionsApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        //REMOVE LATER -- THIS IS FOR TESTING
-        addCollection();
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -59,18 +57,6 @@ public class CollectionsApplication extends Application {
         launch();
     }
 
-    // MOVE THIS SHIT LATER \/
-    public void addCollection() {
-
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Collections").document(UUID.randomUUID().toString());
-
-        Map<String, Object> data = new HashMap<>();
-        data.put("Collection Name", "test name");
-        data.put("Tags", "test name");
-
-        //asynchronously write data
-        ApiFuture<WriteResult> result = docRef.set(data);
-    }
 
 
 

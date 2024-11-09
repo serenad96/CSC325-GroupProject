@@ -4,9 +4,9 @@ import javafx.scene.image.ImageView;
 
 public class CollectionItem {
 
-    String itemName;
-    ImageView itemImage;
-    String itemDescription;
+    public String itemName;
+    public ImageView itemImage;
+    public String itemDescription;
 
 
     public CollectionItem(String itemName) {
