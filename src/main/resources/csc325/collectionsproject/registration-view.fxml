@@ -65,13 +65,15 @@
                   <TextField />
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
                <children>
                   <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" text="Register">
                      <HBox.margin>
-                        <Insets right="-30.0" />
+                        <Insets />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#loginClicked" text="Login" />
+                  <Button fx:id="writeBtn" mnemonicParsing="false" onAction="#writeBtnClicked" text="Write" />
                </children>
             </HBox>
          </children>
