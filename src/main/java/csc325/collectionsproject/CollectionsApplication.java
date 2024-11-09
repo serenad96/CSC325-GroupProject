@@ -1,5 +1,6 @@
 package csc325.collectionsproject;
 
+import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.FirestoreContext;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,9 @@ import com.google.firebase.auth.*;
 import com.google.cloud.firestore.*;
 import com.google.api.core.ApiFuture;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class CollectionsApplication extends Application {
     public static Scene scene;    // Firestore reference
@@ -37,6 +41,9 @@ public class CollectionsApplication extends Application {
         stage.setTitle("CollectionsApp");
         stage.setScene(scene);
         stage.show();
+
+        //REMOVE LATER -- THIS IS FOR TESTING
+        addCollection();
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -51,6 +58,20 @@ public class CollectionsApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+    // MOVE THIS SHIT LATER \/
+    public void addCollection() {
+
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Collections").document(UUID.randomUUID().toString());
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("Collection Name", "test name");
+        data.put("Tags", "test name");
+
+        //asynchronously write data
+        ApiFuture<WriteResult> result = docRef.set(data);
+    }
+
 
 
 }
