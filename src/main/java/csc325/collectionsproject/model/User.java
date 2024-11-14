@@ -6,12 +6,14 @@ import java.util.Objects;
 public class User {
     public String username;
     public String password;
+    public Collection collection;
  //   public List collections; //undecided on data type atm
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
         // this.collections = new <Collection>List();
+        this.collection = new Collection();
     }
 
     public String getUsername() {
@@ -29,6 +31,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Collection getCollection() { return collection; }
+
+    public void setCollection(Collection collection) { this.collection = collection; }
 
     @Override
     public String toString() {
