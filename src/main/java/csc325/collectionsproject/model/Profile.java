@@ -10,6 +10,7 @@ public class Profile {
 
 public List<Collection> collectionsList;
 public Collection showcaseItem;
+
 @FXML
 public ImageView profilePicture;
 
@@ -20,4 +21,27 @@ public ImageView profilePicture;
 
  }
 
+ public List<Collection> getCollectionsList() {
+  return collectionsList;
+ }
+
+ public void setCollectionsList(List<Collection> collectionsList) {
+  this.collectionsList = collectionsList;
+ }
+
+ public Collection getShowcaseItem() {
+  return showcaseItem;
+ }
+
+ public void setShowcaseItem(Collection showcaseItem) {
+  this.showcaseItem = showcaseItem;
+ }
+
+ public ImageView getProfilePicture() {
+  return profilePicture;
+ }
+
+ public void setProfilePicture(ImageView profilePicture) {
+  this.profilePicture = profilePicture;
+ }
 }

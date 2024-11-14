@@ -6,12 +6,12 @@ import java.util.Objects;
 public class User {
     public String username;
     public String password;
- //   public List collections; //undecided on data type atm
+    public Profile profile;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        // this.collections = new <Collection>List();
+        this.profile = new Profile();
     }
 
     public String getUsername() {

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class ItemCreationController {
+public class FirebaseWriter {
 
 
 
