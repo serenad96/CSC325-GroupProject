@@ -35,13 +35,14 @@ public class RegistrationController {
     @FXML
     void loginClicked(ActionEvent event) throws IOException {
         System.out.println("Login clicked");
-      CollectionsApplication.setRoot("collection-view");
+        switchToProfileView();
     }
 
     @FXML
     void writeBtnClicked(ActionEvent event) {
         System.out.println("Write clicked");
     }
+
     @FXML
     void registerButtonClicked(ActionEvent event) {
         registerUser();
@@ -80,5 +81,16 @@ public class RegistrationController {
             return false;
         } */
     }
+
+    @FXML
+    public void switchToCollectionView() throws IOException {
+        CollectionsApplication.setRoot("collection-view");
+    }
+
+    @FXML
+    public void switchToProfileView() throws IOException {
+        CollectionsApplication.setRoot("profile-view");
+    }
+
 
 }

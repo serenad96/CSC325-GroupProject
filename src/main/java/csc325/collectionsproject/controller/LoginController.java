@@ -41,10 +41,8 @@ public class LoginController {
     void onLoginButtonClick(ActionEvent event) throws IOException {
         String username =  usernameTextField.getText();
         String password = pwTextField.getText();
-        switchToCollectionView();
+        switchToProfileView();
         //Match user login info from info retrieved from database
-
-
     }
 
     @FXML
@@ -60,7 +58,7 @@ public class LoginController {
 //                if (/*password check*/) {
                 System.out.println("User is registered. User ID: " + user.getUid());
                 //switch view to other GUI
-                switchToCollectionView();
+                switchToProfileView();
 //                }
             } else {
                 System.out.println("Incorrect password. Please try again.");
@@ -76,5 +74,11 @@ public class LoginController {
     public void switchToCollectionView() throws IOException {
         CollectionsApplication.setRoot("collectionview");
     }
+
+    @FXML
+    public void switchToProfileView() throws IOException {
+        CollectionsApplication.setRoot("profileview");
+    }
+
 
 }

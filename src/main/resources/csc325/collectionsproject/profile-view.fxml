@@ -31,7 +31,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc1010" height="225.0" layoutX="28.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc1010" height="225.0" layoutX="407.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc1010" height="225.0" layoutX="217.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
-            <Button layoutX="240.0" layoutY="263.0" mnemonicParsing="false" text="View Full Collecton" />
+            <Button fx:id="viewCollectionBtn" layoutX="240.0" layoutY="263.0" mnemonicParsing="false" onAction="#showPrimaryCollection" text="View Full Collecton" />
             <ImageView fx:id="showcaseItem3" fitHeight="225.0" fitWidth="162.0" layoutX="407.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="showcaseItem1" fitHeight="225.0" fitWidth="162.0" layoutX="28.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="showcaseItem2" fitHeight="225.0" fitWidth="162.0" layoutX="217.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
