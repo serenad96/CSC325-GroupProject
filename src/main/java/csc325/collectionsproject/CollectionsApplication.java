@@ -38,6 +38,7 @@ public class CollectionsApplication extends Application {
  //     FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("collection-view.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("registration-view.fxml"));
         scene = new Scene(fxmlLoader.load(), 860, 640);
+        stage.setMaximized(true);
         stage.setTitle("CollectionsApp");
         stage.setScene(scene);
         stage.show();

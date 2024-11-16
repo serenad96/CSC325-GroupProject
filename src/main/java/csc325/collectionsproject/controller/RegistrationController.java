@@ -6,8 +6,8 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
 import csc325.collectionsproject.CollectionsApplication;
-import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.User;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,12 +21,6 @@ import java.util.UUID;
 public class RegistrationController {
 
     @FXML
-    private Button loginBtn;
-
-    @FXML
-    private Button registerBtn;
-
-    @FXML
     private TextField usernameTF;
 
     @FXML
@@ -34,8 +28,8 @@ public class RegistrationController {
 
     @FXML
     void loginClicked(ActionEvent event) throws IOException {
-        System.out.println("Login clicked");
-      CollectionsApplication.setRoot("collection-view");
+      System.out.println("Login clicked");
+      switchToProfileView();
     }
 
     @FXML
@@ -48,22 +42,24 @@ public class RegistrationController {
     }
 
     public void registerUser() {
+        //This code adds a user for authentication
         /* UserRecord.CreateRequest request = new UserRecord.CreateRequest()
                 .setEmail("selin@firebase.com")
                 .setEmailVerified(false)
                 .setPassword("secret")
                 .setPhoneNumber("+11234567890")
                 .setDisplayName("John Doe")
-                .setDisabled(false); */
+                .setDisabled(false);
+        */
 
             User user = new User(usernameTF.getText().trim(),passwordTF.getText().trim());
 
-            DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(UUID.randomUUID().toString());
+            DocumentReference docRef = CollectionsApplication
+                    .fstoreDB.collection("Users").document(UUID.randomUUID().toString());
 
             Map<String, Object> data = new HashMap<>();
             data.put("Username", user.getUsername());
             data.put("Password", user.getPassword());
-            data.put("Collections", user.getCollection());
 
             ApiFuture<WriteResult> result = docRef.set(data);
 
@@ -79,6 +75,11 @@ public class RegistrationController {
             System.out.println("Error creating a new user in the firebase");
             return false;
         } */
+    }
+
+    @FXML
+    public void switchToProfileView() throws IOException {
+        CollectionsApplication.setRoot("profile-view");
     }
 
 }

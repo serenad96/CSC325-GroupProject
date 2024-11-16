@@ -17,7 +17,7 @@
             <Font size="64.0" />
          </font>
       </Label>
-      <Button fx:id="viewAllButton" layoutX="431.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" text="View All" />
+      <Button fx:id="viewAllButton" layoutX="431.0" layoutY="535.0" mnemonicParsing="false" onAction="#openAllCollections" prefHeight="25.0" prefWidth="162.0" text="View All" />
       <Pane layoutX="26.0" layoutY="173.0" prefHeight="302.0" prefWidth="272.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="302.0" stroke="BLACK" strokeType="INSIDE" width="272.0" />
@@ -31,7 +31,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc1010" height="225.0" layoutX="28.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc1010" height="225.0" layoutX="407.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bc1010" height="225.0" layoutX="217.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
-            <Button layoutX="240.0" layoutY="263.0" mnemonicParsing="false" text="View Full Collecton" />
+            <Button fx:id="viewPrimaryCollectionBtn" layoutX="240.0" layoutY="263.0" mnemonicParsing="false" onAction="#openPrimaryCollection" text="View Full Collecton" />
             <ImageView fx:id="showcaseItem3" fitHeight="225.0" fitWidth="162.0" layoutX="407.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="showcaseItem1" fitHeight="225.0" fitWidth="162.0" layoutX="28.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="showcaseItem2" fitHeight="225.0" fitWidth="162.0" layoutX="217.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />

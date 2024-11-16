@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.RegistrationController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.RegistrationController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0">
         <columnConstraints>
@@ -51,7 +51,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
                <children>
-                  <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" text="Register">
+                  <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" text="Register User">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
