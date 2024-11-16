@@ -109,7 +109,7 @@
       </BorderPane>
    </center>
    <right>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="170.0" spacing="15.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="170.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
             <HBox fx:id="privacyToggleBox" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
                <children>
@@ -146,11 +146,51 @@
                   <Insets />
                </VBox.margin>
                <children>
-                    <ToggleButton selected="true" text="1" />
-                  <ToggleButton selected="true" text="2" />
-                  <ToggleButton selected="true" text="3" />
-                  <ToggleButton selected="true" text="4" />
-                  <ToggleButton selected="true" text="5" />
+                  <ToggleButton id="rating-button" fx:id="itemRating1" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/star_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton id="rating-button" fx:id="itemRating2" layoutX="73.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/star_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton id="rating-button" fx:id="itemRating3" layoutX="60.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/star_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton id="rating-button" fx:id="itemRating4" layoutX="101.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/star_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton id="rating-button" fx:id="itemRating5" layoutX="116.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/star_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
                </children>
             </HBox>
             <Button fx:id="addNewItemBtn" maxHeight="90.0" maxWidth="100.0" minHeight="40.0" mnemonicParsing="false" onAction="#addNewItem" prefHeight="40.0" prefWidth="90.0" text="ADD NEW ITEM" />
@@ -158,6 +198,9 @@
          <padding>
             <Insets left="10.0" right="10.0" />
          </padding>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
       </VBox>
    </right>
 </BorderPane>

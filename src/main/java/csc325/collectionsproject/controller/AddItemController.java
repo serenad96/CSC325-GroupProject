@@ -37,6 +37,9 @@ public class AddItemController {
         private ToggleButton itemPrivacyToggle;
 
         @FXML
+        private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5;
+
+        @FXML
         void addNewItem(ActionEvent event) throws IOException {
                 switchToCollectionView();
         }
@@ -56,4 +59,8 @@ public class AddItemController {
                 switchToCollectionView();
         }
 
+        @FXML
+        void ratingClicked(ActionEvent event) {
+
+        }
 }
