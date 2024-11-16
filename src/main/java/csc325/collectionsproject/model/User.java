@@ -15,7 +15,7 @@ public class User {
         this.password = password;
         this.profile = new Profile();
         // this.collections = new <Collection>List();
-        this.collection = new Collection();
+        this.collection = new Collection("Test Collection","TestDescription");
     }
 
     public String getUsername() {
