@@ -15,31 +15,29 @@ public class FirebaseWriter {
 
 
 
-    public void addCollectionItem() {
+    public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) {
 
-        CollectionItem collectionItem = new CollectionItem("idk wtf");
+        CollectionItem collectionItem = new CollectionItem(itemName);
 
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("CollectionItems").document(UUID.randomUUID().toString());
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
 
         Map<String, Object> data = new HashMap<>();
-        data.put("Item Name", collectionItem.getItemName());
-        data.put("Item Image", collectionItem.getItemImage());
+        data.put(itemName, collectionItem);
 
-        ApiFuture<WriteResult> result = docRef.set(data);
+        ApiFuture<WriteResult> result = docRef.update(data);
     }
 
-    public void addCollection() {
+    public void addCollectionToUser(String username, String collectionTitle, String collectionDescription) {
 
-        Collection collection = new Collection();
+        Collection collection = new Collection(collectionTitle, collectionDescription);
 
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Collections").document(UUID.randomUUID().toString());
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
 
         Map<String, Object> data = new HashMap<>();
-        data.put("Collection Name", collection.getCollectionTitle());
-        data.put("Tags", "test name");
+        data.put(collectionTitle + "Collection", collection);
 
         //asynchronously write data
-        ApiFuture<WriteResult> result = docRef.set(data);
+        ApiFuture<WriteResult> result = docRef.update(data);
     }
 
 }

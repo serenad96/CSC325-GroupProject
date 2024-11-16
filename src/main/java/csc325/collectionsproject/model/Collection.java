@@ -7,18 +7,20 @@ public class Collection {
 
     public String collectionTitle;
     public String collectionDescription;
-    public ArrayList<CollectionItem> collectionItems = new ArrayList<>();
-    public ArrayList<String> collectionTags;
-    public int rating;
+    //public ArrayList<CollectionItem> collectionItems = new ArrayList<>();
+   // public ArrayList<String> collectionTags;
+    //public int rating;
     //make all ratings an eNum
 
-    public Collection(String collectionTitle, List<String> tags) {
+    public Collection(String collectionTitle, String collectionDescription) {
         this.collectionTitle = collectionTitle;
-        this.collectionTags = new ArrayList<String>();
+        //this.collectionTags = new ArrayList<String>();
+        this.collectionDescription = collectionDescription;
     }
 
     public Collection() {
-
+        this.collectionTitle = "Test Collection";
+        this.collectionDescription = "This is a test collection";
     }
 
     public String getCollectionTitle() {
@@ -29,7 +31,7 @@ public class Collection {
         this.collectionTitle = collectionTitle;
     }
 
-    public List<String> getCollectionTags() { return collectionTags; }
+    // public List<String> getCollectionTags() { return collectionTags; }
 
  //   public void setCollectionTags(List<String> collectionTags) { this.collectionTags = collectionTags; }
 
@@ -41,7 +43,7 @@ public class Collection {
         this.collectionDescription = collectionDescription;
     }
 
-    public ArrayList<CollectionItem> getCollectionItems() {
+  /*  public ArrayList<CollectionItem> getCollectionItems() {
         return collectionItems;
     }
 
@@ -59,7 +61,7 @@ public class Collection {
 
     public void setRating(int rating) {
         this.rating = rating;
-    }
+    } */
 /*
 
 Tags
