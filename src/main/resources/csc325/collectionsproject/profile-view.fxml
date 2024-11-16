@@ -43,6 +43,7 @@
             <Button fx:id="profileButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Profile" />
             <Button fx:id="browseButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Browse" />
             <Button fx:id="settingsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Settings" />
+            <Button fx:id="createCollectionButton" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="Create Collection" />
         </items>
       </ToolBar>
    </children>
