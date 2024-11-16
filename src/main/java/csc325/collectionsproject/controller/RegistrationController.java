@@ -69,7 +69,6 @@ public class RegistrationController {
             Map<String, Object> data = new HashMap<>();
             data.put("Username", user.getUsername());
             data.put("Password", user.getPassword());
-            data.put("Collection 1", user.getCollection());
 
             ApiFuture<WriteResult> result = docRef.set(data);
 
