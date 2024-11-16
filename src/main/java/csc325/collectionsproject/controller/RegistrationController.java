@@ -52,16 +52,27 @@ public class RegistrationController {
                 .setDisabled(false);
         */
 
-            User user = new User(usernameTF.getText().trim(),passwordTF.getText().trim());
+         String username = usernameTF.getText().trim();
+         String password = passwordTF.getText().trim();
 
-            DocumentReference docRef = CollectionsApplication
-                    .fstoreDB.collection("Users").document(UUID.randomUUID().toString());
+        //collection("Users").doc(username).get();
+
+       // if (username != ) {
+            User user = new User(username, password);
+
+            DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
 
             Map<String, Object> data = new HashMap<>();
             data.put("Username", user.getUsername());
             data.put("Password", user.getPassword());
 
             ApiFuture<WriteResult> result = docRef.set(data);
+
+        //}
+
+        //random UUID generate code
+        // UUID.randomUUID();
+        // IGNORE unless u r aubrey
 
         /* UserRecord userRecord;
         try {
