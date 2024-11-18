@@ -19,7 +19,13 @@ private ImageView profilePicture;
     private Button viewPrimaryCollectionBtn;
 
     @FXML
-    private Button createCollectionButton;
+    private Button newCollectionBtn;
+
+    @FXML
+    private Button settingsBtn;
+
+    @FXML
+    private Button collectionViewBtn;
 
     @FXML
     void createNewCollection(ActionEvent event) throws IOException {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.ImageView?>
@@ -39,11 +40,10 @@
       </Pane>
       <ToolBar prefHeight="33.0" prefWidth="1023.0">
         <items>
-          <Button fx:id="homeButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Home" />
-            <Button fx:id="profileButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Profile" />
-            <Button fx:id="browseButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Browse" />
-            <Button fx:id="settingsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Settings" />
-            <Button fx:id="createCollectionButton" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="Create Collection" />
+            <Button fx:id="newCollectionBtn" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="New Collection" />
+          <Button fx:id="collectionViewBtn" mnemonicParsing="false" onAction="#openAllCollections" text="Collection View" />
+            <Button fx:id="settingsBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Profile Settings" />
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" />
         </items>
       </ToolBar>
    </children>
