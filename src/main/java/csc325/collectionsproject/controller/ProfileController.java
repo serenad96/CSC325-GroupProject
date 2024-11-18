@@ -19,6 +19,14 @@ private ImageView profilePicture;
     private Button viewPrimaryCollectionBtn;
 
     @FXML
+    private Button createCollectionButton;
+
+    @FXML
+    void createNewCollection(ActionEvent event) throws IOException {
+        switchToCreateCollectionView();
+    }
+
+    @FXML
     void openAllCollections(ActionEvent event) throws IOException {
         switchToCollectionView();
     }
@@ -33,5 +41,9 @@ private ImageView profilePicture;
         CollectionsApplication.setRoot("collection-view");
     }
 
+    @FXML
+    public void switchToCreateCollectionView() throws IOException {
+        CollectionsApplication.setRoot("create-collection-view");
+    }
 
 }

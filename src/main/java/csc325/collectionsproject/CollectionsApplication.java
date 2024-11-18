@@ -1,6 +1,5 @@
 package csc325.collectionsproject;
 
-import csc325.collectionsproject.controller.FirebaseWriter;
 import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.FirestoreContext;
 import javafx.application.Application;
@@ -9,20 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.cloud.FirestoreClient;
 
-import com.google.firebase.auth.*;
-import com.google.cloud.firestore.*;
-import com.google.api.core.ApiFuture;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public class CollectionsApplication extends Application {
     public static Scene scene;    // Firestore reference
@@ -36,9 +25,17 @@ public class CollectionsApplication extends Application {
         fstoreDB = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
 
- //     FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("collection-view.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("registration-view.fxml"));
         scene = new Scene(fxmlLoader.load(), 860, 640);
+
+//        try {
+//            String cssPath = getClass().getResource("src/main/resources/csc325/collectionsproject/style.css").toExternalForm();
+//            scene.getStylesheets().add(cssPath);
+//        } catch (NullPointerException e) {
+//            System.err.println("Error: Could not load style.css. Check the file path.");
+//            e.printStackTrace();
+//        }
+
         stage.setMaximized(true);
         stage.setTitle("CollectionsApp");
         stage.setScene(scene);
