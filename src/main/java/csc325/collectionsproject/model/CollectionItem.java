@@ -14,8 +14,9 @@ public class CollectionItem {
     //item rating once that is established
 
 
-    public CollectionItem(String itemName) {
+    public CollectionItem(String itemName, String itemDescription) {
         this.itemName = itemName;
+        this.itemDescription = itemDescription;
     }
 
     public String getItemName() {
@@ -25,6 +26,8 @@ public class CollectionItem {
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
+
+
 
     public ImageView getItemImage() { return itemImage; }
 
@@ -49,4 +52,6 @@ public class CollectionItem {
     public void setItemTags(ArrayList<String> itemTags) {
         this.itemTags = itemTags;
     }
+
+
 }

@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 public class CollectionsApplication extends Application {
     public static Scene scene;    // Firestore reference
@@ -31,7 +32,7 @@ public class CollectionsApplication extends Application {
     private final FirestoreContext contxtFirebase = new FirestoreContext();
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ExecutionException, InterruptedException {
         //Initialize Firestore, authorization, db
         fstoreDB = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
@@ -43,9 +44,9 @@ public class CollectionsApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        //FirebaseWriter writer = new FirebaseWriter();
+        FirebaseWriter writer = new FirebaseWriter();
 
-        //writer.addCollectionItemToCollection("again","Test","goodItem","gaygaygay");
+        writer.addCollectionItemToCollection("again","Test","goodItem","gaygaygay");
 
     }
 
