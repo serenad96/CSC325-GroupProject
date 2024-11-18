@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionViewController">
     <header>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
          <children>
@@ -163,6 +163,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
                </children>
             </Pane>
+            <Button fx:id="addItemBtn" layoutX="60.0" layoutY="6.0" mnemonicParsing="false" onAction="#addNewItem" text="Add New Item" />
          </children></AnchorPane>
     </header>
     <content>
