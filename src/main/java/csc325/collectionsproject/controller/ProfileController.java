@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class ProfileController {
 
-
+@FXML
 private ImageView profilePicture;
 
     @FXML
