@@ -12,8 +12,8 @@ import java.io.IOException;
 
 public class ProfileController {
 
-
-private ImageView profilePicture;
+    @FXML
+    private ImageView profilePicture;
 
     @FXML
     private Button viewPrimaryCollectionBtn;
