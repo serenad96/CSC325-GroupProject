@@ -19,6 +19,11 @@ public class CollectionItem {
         this.itemDescription = description; //change later
         this.privacySetting = false; //set this to button toggle in gui
         this.itemTags = new ArrayList<>();
+//Might need to change one of these constructors
+    public CollectionItem(String itemName, String itemDescription) {
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+
     }
 
     public String getItemName() {
@@ -29,21 +34,13 @@ public class CollectionItem {
         this.itemName = itemName;
     }
 
-    public ImageView getItemImage() {
-        return itemImage;
-    }
+    public ImageView getItemImage() { return itemImage; }
 
-    public void setItemImage(ImageView itemImage) {
-        this.itemImage = itemImage;
-    }
+    public void setItemImage(ImageView itemImage) { this.itemImage = itemImage; }
 
-    public String getItemDescription() {
-        return itemDescription;
-    }
+    public String getItemDescription() { return itemDescription; }
 
-    public void setItemDescription(String itemDescription) {
-        this.itemDescription = itemDescription;
-    }
+    public void setItemDescription(String itemDescription) { this.itemDescription = itemDescription; }
 
     public boolean isPrivacySetting() {
         return privacySetting;

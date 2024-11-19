@@ -5,6 +5,8 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
@@ -15,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -27,10 +30,19 @@ public class RegistrationController {
     @FXML
     private TextField passwordTF;
 
+  //  FirebaseDatabase database = FirebaseDatabase.getInstance();
+    //DatabaseReference reference = database.getReference("server/Users/aubs");
+
+
     @FXML
     void loginClicked(ActionEvent event) throws IOException {
       System.out.println("Login clicked");
-      switchToProfileView();
+
+      if(usernameTF.getText().equals("1") && passwordTF.getText().equals("1")) {
+          switchToProfileView();
+          System.out.println("acbdefg");
+      }
+
     }
 
     @FXML

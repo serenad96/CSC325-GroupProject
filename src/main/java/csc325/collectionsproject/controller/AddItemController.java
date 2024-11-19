@@ -34,10 +34,18 @@ public class AddItemController {
         private Button backBtn;
 
         @FXML
+        private Button newCollectionBtn;
+
+        @FXML
+        private Button profileBtn;
+
+        @FXML
         private ToggleButton itemPrivacyToggle;
 
         @FXML
         private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5;
+
+
 
         @FXML
         void addNewItem(ActionEvent event) throws IOException {
@@ -63,4 +71,6 @@ public class AddItemController {
         void ratingClicked(ActionEvent event) {
 
         }
+
+
 }
