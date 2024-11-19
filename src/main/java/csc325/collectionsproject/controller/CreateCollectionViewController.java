@@ -1,5 +1,6 @@
-package csc325.collectionsproject;
+package csc325.collectionsproject.controller;
 
+import csc325.collectionsproject.CollectionsApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,6 +23,9 @@ public class CreateCollectionViewController {
 
     @FXML
     private Button backBtn;
+
+    @FXML
+    private Button collectionViewBtn;
 
     @FXML
     private TextField collectionDesc;
