@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.User;
+import csc325.collectionsproject.model.UserSession;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -63,14 +64,17 @@ public class RegistrationController {
                 .setDisplayName("John Doe")
                 .setDisabled(false);
         */
+        //collection("Users").doc(username).get(); (lines moved)
 
+        // if (username != ) {
          String username = usernameTF.getText().trim();
          String password = passwordTF.getText().trim();
 
-        //collection("Users").doc(username).get();
-
-       // if (username != ) {
+        //Validation needed for if user exists but do that later
             User user = new User(username, password);
+            //Transfer this to be cleaner with login
+            UserSession.getInstance().setLoggedInUser(user);
+            System.out.println("User logged in: " + user.getUsername());
 
             DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
 

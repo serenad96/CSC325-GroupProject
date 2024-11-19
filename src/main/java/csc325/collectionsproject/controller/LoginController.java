@@ -34,9 +34,14 @@ public class LoginController {
     @FXML
     private TextField usernameTextField;
 
+/*
+
+    //Need a way to save a user's info once they log in
+=======
     String user = "admin";
     String pw = "password";
     //All of this is on hold until Firebase is sorted
+*/
 
     @FXML
     void onLoginButtonClick(ActionEvent event) throws IOException {
