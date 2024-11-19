@@ -21,11 +21,19 @@ public class FirebaseWriter {
 
     public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
 
-        /*
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
 
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username)
+                                                                  .collection("Collections").document(collectionName + "Collection")
+                                                                  .collection("Collection Items").document(itemName);
 
+        Map<String, Object> data = new HashMap<>();
 
+        data.put("Item Description", itemDescription);
+
+        //asynchronously write data
+        ApiFuture<WriteResult> result = docRef.set(data);
+
+/*
         //asynchronously read data
         ApiFuture<DocumentSnapshot> future = docRef.get();
 
@@ -36,40 +44,24 @@ public class FirebaseWriter {
             System.out.println("Collection not found!");
         }
 
-        //future.get(Collection collectionName);
-
-        Map<String, Object> userData = document.getData();
-
-
-        assert userData != null;
-        Object collectionData = userData.get(collectionName + "Collection");
-
-        System.out.println(collectionData.getClass().getName());
-
-        //String itemDesc = ;
-
-
-
-
-        //Map<String, Object> data = new HashMap<>();
-        //data.put(itemName, collectionItem);
-
-        //ApiFuture<WriteResult> result = docRef.update(data);
-
          */
     }
 
     public void addCollectionToUser(String username, String collectionTitle, String collectionDescription) {
 
         Collection collection = new Collection(collectionTitle, collectionDescription);
+        //User active = UserSession.getInstance().getLoggedInUser();
 
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username)
+                                                                  .collection("Collections").document(collectionTitle + "Collection");
+
 
         Map<String, Object> data = new HashMap<>();
-        data.put(collectionTitle + "Collection", collection);
+
+        data.put("Collection Description", collectionDescription);
 
         //asynchronously write data
-        ApiFuture<WriteResult> result = docRef.update(data);
+        ApiFuture<WriteResult> result = docRef.set(data);
     }
 
 }

@@ -1,5 +1,6 @@
 package csc325.collectionsproject;
 
+import csc325.collectionsproject.controller.FirebaseWriter;
 import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.FirestoreContext;
 import javafx.application.Application;
@@ -47,7 +48,8 @@ public class CollectionsApplication extends Application {
 
         FirebaseWriter writer = new FirebaseWriter();
 
-        writer.addCollectionItemToCollection("again","Test","goodItem","gaygaygay");
+        writer.addCollectionToUser("aubs2","Serena", "woaselinselin");
+        writer.addCollectionItemToCollection("aubs2","Test","goodItem","gaygaygay");
 
     }
 
