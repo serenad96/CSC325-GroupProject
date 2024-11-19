@@ -1,7 +1,6 @@
 package csc325.collectionsproject.model;
 
 import javafx.scene.image.ImageView;
-
 import java.util.ArrayList;
 
 public class CollectionItem {
@@ -26,8 +25,6 @@ public class CollectionItem {
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
-
-
 
     public ImageView getItemImage() { return itemImage; }
 
