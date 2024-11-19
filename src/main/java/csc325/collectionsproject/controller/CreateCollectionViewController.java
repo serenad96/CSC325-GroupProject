@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
+import csc325.collectionsproject.controller.FirebaseWriter;
 import java.io.IOException;
 
 public class CreateCollectionViewController {
@@ -56,6 +57,8 @@ public class CreateCollectionViewController {
 
     @FXML
     void createNewCollection(ActionEvent event) throws IOException {
+        FirebaseWriter fw = new FirebaseWriter();
+        fw.addCollectionToUser(collectionName.getText(), collectionDesc.getText());
         switchToCollectionView();
     }
 

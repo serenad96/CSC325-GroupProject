@@ -13,12 +13,17 @@ public class CollectionItem {
     //item rating once that is established
 
 
-    public CollectionItem(String itemName) {
+    public CollectionItem(String itemName, String description) {
         this.itemName = itemName;
         this.itemImage = new ImageView();
-        this.itemDescription = new String("test string");
+        this.itemDescription = description; //change later
         this.privacySetting = false; //set this to button toggle in gui
         this.itemTags = new ArrayList<>();
+//Might need to change one of these constructors
+    public CollectionItem(String itemName, String itemDescription) {
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+
     }
 
     public String getItemName() {
@@ -29,21 +34,13 @@ public class CollectionItem {
         this.itemName = itemName;
     }
 
-    public ImageView getItemImage() {
-        return itemImage;
-    }
+    public ImageView getItemImage() { return itemImage; }
 
-    public void setItemImage(ImageView itemImage) {
-        this.itemImage = itemImage;
-    }
+    public void setItemImage(ImageView itemImage) { this.itemImage = itemImage; }
 
-    public String getItemDescription() {
-        return itemDescription;
-    }
+    public String getItemDescription() { return itemDescription; }
 
-    public void setItemDescription(String itemDescription) {
-        this.itemDescription = itemDescription;
-    }
+    public void setItemDescription(String itemDescription) { this.itemDescription = itemDescription; }
 
     public boolean isPrivacySetting() {
         return privacySetting;
@@ -61,5 +58,10 @@ public class CollectionItem {
         this.itemTags = itemTags;
     }
 
-
+    @Override
+    public String toString() {
+        return "CollectionItem{" +
+                "itemName='" + itemName + '\'' +
+                '}';
+    }
 }

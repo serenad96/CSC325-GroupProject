@@ -7,7 +7,7 @@ public class Collection {
 
     public String collectionTitle;
     public String collectionDescription;
-    //public ArrayList<CollectionItem> collectionItems = new ArrayList<>();
+    public ArrayList<CollectionItem> collectionItems = new ArrayList<>();
    // public ArrayList<String> collectionTags;
     //public int rating;
     //make all ratings an eNum
@@ -16,6 +16,7 @@ public class Collection {
         this.collectionTitle = collectionTitle;
         //this.collectionTags = new ArrayList<String>();
         this.collectionDescription = collectionDescription;
+        this.collectionItems = new ArrayList<>();
     }
 
     public Collection() {
@@ -43,7 +44,7 @@ public class Collection {
         this.collectionDescription = collectionDescription;
     }
 
-  /*  public ArrayList<CollectionItem> getCollectionItems() {
+    public ArrayList<CollectionItem> getCollectionItems() {
         return collectionItems;
     }
 
@@ -51,6 +52,7 @@ public class Collection {
         this.collectionItems = collectionItems;
     }
 
+    /*
     public void setTags(ArrayList<String> tags) {
         this.collectionTags = tags;
     }
