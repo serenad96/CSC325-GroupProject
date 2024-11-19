@@ -13,10 +13,10 @@ public class CollectionItem {
     //item rating once that is established
 
 
-    public CollectionItem(String itemName) {
+    public CollectionItem(String itemName, String description) {
         this.itemName = itemName;
         this.itemImage = new ImageView();
-        this.itemDescription = new String("test string");
+        this.itemDescription = description; //change later
         this.privacySetting = false; //set this to button toggle in gui
         this.itemTags = new ArrayList<>();
     }
@@ -61,5 +61,10 @@ public class CollectionItem {
         this.itemTags = itemTags;
     }
 
-
+    @Override
+    public String toString() {
+        return "CollectionItem{" +
+                "itemName='" + itemName + '\'' +
+                '}';
+    }
 }

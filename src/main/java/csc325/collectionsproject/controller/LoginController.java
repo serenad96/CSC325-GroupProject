@@ -35,7 +35,7 @@ public class LoginController {
     private TextField usernameTextField;
 
 
-    //All of this is on hold until Firebase is sorted
+    //Need a way to save a user's info once they log in
 
     @FXML
     void onLoginButtonClick(ActionEvent event) throws IOException {

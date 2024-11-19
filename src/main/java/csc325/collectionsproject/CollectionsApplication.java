@@ -1,6 +1,5 @@
 package csc325.collectionsproject;
 
-import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.FirestoreContext;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
