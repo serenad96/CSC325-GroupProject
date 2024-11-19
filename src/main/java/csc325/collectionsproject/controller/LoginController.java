@@ -34,14 +34,24 @@ public class LoginController {
     @FXML
     private TextField usernameTextField;
 
+/*
 
     //Need a way to save a user's info once they log in
+=======
+    String user = "admin";
+    String pw = "password";
+    //All of this is on hold until Firebase is sorted
+*/
 
     @FXML
     void onLoginButtonClick(ActionEvent event) throws IOException {
         String username =  usernameTextField.getText();
         String password = pwTextField.getText();
         switchToCollectionView();
+
+
+
+
         //Match user login info from info retrieved from database
 
 
@@ -71,10 +81,11 @@ public class LoginController {
         }
     }
 
-
     @FXML
     public void switchToCollectionView() throws IOException {
         CollectionsApplication.setRoot("collectionview");
     }
+
+
 
 }
