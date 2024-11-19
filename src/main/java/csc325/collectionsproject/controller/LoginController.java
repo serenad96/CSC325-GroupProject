@@ -34,7 +34,8 @@ public class LoginController {
     @FXML
     private TextField usernameTextField;
 
-
+    String user = "admin";
+    String pw = "password";
     //All of this is on hold until Firebase is sorted
 
     @FXML
@@ -42,6 +43,10 @@ public class LoginController {
         String username =  usernameTextField.getText();
         String password = pwTextField.getText();
         switchToCollectionView();
+
+
+
+
         //Match user login info from info retrieved from database
 
 
@@ -71,10 +76,11 @@ public class LoginController {
         }
     }
 
-
     @FXML
     public void switchToCollectionView() throws IOException {
         CollectionsApplication.setRoot("collectionview");
     }
+
+
 
 }
