@@ -20,7 +20,7 @@ import java.util.concurrent.ExecutionException;
 
 public class FirebaseWriter {
 
-
+String username;
 
 /* SELIN PUSHES
     public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) {
@@ -79,22 +79,22 @@ public class FirebaseWriter {
         User active = session1.getLoggedInUser();
         System.out.println(active.getUsername());
 
-        User active = UserSession.getInstance().getLoggedInUser();
+       // User active = UserSession.getInstance().getLoggedInUser();
 
        //   username = active.getUsername();
 
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username)
-                                                                  .collection("Collections").document(collectionTitle + "Collection");
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
+                                                                  //.collection("Collections").document(collectionTitle + "Collection");
 
 
 
         // Get reference to the user document in FirestoreDB
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername());
+         docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername());
 
         CollectionReference subCollectionRef = docRef.collection("Collections");
 
 
-        User active = UserSession.getInstance().getLoggedInUser();
+        User active1 = UserSession.getInstance().getLoggedInUser();
 
         // Create a Map to store the collection data (Title + Description)
         Map<String, Object> collectionData  = new HashMap<>();
