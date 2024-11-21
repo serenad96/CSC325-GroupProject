@@ -12,24 +12,4 @@
     -fx-border-width: .1;
 }
 
-/*SceneBuilder is linked to these buttons id's, and is overwriting their id's without the id declarations*/
-/* Styles for itemRating1 */
-#itemRating1 {
-}
-
-/* Styles for itemRating2 */
-#itemRating2 {
-}
-
-/* Styles for itemRating3 */
-#itemRating3 {
-}
-
-/* Styles for itemRating4 */
-#itemRating4 {
-}
-
-/* Styles for itemRating5 */
-#itemRating5 {
-}
 

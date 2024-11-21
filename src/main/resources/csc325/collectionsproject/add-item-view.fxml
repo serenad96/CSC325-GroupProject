@@ -200,7 +200,10 @@
                   </ToggleButton>
                </children>
             </HBox>
-            <Button fx:id="addNewItemBtn" maxHeight="90.0" maxWidth="100.0" minHeight="40.0" mnemonicParsing="false" onAction="#addNewItem" prefHeight="40.0" prefWidth="90.0" text="ADD NEW ITEM" />
+            <Button fx:id="addNewItemBtn" maxHeight="90.0" maxWidth="100.0" minHeight="40.0" mnemonicParsing="false" onAction="#addNewItem" prefHeight="40.0" prefWidth="90.0" text="ADD NEW ITEM">
+               <VBox.margin>
+                  <Insets bottom="70.0" />
+               </VBox.margin></Button>
          </children>
          <padding>
             <Insets left="10.0" right="10.0" />
