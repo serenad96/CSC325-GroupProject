@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import java.io.IOException;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Toggle;
 
 public class AddItemController {
 
@@ -20,7 +21,7 @@ public class AddItemController {
         private Label privateToggleLbl, publicToggleLbl, starRatingLabel;
 
         @FXML
-        private HBox privacyToggleBox;
+        private HBox privacyToggleBox, starBox;
 
         @FXML
         private Button addImgBtn, addNewItemBtn, backBtn, newCollectionBtn, profileBtn;
@@ -28,9 +29,11 @@ public class AddItemController {
         @FXML
         private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5, itemPrivacyToggle;
 
+        private ToggleGroup ratingToggleGwoup;
+
         @FXML
         private void initialize() {
-                 // Privacy label is invisible cuz default public uwu data yummy
+                // Privacy label is invisible cuz default public uwu data yummy
                 itemPrivacyToggle.setSelected(true);
                 if (itemPrivacyToggle.isSelected()) {
                         publicToggleLbl.setVisible(true);
@@ -43,6 +46,13 @@ public class AddItemController {
                         privateToggleLbl.setVisible(true);
                         privateToggleLbl.setManaged(true);
                 }
+                //i makea da rating pizza
+                ratingToggleGwoup = new ToggleGroup();
+                itemRating1.setToggleGroup(ratingToggleGwoup);
+                itemRating2.setToggleGroup(ratingToggleGwoup);
+                itemRating3.setToggleGroup(ratingToggleGwoup);
+                itemRating4.setToggleGroup(ratingToggleGwoup);
+                itemRating5.setToggleGroup(ratingToggleGwoup);
         }
 
         @FXML
@@ -78,24 +88,22 @@ public class AddItemController {
 
         @FXML
         void ratingClicked(ActionEvent event) {
-                //i makea da rating pizza
-                ToggleGroup ratingToggleGwoup = new ToggleGroup();
-                itemRating1.setToggleGroup(ratingToggleGwoup);
-                itemRating2.setToggleGroup(ratingToggleGwoup);
-                itemRating3.setToggleGroup(ratingToggleGwoup);
-                itemRating4.setToggleGroup(ratingToggleGwoup);
-                itemRating5.setToggleGroup(ratingToggleGwoup);
+                // Get the selected button from the ToggleGroup
+                Toggle selectedToggle = ratingToggleGwoup.getSelectedToggle();
 
-                ToggleButton sewectedToggle = (ToggleButton) ratingToggleGwoup.getSelectedToggle();
+                ToggleButton currentStarRATING;
 
-                if (sewectedToggle != null) {
+                if (selectedToggle != null) {
+                        currentStarRATING = (ToggleButton) selectedToggle;
+                        System.out.println("Selected button ID: " + currentStarRATING.getId());
                         // Use a switch based on the fx:id of the selected button
-                        switch (sewectedToggle.getId()) {
+                        switch (currentStarRATING.getId()) {
                                 case "itemRating1":
                                         System.out.println("Selected Rating 1");
                                         starRatingLabel.setText("1 STAR THIS THING SUCKS");
                                         // Do stuff for Rating 1
                                         break;
+
                                 case "itemRating2":
                                         System.out.println("Selected Rating 2");
                                         starRatingLabel.setText("2 STAR THIS THING IS FINE IG");
@@ -119,8 +127,10 @@ public class AddItemController {
                                 default:
                                         System.out.println("default case");
                         }
-                } else {
-                        System.out.println("No button is selected");
+                }
+                else {
+                System.out.println("No button is selected");
+                // starRatingLabel.setText();
                 }
         }
 
