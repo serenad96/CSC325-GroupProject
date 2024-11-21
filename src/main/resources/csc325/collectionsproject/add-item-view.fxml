@@ -119,8 +119,7 @@
          <children>
             <HBox fx:id="privacyToggleBox" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="publicToggleLbl" text="Public" />
-                    <ToggleButton fx:id="itemPrivacyToggle" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#itemPrivacyToggleClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                    <ToggleButton fx:id="itemPrivacyToggle" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#itemPrivacyToggleClicked" prefHeight="10.0" prefWidth="23.0" selected="true" stylesheets="@style.css">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -128,6 +127,7 @@
                            </image>
                         </ImageView>
                      </graphic></ToggleButton>
+                  <Label fx:id="publicToggleLbl" text="Public" />
                   <Label fx:id="privateToggleLbl" text="Private" />
                </children>
                <VBox.margin>
@@ -147,12 +147,13 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Button>
+            <Label fx:id="starRatingLabel" text="STARS!!!!!!!!!!" />
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="158.0" spacing="5.0" VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
-                  <ToggleButton id="rating-button" fx:id="itemRating1" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                  <ToggleButton id="rating-button" fx:id="itemRating1" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css" text="1*">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

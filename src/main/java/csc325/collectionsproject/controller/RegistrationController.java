@@ -38,10 +38,12 @@ public class RegistrationController {
     void loginClicked(ActionEvent event) throws IOException {
       System.out.println("Login clicked");
 
+      //how do we get a specific user's password? how to do login validation?
+        //user record stuff?
       if(usernameTF.getText().equals("1") && passwordTF.getText().equals("1")) {
-          switchToProfileView();
           System.out.println("acbdefg");
       }
+        switchToProfileView();
 
     }
 
