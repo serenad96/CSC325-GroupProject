@@ -40,13 +40,10 @@ public class RegistrationController {
 
       //how do we get a specific user's password? how to do login validation?
         //user record stuff?
-      /*if(usernameTF.getText().equals("1") && passwordTF.getText().equals("1")) {
+      if(usernameTF.getText().equals("1") && passwordTF.getText().equals("1")) {
           System.out.println("acbdefg");
           System.out.println("Login Successful");
-      }*/
-        FirebaseWriter writer = new FirebaseWriter();
-        writer.addCollectionToUser("Serena", "woaselinselin");
-
+      }
         switchToProfileView();
 
     }
