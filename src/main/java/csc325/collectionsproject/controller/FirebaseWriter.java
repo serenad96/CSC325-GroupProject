@@ -75,43 +75,49 @@ public class FirebaseWriter {
         // Create a new Collection object in Java
         Collection collection = new Collection(collectionTitle, collectionDescription);
 
+
+        // Gets Username from current session
         UserSession session1 = UserSession.getInstance();
         User active = session1.getLoggedInUser();
+        //Print Username
         System.out.println(active.getUsername());
 
 
-//        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
-//                                                                  .collection("Collections").document(collectionTitle + "Collection");
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
+                                                                  .collection("Collections").document(collectionTitle + "Collection");
 
 
 
         // Get reference to the user document in FirestoreDB
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername());
+        //DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername());
 
-        CollectionReference subCollectionRef = docRef.collection("Collections");
+        //CollectionReference subCollectionRef = docRef.collection("Collections");
 
 
         // Create a Map to store the collection data (Title + Description)
-        Map<String, Object> collectionData  = new HashMap<>();
-        collectionData.put(collectionTitle + " Collection", collection);
-        collectionData.put("Collection Description", collection.getCollectionDescription());
+        Map<String, Object> data  = new HashMap<>();
+        data.put("Collection Title", collectionTitle);
+        data.put("Collection Description", collectionDescription);
 
-        ApiFuture<DocumentReference> result = subCollectionRef.add(collectionData);
+        //asynchronously write data
+        ApiFuture<WriteResult> result = docRef.set(data);
+        //print added collection name to console
+        System.out.println("Collection " + collectionTitle + " added");
+
+
+
+
+        //TEST CODE
+
+        //ApiFuture<DocumentReference> result = subCollectionRef.add(collectionData);
+
         // Use set() to add the collection data inside the user document
  //       ApiFuture<WriteResult> result = docRef.set(collectionData, SetOptions.merge());
 
         //asynchronously write data
       //  ApiFuture<WriteResult> result = docRef.update(collectionData);
   //      System.out.println("Collection added: " + result.get().getUpdateTime());
-/*
 
-        Map<String, Object> data = new HashMap<>();
-
-        data.put("Collection Description", collectionDescription);
-
-        //asynchronously write data
-        ApiFuture<WriteResult> result = docRef.set(data);
-*/
     }
 
 }
