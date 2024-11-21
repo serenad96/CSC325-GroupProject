@@ -42,6 +42,7 @@ public class RegistrationController {
         //user record stuff?
       if(usernameTF.getText().equals("1") && passwordTF.getText().equals("1")) {
           System.out.println("acbdefg");
+          System.out.println("Login Successful");
       }
         switchToProfileView();
 
