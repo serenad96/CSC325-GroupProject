@@ -25,10 +25,8 @@ import java.util.UUID;
 public class RegistrationController {
 
     @FXML
-    private TextField usernameTF;
+    private TextField usernameTF, passwordTF;
 
-    @FXML
-    private TextField passwordTF;
 
   //  FirebaseDatabase database = FirebaseDatabase.getInstance();
     //DatabaseReference reference = database.getReference("server/Users/aubs");

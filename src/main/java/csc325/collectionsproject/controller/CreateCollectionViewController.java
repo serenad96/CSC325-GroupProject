@@ -23,10 +23,7 @@ public class CreateCollectionViewController {
     private Button addImgBtn, backBtn, collectionViewBtn, createCollectionBtn, profileBtn;
 
     @FXML
-    private TextField collectionDesc;
-
-    @FXML
-    private TextField collectionName;
+    private TextField collectionDesc, collectionName;
 
     @FXML
     private ImageView logo;
@@ -38,13 +35,11 @@ public class CreateCollectionViewController {
     private HBox privacyToggleBox;
 
     @FXML
-    private Label privateToggleLbl;
+    private Label privateToggleLbl, publicToggleLbl;
 
     @FXML
     private ImageView profilePic;
 
-    @FXML
-    private Label publicToggleLbl;
 
     @FXML
     void createNewCollection(ActionEvent event) throws IOException {
