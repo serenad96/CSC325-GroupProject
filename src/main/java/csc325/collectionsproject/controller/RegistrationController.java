@@ -2,6 +2,8 @@ package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
@@ -24,6 +26,9 @@ import java.util.UUID;
 
 public class RegistrationController {
 
+    public String username;
+    public String password;
+
     @FXML
     private TextField usernameTF;
 
@@ -36,11 +41,18 @@ public class RegistrationController {
 
     @FXML
     void loginClicked(ActionEvent event) throws IOException {
+
+        DocumentReference userLoginRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
+        userLoginRef = CollectionsApplication.fstoreDB.collection("Users").document(password);
+
+         ApiFuture<DocumentSnapshot> result = userLoginRef.get();
+
+
       System.out.println("Login clicked");
 
       //how do we get a specific user's password? how to do login validation?
         //user record stuff?
-      if(usernameTF.getText().equals("1") && passwordTF.getText().equals("1")) {
+      if(usernameTF.getText().equals(username) && passwordTF.getText().equals(password)) {
           System.out.println("acbdefg");
           System.out.println("Login Successful");
       }
