@@ -49,8 +49,8 @@ public class CollectionsApplication extends Application {
 
         FirebaseWriter writer = new FirebaseWriter();
 
-        //writer.addCollectionToUser("aubs2","Serena");
-        //writer.addCollectionItemToCollection("aubs2","Test","goodItem","gaygaygay");
+//        writer.addCollectionToUser("aubs2","Serena", "woaselinselin");
+//        writer.addCollectionItemToCollection("aubs2","Test","goodItem","gaygaygay");
 
     }
 

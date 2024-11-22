@@ -80,11 +80,8 @@ public class FirebaseWriter {
         System.out.println(active.getUsername());
 
 
-
-       //   username = active.getUsername();
-
-        //DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username)
-                                                                //  .collection("Collections").document(collectionTitle + "Collection");
+//        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
+//                                                                  .collection("Collections").document(collectionTitle + "Collection");
 
 
 
@@ -93,8 +90,6 @@ public class FirebaseWriter {
 
         CollectionReference subCollectionRef = docRef.collection("Collections");
 
-
-        // active = UserSession.getInstance().getLoggedInUser();
 
         // Create a Map to store the collection data (Title + Description)
         Map<String, Object> collectionData  = new HashMap<>();

@@ -120,8 +120,7 @@
          <children>
             <HBox fx:id="privacyToggleBox" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="publicToggleLbl" text="Public" />
-                    <ToggleButton fx:id="itemPrivacyToggle" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#itemPrivacyToggleClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                    <ToggleButton fx:id="itemPrivacyToggle" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#itemPrivacyToggleClicked" prefHeight="10.0" prefWidth="23.0" selected="true" stylesheets="@style.css">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -129,7 +128,8 @@
                            </image>
                         </ImageView>
                      </graphic></ToggleButton>
-                  <Label fx:id="privateToggleLbl" text="Private" />
+                  <Label fx:id="publicToggleLbl" text="Public" />
+                  <Label fx:id="privateToggleLbl" text="Private" visible="false" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -148,12 +148,13 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Button>
-            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="158.0" spacing="5.0" VBox.vgrow="NEVER">
+            <Label fx:id="starRatingLabel" text="STARS!!!!!!!!!!" />
+            <HBox fx:id="starBox" alignment="CENTER" prefHeight="26.0" prefWidth="158.0" spacing="5.0" VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
-                  <ToggleButton id="rating-button" fx:id="itemRating1" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                  <ToggleButton fx:id="itemRating1" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -162,7 +163,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton id="rating-button" fx:id="itemRating2" layoutX="73.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                  <ToggleButton fx:id="itemRating2" layoutX="73.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -171,7 +172,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton id="rating-button" fx:id="itemRating3" layoutX="60.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                  <ToggleButton fx:id="itemRating3" layoutX="60.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -180,7 +181,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton id="rating-button" fx:id="itemRating4" layoutX="101.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                  <ToggleButton fx:id="itemRating4" layoutX="101.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -189,7 +190,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton id="rating-button" fx:id="itemRating5" layoutX="116.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
+                  <ToggleButton fx:id="itemRating5" layoutX="116.0" layoutY="10.0" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#ratingClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -200,7 +201,10 @@
                   </ToggleButton>
                </children>
             </HBox>
-            <Button fx:id="addNewItemBtn" maxHeight="90.0" maxWidth="100.0" minHeight="40.0" mnemonicParsing="false" onAction="#addNewItem" prefHeight="40.0" prefWidth="90.0" text="ADD NEW ITEM" />
+            <Button fx:id="addNewItemBtn" maxHeight="90.0" maxWidth="100.0" minHeight="40.0" mnemonicParsing="false" onAction="#addNewItem" prefHeight="40.0" prefWidth="90.0" text="ADD NEW ITEM">
+               <VBox.margin>
+                  <Insets bottom="70.0" />
+               </VBox.margin></Button>
          </children>
          <padding>
             <Insets left="10.0" right="10.0" />

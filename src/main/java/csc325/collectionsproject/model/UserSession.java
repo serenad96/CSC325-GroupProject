@@ -22,7 +22,8 @@ public class UserSession {
         return loggedInUser;
     }
 
-    //Might need validation to ensure no user is overwritten at any weird point, maybe during searching and filteringdebug
+    //Might need validation to ensure no user is overwritten at any weird point,
+    //maybe during searching and filtering debug
     public void setLoggedInUser(User user) {
         this.loggedInUser = user;
     }
