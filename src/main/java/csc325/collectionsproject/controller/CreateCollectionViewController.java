@@ -20,22 +20,13 @@ public class CreateCollectionViewController {
     private ImageView addCollectionImage;
 
     @FXML
-    private Button addImgBtn;
-
-    @FXML
-    private Button backBtn;
-
-    @FXML
-    private Button collectionViewBtn;
+    private Button addImgBtn, backBtn, collectionViewBtn, createCollectionBtn, profileBtn;
 
     @FXML
     private TextField collectionDesc;
 
     @FXML
     private TextField collectionName;
-
-    @FXML
-    private Button createCollectionBtn;
 
     @FXML
     private ImageView logo;
