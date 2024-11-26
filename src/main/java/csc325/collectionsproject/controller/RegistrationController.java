@@ -1,12 +1,10 @@
 package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.*;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
+import com.google.firebase.cloud.FirestoreClient;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import csc325.collectionsproject.CollectionsApplication;
@@ -21,41 +19,46 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 public class RegistrationController {
 
-    public String username;
-    public String password;
+    @FXML
+    private TextField usernameTF, passwordTF;
+
+    public RegistrationController() {
+
+    }
 
     @FXML
-    private TextField usernameTF;
-
-    @FXML
-    private TextField passwordTF;
-
-  //  FirebaseDatabase database = FirebaseDatabase.getInstance();
-    //DatabaseReference reference = database.getReference("server/Users/aubs");
-
-
-    @FXML
-    void loginClicked(ActionEvent event) throws IOException {
-
-       // DocumentReference userLoginRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
-      //  userLoginRef = CollectionsApplication.fstoreDB.collection("Users").document(password);
-
-        // ApiFuture<DocumentSnapshot> result = userLoginRef.get();
-
-
+    void loginClicked(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
       System.out.println("Login clicked");
 
       //how do we get a specific user's password? how to do login validation?
         //user record stuff?
-      if(usernameTF.getText().equals(username) && passwordTF.getText().equals(password)) {
-          System.out.println("acbdefg");
-          System.out.println("Login Successful");
-      }
+         //FirebaseDatabase database = FirebaseDatabase.getInstance();
+        Firestore database = FirestoreClient.getFirestore();
+
+        //DatabaseReference reference = database.getReference("server/Users/aubs");
+        CollectionReference collection = database.collection("Users");
+        DocumentReference docRef = database.collection("Users").document("Username");
+        ApiFuture<QuerySnapshot> querySnapshot = collection.get();
+
+        // Prints all fields in Users Collection
+        List<QueryDocumentSnapshot> documents = querySnapshot.get().getDocuments();
+        for(QueryDocumentSnapshot document : documents ){
+            System.out.println("Document ID: " + document.getId());
+            System.out.println("Data: " + document.getData());
+        }
+
+
+        if(usernameTF.getText().equals(docRef) && passwordTF.getText().equals(docRef)) {
+            System.out.println("acbdefg");
+            System.out.println("Login Successful");
+        }
         switchToProfileView();
 
     }
@@ -101,9 +104,6 @@ public class RegistrationController {
 
         //}
 
-        //random UUID generate code
-        // UUID.randomUUID();
-        // IGNORE unless u r aubrey
 
         /* UserRecord userRecord;
         try {

@@ -24,7 +24,7 @@ public class AddItemController {
         private HBox privacyToggleBox, starBox;
 
         @FXML
-        private Button addImgBtn, addNewItemBtn, backBtn, newCollectionBtn, profileBtn;
+        private Button addImgBtn, addNewItemBtn, backBtn, newCollectionBtn, profileBtn, collectionViewBtn;
 
         @FXML
         private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5, itemPrivacyToggle;
@@ -63,6 +63,14 @@ public class AddItemController {
         @FXML
         public void switchToCollectionView() throws IOException {
                 CollectionsApplication.setRoot("collection-view");
+        }
+
+        public void switchToProfileView() throws IOException {
+                CollectionsApplication.setRoot("profile-view");
+        }
+
+        public void switchToCreateCollectionView() throws IOException {
+                CollectionsApplication.setRoot("create-collection-view");
         }
 
         @FXML

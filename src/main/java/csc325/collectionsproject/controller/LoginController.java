@@ -14,22 +14,13 @@ import java.io.IOException;
 public class LoginController {
 
     @FXML
-    private HBox LoginButtonBox;
+    private HBox PwBox, UserBox, LoginButtonBox;
 
     @FXML
-    private HBox PwBox;
-
-    @FXML
-    private HBox UserBox;
-
-    @FXML
-    private Label passwordLabel;
+    private Label usernameLabel, passwordLabel;
 
     @FXML
     private TextField pwTextField;
-
-    @FXML
-    private Label usernameLabel;
 
     @FXML
     private TextField usernameTextField;

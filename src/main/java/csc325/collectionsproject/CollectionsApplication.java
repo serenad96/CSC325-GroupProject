@@ -1,5 +1,10 @@
 package csc325.collectionsproject;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import com.google.firebase.cloud.FirestoreClient;
 import csc325.collectionsproject.controller.FirebaseWriter;
 import csc325.collectionsproject.model.CollectionItem;
 
@@ -15,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
@@ -49,8 +55,8 @@ public class CollectionsApplication extends Application {
 
         FirebaseWriter writer = new FirebaseWriter();
 
-//        writer.addCollectionToUser("aubs2","Serena", "woaselinselin");
-//        writer.addCollectionItemToCollection("aubs2","Test","goodItem","gaygaygay");
+//        writer.addCollectionToUser("Serena", "woaselinselin");
+//        writer.addCollectionItemToCollection("Test","goodItem","gaygaygay");
 
     }
 
@@ -63,9 +69,7 @@ public class CollectionsApplication extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+    public static void main(String[] args) {launch();}
 
 
 
