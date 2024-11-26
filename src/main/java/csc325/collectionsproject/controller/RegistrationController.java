@@ -104,9 +104,6 @@ public class RegistrationController {
 
         //}
 
-        //random UUID generate code
-        // UUID.randomUUID();
-        // IGNORE unless u r aubrey
 
         /* UserRecord userRecord;
         try {
