@@ -42,10 +42,10 @@ public class RegistrationController {
     @FXML
     void loginClicked(ActionEvent event) throws IOException {
 
-        DocumentReference userLoginRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
-        userLoginRef = CollectionsApplication.fstoreDB.collection("Users").document(password);
+       // DocumentReference userLoginRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
+      //  userLoginRef = CollectionsApplication.fstoreDB.collection("Users").document(password);
 
-         ApiFuture<DocumentSnapshot> result = userLoginRef.get();
+        // ApiFuture<DocumentSnapshot> result = userLoginRef.get();
 
 
       System.out.println("Login clicked");
