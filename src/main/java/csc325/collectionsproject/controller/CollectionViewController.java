@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class CollectionViewController {
     @FXML
-    private Button addItemBtn;
+    private Button addItemBtn, newCollectionBtn,profileBtn;
 
     @FXML
     private Button itemBtn;
@@ -23,4 +23,15 @@ public class CollectionViewController {
     public void switchToAddItemView() throws IOException {
         CollectionsApplication.setRoot("add-item-view");
     }
+
+    @FXML
+    public void switchToProfileView() throws IOException {
+        CollectionsApplication.setRoot("profile-view");
+    }
+
+    @FXML
+    public void switchToCreateCollectionView() throws IOException {
+        CollectionsApplication.setRoot("create-collection-view");
+    }
+
 }
