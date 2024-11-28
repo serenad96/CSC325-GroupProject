@@ -41,7 +41,7 @@ public class RegistrationController {
         //DatabaseReference reference = database.getReference("server/Users/aubs");
         CollectionReference usersCollection = database.collection("Users");
         DocumentReference docRef = database.collection("Users").document("Username");
-        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+        ApiFuture<QuerySnapshot> querySnapshot = usersCollection.get();
 
 
         // Prints all fields in Users Collection
@@ -55,9 +55,9 @@ public class RegistrationController {
         if(usernameTF.getText().equals(docRef) && passwordTF.getText().equals(docRef)) {
             System.out.println("acbdefg");
             System.out.println("Login Successful");
-            switchToProfileView();
 
         }
+        switchToProfileView();
 
     }
 
