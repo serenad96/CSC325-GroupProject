@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.control.TextField;
 import java.io.IOException;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
@@ -16,6 +17,9 @@ public class AddItemController {
 
         @FXML
         private ImageView addItemImg;
+
+        @FXML
+        private TextField itemNameTF;
 
         @FXML
         private Label privateToggleLbl, publicToggleLbl, starRatingLabel;
@@ -31,6 +35,7 @@ public class AddItemController {
 
         private ToggleGroup ratingToggleGwoup;
         int ratingValue;
+        private CollectionViewController collectionController;
 
         @FXML
         private void initialize() {
@@ -56,14 +61,23 @@ public class AddItemController {
                 itemRating5.setToggleGroup(ratingToggleGwoup);
         }
 
+        //individual collection controller instance for a specific collection
+        public void setCollectionController(CollectionViewController collectionController) {
+                this.collectionController = collectionController;
+        }
+
         @FXML
         void addNewItem(ActionEvent event) throws IOException {
                 //This is clicking the add new item button
                 //This is where a item is finalized for adding to a user collection
                 //CollectionItem collectionItem = new CollectionItem();
+                // Gather item details
+//                String imageUrl = ""; // test imageURL
+//                String labelText = itemNameTF.getText();
+                // Add the item to the collection
+//                collectionController.addItem(imageUrl, labelText);
 
                 //Write Item in to Firebase
-
                 switchToCollectionView();
         }
 
