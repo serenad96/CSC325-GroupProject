@@ -59,11 +59,18 @@ public class RegistrationController {
         List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
         for(QueryDocumentSnapshot document : documents ){
             Map<String, Object> data = document.getData();
+            String storedUsername = (String) data.get("Username");
             String storedPassword = (String) data.get("Password");
 
             // Validate password
             if (storedPassword.equals(password)) {
                 // If credentials are valid, switch to another view
+                //user session code start
+                User user = new User(storedUsername, storedPassword);
+                UserSession session = UserSession.getInstance();
+                UserSession.getInstance().setLoggedInUser(user);
+                System.out.println("User logged in to session: " + session.getLoggedInUser());
+                //user session code end
                 switchToProfileView();
                 System.out.println("Log-in Successful!");
             } else {
@@ -79,37 +86,41 @@ public class RegistrationController {
         System.out.println("Write clicked");
     }
     @FXML
-    void registerButtonClicked(ActionEvent event) {
+    void registerButtonClicked(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
         registerUser();
     }
 
-    public void registerUser() {
-        //This code adds a user for authentication
-        /* UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail("selin@firebase.com")
-                .setEmailVerified(false)
-                .setPassword("secret")
-                .setPhoneNumber("+11234567890")
-                .setDisplayName("John Doe")
-                .setDisabled(false);
-        */
-        //collection("Users").doc(username).get(); (lines moved)
-
-        // if (username != ) {
+    public void registerUser() throws IOException, ExecutionException, InterruptedException {
+        //this needs some love uwu
          String username = usernameTF.getText().trim();
          String password = passwordTF.getText().trim();
 
-        //Validation needed for if user exists but do that later
-            User user = new User(username, password);
-            //Transfer this to be cleaner with login
-            UserSession.getInstance().setLoggedInUser(user);
-            System.out.println("User logged in: " + user.getUsername());
+        Firestore database = FirestoreClient.getFirestore();
+        CollectionReference usersCollection = database.collection("Users");
+        ApiFuture<QuerySnapshot> querySnapshot = usersCollection.whereEqualTo("Username", username).get();
+        QuerySnapshot snapshot = querySnapshot.get();
 
+      //  if(snapshot.isEmpty()) { incorrectLoginLabel.setText("Incorrect Username or Password. Try again."); }
+
+        // Iterate through document and validates login
+        List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
+
+        for(QueryDocumentSnapshot document : documents ){
+            Map<String, Object> data = document.getData();
+            String storedUsername = (String) data.get("Username");
+            if (username.equals(storedUsername)) {
+                System.out.println("Username already exists.");
+                //user session remove active user
+                return;
+            }
+        }
+
+            //Registration validation passed, create username
             DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
 
             Map<String, Object> data = new HashMap<>();
-            data.put("Username", user.getUsername());
-            data.put("Password", user.getPassword());
+            data.put("Username", username);
+            data.put("Password", password);
 
             ApiFuture<WriteResult> result = docRef.set(data);
 
