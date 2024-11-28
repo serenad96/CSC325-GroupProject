@@ -1,6 +1,7 @@
 package csc325.collectionsproject.controller;
 
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,6 +30,11 @@ public class ProfileController {
     private ImageView showcaseItem2;
     @FXML
     private ImageView showcaseItem3;
+
+    public void initialize() {
+        UserSession session = UserSession.getInstance();
+        profileNameLabel.setText(session.getLoggedInUser().getUsername());
+    }
 
 
     @FXML
