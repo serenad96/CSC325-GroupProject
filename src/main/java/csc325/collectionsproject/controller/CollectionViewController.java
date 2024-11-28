@@ -28,6 +28,12 @@ public class CollectionViewController {
         //addItem(String imageUrl, String labelText); commented out while adding component logic is incomplete
         //dont forget to remove gridlines from gridpane
         switchToAddItemView();
+        //addItem("", "Added item!");
+    }
+
+    @FXML
+    void addNewItemTest(ActionEvent event) {
+        addItem("", "Added item!");
     }
 
     @FXML
@@ -44,28 +50,33 @@ public class CollectionViewController {
     public void switchToCreateCollectionView() throws IOException {
         CollectionsApplication.setRoot("create-collection-view");
     }
+
+    //just pass a CollectionItem here when it works, or we can get the data from the database? whats easier
+    //collection view grid logic uwu happy thanksgiving
     public void addItem(String imageUrl, String labelText) {
         try {
             // Load the FXML for the item component
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemComponent.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/csc325/collectionsproject/components/item-component.fxml"));
             Node itemNode = loader.load();
 
             // Get the controller of the item component
-            ItemComponentController newItem = loader.getController();
-            newItem.setImage(imageUrl);
-            newItem.setLabel(labelText);
+            ItemComponentController newItemController = loader.getController();
+            newItemController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/pipermelonart.png");
+            newItemController.setLabel(labelText);
 
             // Add the item to the grid at the next available position
             itemGrid.add(itemNode, column, row);
-            //Remove and add addItemInGridBtn immediately to next position
-            //needs validation to be added between different rows in the case that the item is added to the last column in the grid
+            //if column > 5, reset, increment row, add button to next
 
-            // Update the grid position
+            // Update the grid indices, replace addItemInGridBtn
             column++;
             if (column >= 5) { // 5 items per row
                 column = 0;
                 row++;
             }
+            itemGrid.getChildren().remove(addItemInGridBtn);
+            itemGrid.add(addItemInGridBtn, column, row);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

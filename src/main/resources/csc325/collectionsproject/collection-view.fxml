@@ -41,7 +41,7 @@
                   <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                </padding>
             </Label>
-            <GridPane fx:id="itemGrid" alignment="CENTER" gridLinesVisible="true" prefHeight="594.0" prefWidth="898.0">
+            <GridPane fx:id="itemGrid" alignment="CENTER" prefHeight="594.0" prefWidth="898.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -55,7 +55,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="200.0" />
                </rowConstraints>
                <children>
-                  <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addNewItem" text="Add New Item" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addNewItemTest" text="Add New Item" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>

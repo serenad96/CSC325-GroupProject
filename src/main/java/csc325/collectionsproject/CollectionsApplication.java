@@ -40,24 +40,10 @@ public class CollectionsApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("registration-view.fxml"));
         scene = new Scene(fxmlLoader.load(), 860, 640);
 
-//        try {
-//            String cssPath = getClass().getResource("src/main/resources/csc325/collectionsproject/style.css").toExternalForm();
-//            scene.getStylesheets().add(cssPath);
-//        } catch (NullPointerException e) {
-//            System.err.println("Error: Could not load style.css. Check the file path.");
-//            e.printStackTrace();
-//        }
-
         stage.setMaximized(true);
         stage.setTitle("CollectionsApp");
         stage.setScene(scene);
         stage.show();
-
-//        FirebaseWriter writer = new FirebaseWriter();
-
-//        writer.addCollectionToUser("Serena", "woaselinselin");
-//        writer.addCollectionItemToCollection("Test","goodItem","gaygaygay");
-
     }
 
     public static void setRoot(String fxml) throws IOException {

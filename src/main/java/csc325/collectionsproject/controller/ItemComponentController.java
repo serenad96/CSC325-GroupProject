@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class ItemComponentController {
 
@@ -15,6 +16,9 @@ public class ItemComponentController {
 
     @FXML
     private HBox itemLabelHBox;
+
+    @FXML
+    private VBox itemVBox;
 
     @FXML
     private Label itemNameLbl;
