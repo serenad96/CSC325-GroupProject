@@ -42,6 +42,7 @@ public class FirebaseWriter {
 //        ApiFuture<WriteResult> result = docRef.update(data);
 //        System.out.println("Collection Item added at: " + result.get().getUpdateTime());
 */
+
     public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
 
 

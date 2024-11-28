@@ -30,6 +30,7 @@ public class AddItemController {
         private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5, itemPrivacyToggle;
 
         private ToggleGroup ratingToggleGwoup;
+        int ratingValue;
 
         @FXML
         private void initialize() {
@@ -57,6 +58,12 @@ public class AddItemController {
 
         @FXML
         void addNewItem(ActionEvent event) throws IOException {
+                //This is clicking the add new item button
+                //This is where a item is finalized for adding to a user collection
+                //CollectionItem collectionItem = new CollectionItem();
+
+                //Write Item in to Firebase
+
                 switchToCollectionView();
         }
 
@@ -99,8 +106,11 @@ public class AddItemController {
                         // Use a switch based on the fx:id of the selected button
                         switch (currentStarRATING.getId()) {
                                 case "itemRating1":
+                                        System.out.println("Star Rating ID Value: '" + currentStarRATING.getId() + "'");
                                         System.out.println("Selected Rating 1");
                                         starRatingLabel.setText("1 STAR THIS THING SUCKS");
+                                        //set boolean value of item on create item, define value here
+                                        ratingValue = 1;
                                         // Do stuff for Rating 1
                                         break;
 
@@ -108,24 +118,29 @@ public class AddItemController {
                                         System.out.println("Selected Rating 2");
                                         starRatingLabel.setText("2 STAR THIS THING IS FINE IG");
                                         // Do stuff for Rating 2
+                                        ratingValue = 2;
                                         break;
                                 case "itemRating3":
                                         System.out.println("Selected Rating 3");
                                         starRatingLabel.setText("3 STARS yeah aight");
                                         // Do stuff for Rating 3
+                                        ratingValue = 3;
                                         break;
                                 case "itemRating4":
                                         System.out.println("Selected Rating 4");
                                         starRatingLabel.setText("4 STARs oooo KINDA Spicy");
                                         // Do stuff for Rating 4
+                                        ratingValue = 4;
                                         break;
                                 case "itemRating5":
                                         System.out.println("Selected Rating 5");
                                         starRatingLabel.setText("5 STARS BABY!!!!!!!!!");
                                         // Do stuff for Rating 5
+                                        ratingValue = 5;
                                         break;
                                 default:
                                         System.out.println("default case");
+                                        // set ratingValue to null?
                         }
                 }
                 else {
