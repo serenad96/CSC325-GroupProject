@@ -53,7 +53,7 @@ public class CollectionsApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        FirebaseWriter writer = new FirebaseWriter();
+//        FirebaseWriter writer = new FirebaseWriter();
 
 //        writer.addCollectionToUser("Serena", "woaselinselin");
 //        writer.addCollectionItemToCollection("Test","goodItem","gaygaygay");
