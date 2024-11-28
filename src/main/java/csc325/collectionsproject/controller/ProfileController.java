@@ -16,18 +16,8 @@ public class ProfileController {
     @FXML
     private ImageView profilePicture;
 
-
     @FXML
-    private Button viewPrimaryCollectionBtn;
-
-    @FXML
-    private Button newCollectionBtn;
-
-    @FXML
-    private Button settingsBtn;
-
-    @FXML
-    private Button collectionViewBtn;
+    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, collectionViewBtn;
 
     @FXML
     void createNewCollection(ActionEvent event) throws IOException {

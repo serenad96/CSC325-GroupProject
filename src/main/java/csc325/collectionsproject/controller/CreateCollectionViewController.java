@@ -1,5 +1,6 @@
-package csc325.collectionsproject;
+package csc325.collectionsproject.controller;
 
+import csc325.collectionsproject.CollectionsApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,19 +20,10 @@ public class CreateCollectionViewController {
     private ImageView addCollectionImage;
 
     @FXML
-    private Button addImgBtn;
+    private Button addImgBtn, backBtn, collectionViewBtn, createCollectionBtn, profileBtn;
 
     @FXML
-    private Button backBtn;
-
-    @FXML
-    private TextField collectionDesc;
-
-    @FXML
-    private TextField collectionName;
-
-    @FXML
-    private Button createCollectionBtn;
+    private TextField collectionDesc, collectionName;
 
     @FXML
     private ImageView logo;
@@ -43,13 +35,11 @@ public class CreateCollectionViewController {
     private HBox privacyToggleBox;
 
     @FXML
-    private Label privateToggleLbl;
+    private Label privateToggleLbl, publicToggleLbl;
 
     @FXML
     private ImageView profilePic;
 
-    @FXML
-    private Label publicToggleLbl;
 
     @FXML
     void createNewCollection(ActionEvent event) throws IOException {

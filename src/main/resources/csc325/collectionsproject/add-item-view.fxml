@@ -27,8 +27,9 @@
                   <Image url="@imgs/trilo.jpg" />
                </image>
             </ImageView>
-          <Button fx:id="newCollectionBtn" mnemonicParsing="false" text="Create New Collection" />
-            <Button fx:id="profileBtn" mnemonicParsing="false" text="Profile" />
+            <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
+          <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" text="New Collection" />
+            <Button fx:id="collectionViewBtn" mnemonicParsing="false" onAction="#switchToCollectionView" text="Collection View" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
                <buttons>
                   <ImageView fitHeight="42.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">

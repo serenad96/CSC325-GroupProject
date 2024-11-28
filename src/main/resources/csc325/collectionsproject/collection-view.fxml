@@ -164,9 +164,9 @@
             </Pane>
             <ToolBar layoutX="-1.0" prefHeight="40.0" prefWidth="894.0">
               <items>
-                  <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" text="Add Item" />
-                  <Button fx:id="newCollectionBtn" mnemonicParsing="false" text="New Collection" />
-                  <Button fx:id="profileBtn" mnemonicParsing="false" text="Profile" />
+                  <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
+                  <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" text="New Collection" />
+                  <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" text="Add Item To This Collection" />
               </items>
             </ToolBar>
          </children></AnchorPane>
