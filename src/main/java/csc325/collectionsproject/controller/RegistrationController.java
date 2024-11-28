@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.sql.SQLOutput;
@@ -28,6 +29,8 @@ public class RegistrationController {
 
     @FXML
     private TextField usernameTF, passwordTF;
+    @FXML
+   private Label incorrectLoginLabel;
 
     public RegistrationController() {
 
@@ -36,28 +39,38 @@ public class RegistrationController {
     @FXML
     void loginClicked(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
       System.out.println("Login clicked");
+        validateLogIn();
+
+    }
+
+    void validateLogIn() throws ExecutionException, InterruptedException, IOException {
+
+        String username = usernameTF.getText();
+        String password = passwordTF.getText();
+        //Setting up firestore
         Firestore database = FirestoreClient.getFirestore();
-
-        //DatabaseReference reference = database.getReference("server/Users/aubs");
         CollectionReference usersCollection = database.collection("Users");
-        DocumentReference docRef = database.collection("Users").document("Username");
-        ApiFuture<QuerySnapshot> querySnapshot = usersCollection.get();
+        ApiFuture<QuerySnapshot> querySnapshot = usersCollection.whereEqualTo("Username", username).get();
+        QuerySnapshot snapshot = querySnapshot.get();
 
+        if(snapshot.isEmpty()) { incorrectLoginLabel.setText("Incorrect Username or Password. Try again."); }
 
-        // Prints all fields in Users Collection
-        List<QueryDocumentSnapshot> documents = querySnapshot.get().getDocuments();
+        // Iterate through document and validates login
+        List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
         for(QueryDocumentSnapshot document : documents ){
-            System.out.println("Document ID: " + document.getId());
-            System.out.println("Data: " + document.getData());
+            Map<String, Object> data = document.getData();
+            String storedPassword = (String) data.get("Password");
+
+            // Validate password
+            if (storedPassword.equals(password)) {
+                // If credentials are valid, switch to another view
+                switchToProfileView();
+                System.out.println("Log-in Successful!");
+            } else {
+                System.out.println("Incorrect password.");
+                incorrectLoginLabel.setText("Incorrect username or password. Try again.");
+            }
         }
-
-
-        if(usernameTF.getText().equals(docRef) && passwordTF.getText().equals(docRef)) {
-            System.out.println("acbdefg");
-            System.out.println("Login Successful");
-
-        }
-        switchToProfileView();
 
     }
 
