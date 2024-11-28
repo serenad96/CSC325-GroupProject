@@ -28,5 +28,10 @@ public class UserSession {
         this.loggedInUser = user;
     }
 
-
+    @Override
+    public String toString() {
+        return "UserSession{" +
+                "loggedInUser=" + loggedInUser +
+                '}';
+    }
 }
