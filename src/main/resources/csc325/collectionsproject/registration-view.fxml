@@ -59,7 +59,7 @@
                   <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#loginClicked" text="Login" />
                </children>
             </HBox>
-            <Label fx:id="incorrectLoginLabel" prefHeight="18.0" prefWidth="136.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label fx:id="incorrectLoginLabel" prefHeight="18.0" prefWidth="225.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>
