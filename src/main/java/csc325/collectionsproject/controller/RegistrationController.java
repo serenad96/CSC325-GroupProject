@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.sql.SQLOutput;
@@ -28,6 +29,8 @@ public class RegistrationController {
 
     @FXML
     private TextField usernameTF, passwordTF;
+    @FXML
+   private Label incorrectLoginLabel;
 
     public RegistrationController() {
 
@@ -44,13 +47,15 @@ public class RegistrationController {
 
         String username = usernameTF.getText();
         String password = passwordTF.getText();
-
+        //Setting up firestore
         Firestore database = FirestoreClient.getFirestore();
         CollectionReference usersCollection = database.collection("Users");
         ApiFuture<QuerySnapshot> querySnapshot = usersCollection.whereEqualTo("Username", username).get();
         QuerySnapshot snapshot = querySnapshot.get();
 
-        // Validates login
+        if(snapshot.isEmpty()) { incorrectLoginLabel.setText("Incorrect Username or Password. Try again."); }
+
+        // Iterate through document and validates login
         List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
         for(QueryDocumentSnapshot document : documents ){
             Map<String, Object> data = document.getData();
@@ -60,15 +65,11 @@ public class RegistrationController {
             if (storedPassword.equals(password)) {
                 // If credentials are valid, switch to another view
                 switchToProfileView();
-                return;
+                System.out.println("Log-in Successful!");
             } else {
                 System.out.println("Incorrect password.");
-                return;
+                incorrectLoginLabel.setText("Incorrect username or password. Try again.");
             }
-
-
-            //System.out.println("Document ID: " + document.getId());
-            //System.out.println("Data: " + document.getData());
         }
 
     }

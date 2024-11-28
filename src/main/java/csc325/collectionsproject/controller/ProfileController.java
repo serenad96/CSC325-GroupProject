@@ -15,9 +15,21 @@ public class ProfileController {
 
     @FXML
     private ImageView profilePicture;
-
     @FXML
-    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, collectionViewBtn;
+    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, collectionViewBtn, viewAllButton;
+    @FXML
+    private AnchorPane ProfileView;
+    @FXML
+    private ImageView primaryCollectionImage;
+    @FXML
+    private Label profileNameLabel;
+    @FXML
+    private ImageView showcaseItem1;
+    @FXML
+    private ImageView showcaseItem2;
+    @FXML
+    private ImageView showcaseItem3;
+
 
     @FXML
     void createNewCollection(ActionEvent event) throws IOException {
