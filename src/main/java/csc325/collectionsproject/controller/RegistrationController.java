@@ -36,16 +36,13 @@ public class RegistrationController {
     @FXML
     void loginClicked(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
       System.out.println("Login clicked");
-
-      //how do we get a specific user's password? how to do login validation?
-        //user record stuff?
-         //FirebaseDatabase database = FirebaseDatabase.getInstance();
         Firestore database = FirestoreClient.getFirestore();
 
         //DatabaseReference reference = database.getReference("server/Users/aubs");
-        CollectionReference collection = database.collection("Users");
+        CollectionReference usersCollection = database.collection("Users");
         DocumentReference docRef = database.collection("Users").document("Username");
-        ApiFuture<QuerySnapshot> querySnapshot = collection.get();
+        ApiFuture<QuerySnapshot> querySnapshot = usersCollection.get();
+
 
         // Prints all fields in Users Collection
         List<QueryDocumentSnapshot> documents = querySnapshot.get().getDocuments();
@@ -58,6 +55,7 @@ public class RegistrationController {
         if(usernameTF.getText().equals(docRef) && passwordTF.getText().equals(docRef)) {
             System.out.println("acbdefg");
             System.out.println("Login Successful");
+
         }
         switchToProfileView();
 
