@@ -21,7 +21,6 @@ import java.util.concurrent.ExecutionException;
 public class FirebaseWriter {
 
 
-
 /* SELIN PUSHES
     public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) {
         CollectionItem collectionItem = new CollectionItem(itemName, itemDescription);
@@ -44,7 +43,6 @@ public class FirebaseWriter {
 */
 
     public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
-
 
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username)
                                                                   .collection("Collections").document(collectionName + "Collection")
@@ -87,8 +85,6 @@ public class FirebaseWriter {
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
                                                                   .collection("Collections").document(collectionTitle + "Collection");
 
-
-
         // Get reference to the user document in FirestoreDB
         //DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername());
 
@@ -119,6 +115,31 @@ public class FirebaseWriter {
       //  ApiFuture<WriteResult> result = docRef.update(collectionData);
   //      System.out.println("Collection added: " + result.get().getUpdateTime());
 
+    }
+
+    //NOT FINISHED, needed for creating a subcollection of collection items
+    private static void addCollectionItems(DocumentReference docRef) {
+        // Reference to the sub-collection
+        CollectionReference subCollectionRef = docRef.collection("CollectionItems");
+
+        // Example documents to add to the sub-collection
+        Map<String, Object> item1 = new HashMap<>();
+        item1.put("Item Name", "Item 1");
+        item1.put("Item Value", "Value 1");
+
+        Map<String, Object> item2 = new HashMap<>();
+        item2.put("Item Name", "Item 2");
+        item2.put("Item Value", "Value 2");
+
+        try {
+            // Add items to the sub-collection
+            subCollectionRef.add(item1).get(); // Adding item 1
+            subCollectionRef.add(item2).get(); // Adding item 2
+
+            System.out.println("Sub-collection 'CollectionItems' added to document " + docRef.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

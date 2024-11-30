@@ -1,6 +1,10 @@
 package csc325.collectionsproject.controller;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.WriteResult;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +13,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Toggle;
@@ -22,7 +30,7 @@ public class AddItemController {
         private TextField itemNameTF;
 
         @FXML
-        private Label privateToggleLbl, publicToggleLbl, starRatingLabel;
+        private Label privateToggleLbl, publicToggleLbl, starRatingLabel, addItemLabel;
 
         @FXML
         private HBox privacyToggleBox, starBox;
@@ -59,6 +67,7 @@ public class AddItemController {
                 itemRating3.setToggleGroup(ratingToggleGwoup);
                 itemRating4.setToggleGroup(ratingToggleGwoup);
                 itemRating5.setToggleGroup(ratingToggleGwoup);
+
         }
 
         //individual collection controller instance for a specific collection
@@ -67,7 +76,7 @@ public class AddItemController {
         }
 
         @FXML
-        void addNewItem(ActionEvent event) throws IOException {
+        void addNewItem(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
                 //This is clicking the add new item button
                 //This is where a item is finalized for adding to a user collection
                 //CollectionItem collectionItem = new CollectionItem();
@@ -78,6 +87,7 @@ public class AddItemController {
 //                collectionController.addItem(imageUrl, labelText);
 
                 //Write Item in to Firebase
+                addCollectionItemToCollection();
                 switchToCollectionView();
         }
 
@@ -169,6 +179,27 @@ public class AddItemController {
                 System.out.println("No button is selected");
                 // starRatingLabel.setText();
                 }
+        }
+
+        //NEEDS TO BE FINISHED
+        public void addCollectionItemToCollection() throws ExecutionException, InterruptedException {
+
+                String username = "", collectionName = "", itemName = "", itemDescription = "";
+
+
+                DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username)
+                        .collection("Collections").document(collectionName + "Collection")
+                        .collection("Collection Items").document(itemName);
+
+                Map<String, Object> data = new HashMap<>();
+
+                data.put("Item Description", itemDescription);
+                data.put("Item Name", itemName);
+
+                //asynchronously write data
+                //ApiFuture<WriteResult> result = docRef.set(data);
+                ApiFuture<DocumentReference> result = docRef.collection(collectionName).add(itemName);
+
         }
 
 }
