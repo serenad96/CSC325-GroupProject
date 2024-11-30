@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -68,7 +69,14 @@ public class AddItemController {
                 itemRating4.setToggleGroup(ratingToggleGwoup);
                 itemRating5.setToggleGroup(ratingToggleGwoup);
 
+
+                /*DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document("Collection Title");
+                addItemLabel.setText(docRef.toString());*/
+
+
         }
+
+
 
         //individual collection controller instance for a specific collection
         public void setCollectionController(CollectionViewController collectionController) {
@@ -201,5 +209,7 @@ public class AddItemController {
                 ApiFuture<DocumentReference> result = docRef.collection(collectionName).add(itemName);
 
         }
+
+
 
 }
