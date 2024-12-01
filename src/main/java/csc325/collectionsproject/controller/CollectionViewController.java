@@ -31,6 +31,7 @@ public class CollectionViewController {
         //addItem("", "Added item!");
     }
 
+    //Test method linked to addItemInGridBtn, change this back to addNewItem() once that part works
     @FXML
     void addNewItemTest(ActionEvent event) {
         addItem("", "Added item!");
@@ -53,7 +54,7 @@ public class CollectionViewController {
 
     //just pass a CollectionItem here when it works, or we can get the data from the database? whats easier
     //collection view grid logic uwu happy thanksgiving
-    public void addItem(String imageUrl, String labelText) {
+    public void addItem(String imageUrl, String itemName) {
         try {
             // Load the FXML for the item component
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/csc325/collectionsproject/components/item-component.fxml"));
@@ -62,7 +63,7 @@ public class CollectionViewController {
             // Get the controller of the item component
             ItemComponentController newItemController = loader.getController();
             newItemController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/pipermelonart.png");
-            newItemController.setLabel(labelText);
+            newItemController.setLabel(itemName);
 
             // Add the item to the grid at the next available position
             itemGrid.add(itemNode, column, row);
