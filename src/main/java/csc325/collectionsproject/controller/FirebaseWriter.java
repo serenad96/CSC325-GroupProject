@@ -1,10 +1,7 @@
 package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.WriteResult;
-import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.*;
 import com.google.firebase.database.DataSnapshot;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.Collection;
@@ -12,10 +9,7 @@ import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class FirebaseWriter {
@@ -42,9 +36,14 @@ public class FirebaseWriter {
 //        System.out.println("Collection Item added at: " + result.get().getUpdateTime());
 */
 
-    public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
+    public void addCollectionItemToCollection(String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
 
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username)
+        UserSession session1 = UserSession.getInstance();
+        User active = session1.getLoggedInUser();
+        //Print Username
+        System.out.println(active.getUsername());
+
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
                                                                   .collection("Collections").document(collectionName + "Collection")
                                                                   .collection("Collection Items").document(itemName);
 
@@ -117,29 +116,68 @@ public class FirebaseWriter {
 
     }
 
-    //NOT FINISHED, needed for creating a subcollection of collection items
-    private static void addCollectionItems(DocumentReference docRef) {
-        // Reference to the sub-collection
-        CollectionReference subCollectionRef = docRef.collection("CollectionItems");
 
-        // Example documents to add to the sub-collection
-        Map<String, Object> item1 = new HashMap<>();
-        item1.put("Item Name", "Item 1");
-        item1.put("Item Value", "Value 1");
+    public void removeCollectionFromUser(String collectionTitle) {
 
-        Map<String, Object> item2 = new HashMap<>();
-        item2.put("Item Name", "Item 2");
-        item2.put("Item Value", "Value 2");
+        //Get Active User
+        UserSession session1 = UserSession.getInstance();
+        User active = session1.getLoggedInUser();
+        //Print Username
+        System.out.println(active.getUsername());
 
+        //Define Collection
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
+                .collection("Collections").document(collectionTitle + "Collection");
+
+        //Define Collection Items Subcollection
+        CollectionReference collectRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
+                .collection("Collections").document(collectionTitle + "Collection").collection("Collection Items");
+
+        //Delete Collection Items Subcollection
+        deleteCollection(collectRef, 100);
+
+        //Delete Collection
+        docRef.delete();
+
+    }
+
+    public void removeCollectionItemFromCollection(String collectionTitle, String itemName) {
+
+        //Get Active User
+        UserSession session1 = UserSession.getInstance();
+        User active = session1.getLoggedInUser();
+        //Print Username
+        System.out.println(active.getUsername());
+
+        //Define Collection
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
+                .collection("Collections").document(collectionTitle + "Collection").collection("Collection Items").document(itemName);
+
+        docRef.delete();
+
+
+    }
+
+    //THIS CODE DOES N O T DELETE ONE OF OUR COLLECTIONS!!! IT IS A FIREBASE METHOD TO DELETE STUFF IN THERE!!! ok luv u guys <3
+    void deleteCollection(CollectionReference collection, int batchSize) {
         try {
-            // Add items to the sub-collection
-            subCollectionRef.add(item1).get(); // Adding item 1
-            subCollectionRef.add(item2).get(); // Adding item 2
-
-            System.out.println("Sub-collection 'CollectionItems' added to document " + docRef.getId());
+            // retrieve a small batch of documents to avoid out-of-memory errors
+            ApiFuture<QuerySnapshot> future = collection.limit(batchSize).get();
+            int deleted = 0;
+            // future.get() blocks on document retrieval
+            List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+            for (QueryDocumentSnapshot document : documents) {
+                document.getReference().delete();
+                ++deleted;
+            }
+            if (deleted >= batchSize) {
+                // retrieve and delete another batch
+                deleteCollection(collection, batchSize);
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Error deleting collection : " + e.getMessage());
         }
     }
+
 
 }
