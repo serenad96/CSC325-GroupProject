@@ -44,6 +44,8 @@ public class CollectionsApplication extends Application {
         stage.setTitle("CollectionsApp");
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public static void setRoot(String fxml) throws IOException {
