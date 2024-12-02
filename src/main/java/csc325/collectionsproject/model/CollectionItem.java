@@ -25,7 +25,6 @@ public class CollectionItem {
     public CollectionItem(String itemName, String itemDescription) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
-
     }
 
     public String getItemName() {

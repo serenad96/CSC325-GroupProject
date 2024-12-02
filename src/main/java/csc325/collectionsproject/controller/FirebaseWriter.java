@@ -8,33 +8,13 @@ import csc325.collectionsproject.model.Collection;
 import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class FirebaseWriter {
-
-
-/* SELIN PUSHES
-    public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) {
-        CollectionItem collectionItem = new CollectionItem(itemName, itemDescription);
-
-        //Where can i store username to get this properly
-
-        // Reference to the user's collection document
-        DocumentReference collectionDocRef = CollectionsApplication.fstoreDB
-                .collection("Users").document(username)
-                .collection("UserCollections").document(collectionName);
-
-        // Reference to the "items" subcollection within the collection
-       // CollectionReference itemsSubCollection = collectionDocRef.collection("items");
-
-        // Add the CollectionItem to the "items" subcollection
-      //  ApiFuture<WriteResult> result = itemsSubCollection.document(itemName).set(collectionItem);
-//
-//        ApiFuture<WriteResult> result = docRef.update(data);
-//        System.out.println("Collection Item added at: " + result.get().getUpdateTime());
-*/
 
     public void addCollectionItemToCollection(String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
 
@@ -84,11 +64,6 @@ public class FirebaseWriter {
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
                                                                   .collection("Collections").document(collectionTitle + "Collection");
 
-        // Get reference to the user document in FirestoreDB
-        //DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername());
-
-        //CollectionReference subCollectionRef = docRef.collection("Collections");
-
 
         // Create a Map to store the collection data (Title + Description)
         Map<String, Object> data  = new HashMap<>();
@@ -99,20 +74,6 @@ public class FirebaseWriter {
         ApiFuture<WriteResult> result = docRef.set(data);
         //print added collection name to console
         System.out.println("Collection " + collectionTitle + " added");
-
-
-
-
-        //TEST CODE
-
-        //ApiFuture<DocumentReference> result = subCollectionRef.add(collectionData);
-
-        // Use set() to add the collection data inside the user document
- //       ApiFuture<WriteResult> result = docRef.set(collectionData, SetOptions.merge());
-
-        //asynchronously write data
-      //  ApiFuture<WriteResult> result = docRef.update(collectionData);
-  //      System.out.println("Collection added: " + result.get().getUpdateTime());
 
     }
 
