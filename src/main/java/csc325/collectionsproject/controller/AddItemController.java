@@ -95,7 +95,6 @@ public class AddItemController {
 //                collectionController.addItem(imageUrl, labelText);
 
                 //Write Item in to Firebase
-                addCollectionItemToCollection();
                 switchToCollectionView();
         }
 
@@ -187,27 +186,6 @@ public class AddItemController {
                 System.out.println("No button is selected");
                 // starRatingLabel.setText();
                 }
-        }
-
-        //NEEDS TO BE FINISHED
-        public void addCollectionItemToCollection() throws ExecutionException, InterruptedException {
-
-                String username = "", collectionName = "", itemName = "", itemDescription = "";
-
-
-                DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username)
-                        .collection("Collections").document(collectionName + "Collection")
-                        .collection("Collection Items").document(itemName);
-
-                Map<String, Object> data = new HashMap<>();
-
-                data.put("Item Description", itemDescription);
-                data.put("Item Name", itemName);
-
-                //asynchronously write data
-                //ApiFuture<WriteResult> result = docRef.set(data);
-                ApiFuture<DocumentReference> result = docRef.collection(collectionName).add(itemName);
-
         }
 
 
