@@ -9,8 +9,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.RegistrationController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.RegistrationController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0">
         <columnConstraints>
@@ -35,7 +36,10 @@
                   <Label text="Username">
                      <HBox.margin>
                         <Insets left="-15.0" />
-                     </HBox.margin></Label>
+                     </HBox.margin>
+                     <font>
+                        <Font size="22.0" />
+                     </font></Label>
                   <TextField fx:id="usernameTF" />
                </children>
             </HBox>
@@ -44,14 +48,17 @@
                   <Label text="Password">
                      <HBox.margin>
                         <Insets left="-10.0" />
-                     </HBox.margin></Label>
+                     </HBox.margin>
+                     <font>
+                        <Font size="22.0" />
+                     </font></Label>
                   <TextField fx:id="passwordTF" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
                <children>
-                  <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" text="Register User">
+                  <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" prefWidth="111.0" text="Register User">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -59,7 +66,7 @@
                   <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#loginClicked" text="Login" />
                </children>
             </HBox>
-            <Label fx:id="incorrectLoginLabel" prefHeight="18.0" prefWidth="225.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label fx:id="loginStatusLabel" prefHeight="18.0" prefWidth="225.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>

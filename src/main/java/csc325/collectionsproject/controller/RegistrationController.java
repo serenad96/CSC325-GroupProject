@@ -2,27 +2,20 @@ package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.UserRecord;
 import com.google.firebase.cloud.FirestoreClient;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 public class RegistrationController {
@@ -30,7 +23,7 @@ public class RegistrationController {
     @FXML
     private TextField usernameTF, passwordTF;
     @FXML
-   private Label incorrectLoginLabel;
+   private Label loginStatusLabel;
 
     public RegistrationController() {
 
@@ -53,7 +46,7 @@ public class RegistrationController {
         ApiFuture<QuerySnapshot> querySnapshot = usersCollection.whereEqualTo("Username", username).get();
         QuerySnapshot snapshot = querySnapshot.get();
 
-        if(snapshot.isEmpty()) { incorrectLoginLabel.setText("Incorrect Username or Password. Try again."); }
+        if(snapshot.isEmpty()) { loginStatusLabel.setText("Incorrect Username or Password. Try again."); }
 
         // Iterate through document and validates login
         List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
@@ -75,7 +68,7 @@ public class RegistrationController {
                 System.out.println("Log-in Successful!");
             } else {
                 System.out.println("Incorrect password.");
-                incorrectLoginLabel.setText("Incorrect username or password. Try again.");
+                loginStatusLabel.setText("Incorrect username or password. Try again.");
             }
         }
 
@@ -100,7 +93,7 @@ public class RegistrationController {
         ApiFuture<QuerySnapshot> querySnapshot = usersCollection.whereEqualTo("Username", username).get();
         QuerySnapshot snapshot = querySnapshot.get();
 
-      //  if(snapshot.isEmpty()) { incorrectLoginLabel.setText("Incorrect Username or Password. Try again."); }
+      //  if(snapshot.isEmpty()) { loginStatusLabel.setText("Incorrect Username or Password. Try again."); }
 
         // Iterate through document and validates login
         List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
@@ -109,10 +102,11 @@ public class RegistrationController {
             Map<String, Object> data = document.getData();
             String storedUsername = (String) data.get("Username");
             if (username.equals(storedUsername)) {
-                System.out.println("Username already exists.");
+                loginStatusLabel.setText("Username already exists.");
                 //user session remove active user
                 return;
             }
+            else loginStatusLabel.setText("Successfully registered.");
         }
 
             //Registration validation passed, create username

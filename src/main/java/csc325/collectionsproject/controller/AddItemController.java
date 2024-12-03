@@ -29,7 +29,7 @@ public class AddItemController {
         private TextField itemNameTF, itemDescriptionTF;
 
         @FXML
-        private Label privateToggleLbl, publicToggleLbl, starRatingLabel, addItemLabel;
+        private Label privateToggleLbl, publicToggleLbl, starRatingLabel, addItemLbl;
 
         @FXML
         private HBox privacyToggleBox, starBox;
@@ -71,8 +71,6 @@ public class AddItemController {
                 itemRating5.setToggleGroup(ratingToggleGwoup);
 
 
-                /*DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document("Collection Title");
-                addItemLabel.setText(docRef.toString());*/
 
 
         }
@@ -90,11 +88,12 @@ public class AddItemController {
                 String itemDescription = itemDescriptionTF.getText();
                 String collectionName = getCollectionName();
 
-                addItemLabel.setText(collectionName);
+               // addItemLabel.setText(collectionName);
                 FirebaseWriter fbWriter = new FirebaseWriter();
 
                 // Add the item to the collection
                 fbWriter.addCollectionItemToCollection(collectionName ,itemName, itemDescription);
+               // addItemLbl.setText("asdf");
                 switchToCollectionView();
         }
 
@@ -220,14 +219,6 @@ public class AddItemController {
                 }
                 return null;
         }
-      /*  UserSession session1 = UserSession.getInstance();
-        User active = session1.getLoggedInUser();
-        //Print Username
-        System.out.println(active.getUsername());
 
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
-                .collection("Collections").document(collectionName + "Collection")
-                .collection("Collection Items").document(itemName);
-*/
 
 }
