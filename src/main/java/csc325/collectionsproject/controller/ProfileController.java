@@ -33,7 +33,7 @@ public class ProfileController {
 
     public void initialize() {
         UserSession session = UserSession.getInstance();
-        profileNameLabel.setText(session.getLoggedInUser().getUsername());
+        profileNameLabel.setText("Welcome " + session.getLoggedInUser().getUsername() + "!");
     }
 
 

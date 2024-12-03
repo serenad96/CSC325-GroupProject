@@ -44,9 +44,6 @@ public class AddItemController {
         int ratingValue;
         private CollectionViewController collectionController;
 
-
-        private Firestore firestore;
-
         @FXML
         private void initialize() {
                 // Privacy label is invisible cuz default public uwu data yummy
@@ -87,7 +84,7 @@ public class AddItemController {
                 String itemName = itemNameTF.getText();
                 String itemDescription = itemDescriptionTF.getText();
                 String collectionName = getCollectionName();
-
+                System.out.println("Collection name from getCollectionName : " + collectionName);
                // addItemLabel.setText(collectionName);
                 FirebaseWriter fbWriter = new FirebaseWriter();
 
@@ -189,7 +186,6 @@ public class AddItemController {
 
         // Retrieve the collection name from Firestore
         public String getCollectionName() {
-
                 try {
                         // Use the singleton instance to get the active username
                         UserSession active = UserSession.getInstance();
