@@ -49,22 +49,37 @@ public class CollectionViewController {
          // Navigate to the user's "Collections" sub-collection
          CollectionReference collectionRef = CollectionsApplication.fstoreDB.collection("Users")
                  .document(username)
-                 .collection("Collections").document("Fortnite skinsCollections").collection("Collection Items");
+                 .collection("Collections")
+                 .document("Fortnite skinsCollection")
+                 .collection("Collection Items");
 
          // Get all documents in the "Collections" sub-collection
          ApiFuture<QuerySnapshot> future = collectionRef.get();
          QuerySnapshot itemSnapshot = future.get();
 
+         System.out.println("CI Test Print 1");
+
          List<QueryDocumentSnapshot> documents = itemSnapshot.getDocuments();
+         System.out.println("Number of documents: " + documents.size());
+
          for (QueryDocumentSnapshot document : documents) {
+             System.out.println("CI For Each Loop Printing");
              String collectionId = document.getId(); // Get the document ID
              System.out.println("Collection ID: " + collectionId);
 
-             // Optionally, retrieve specific fields from the document
+             // Retrieve item name from the document
              String itemName = document.getString("Item Name");
              System.out.println("Item Name: " + itemName);
+
+             /* Multiple items loop
+            System.out.println("Item Name: " + itemName);
+            if (itemName != null) {
+                itemNames.add(itemName);
+            }
+             */
              return itemName;
          }
+         System.out.println("CI End of method print");
      } catch (ExecutionException | InterruptedException e) {
          e.printStackTrace();
      }
@@ -74,7 +89,13 @@ public class CollectionViewController {
     //Test method linked to addItemInGridBtn, change this back to addNewItem() once that part works
     @FXML
     void addNewItemTest(ActionEvent event) throws ExecutionException, InterruptedException {
-        addItem("", getCollectionItemName());
+       addItem("", getCollectionItemName());
+
+        /* Do all items at once method
+        List<String> itemNames = getCollectionItemNames(); // Fetch item names
+        for (String itemName : itemNames) {
+            addItem("", itemName); // Call addItem for each item
+        }   */
        // addItem("",)
     }
 

@@ -14,34 +14,11 @@ import java.util.concurrent.ExecutionException;
 
 public class FirebaseWriter {
 
-
-/* SELIN PUSHES
-    public void addCollectionItemToCollection(String username, String collectionName, String itemName, String itemDescription) {
-        CollectionItem collectionItem = new CollectionItem(itemName, itemDescription);
-
-        //Where can i store username to get this properly
-
-        // Reference to the user's collection document
-        DocumentReference collectionDocRef = CollectionsApplication.fstoreDB
-                .collection("Users").document(username)
-                .collection("UserCollections").document(collectionName);
-
-        // Reference to the "items" subcollection within the collection
-       // CollectionReference itemsSubCollection = collectionDocRef.collection("items");
-
-        // Add the CollectionItem to the "items" subcollection
-      //  ApiFuture<WriteResult> result = itemsSubCollection.document(itemName).set(collectionItem);
-//
-//        ApiFuture<WriteResult> result = docRef.update(data);
-//        System.out.println("Collection Item added at: " + result.get().getUpdateTime());
-*/
-
     public void addCollectionItemToCollection(String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
 
-        UserSession session1 = UserSession.getInstance();
-        User active = session1.getLoggedInUser();
-        //Print Username
-        System.out.println(active.getUsername());
+        UserSession session = UserSession.getInstance();
+        User active = session.getLoggedInUser();
+        System.out.println("Active user in writer " + active.getUsername());
 
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
                                                                   .collection("Collections").document(collectionName + "Collection")
@@ -51,7 +28,6 @@ public class FirebaseWriter {
 
         data.put("Item Description", itemDescription);
         data.put("Item Name", itemName);
-
 
         //asynchronously write data
         ApiFuture<WriteResult> result = docRef.set(data);
@@ -68,7 +44,6 @@ public class FirebaseWriter {
         }
 
          */
-
     }
 
     public void addCollectionToUser(String collectionTitle, String collectionDescription) {
@@ -77,20 +52,13 @@ public class FirebaseWriter {
 
 
         // Gets Username from current session
-        UserSession session1 = UserSession.getInstance();
-        User active = session1.getLoggedInUser();
-        //Print Username
-        System.out.println(active.getUsername());
+        UserSession session = UserSession.getInstance();
+        User active = session.getLoggedInUser();
+        System.out.println("Active user in writer " + active.getUsername());
 
 
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
                                                                   .collection("Collections").document(collectionTitle + "Collection");
-
-        // Get reference to the user document in FirestoreDB
-        //DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername());
-
-        //CollectionReference subCollectionRef = docRef.collection("Collections");
-
 
         // Create a Map to store the collection data (Title + Description)
         Map<String, Object> data  = new HashMap<>();
@@ -120,7 +88,6 @@ public class FirebaseWriter {
 
 
     public void removeCollectionFromUser(String collectionTitle) {
-
         //Get Active User
         UserSession session1 = UserSession.getInstance();
         User active = session1.getLoggedInUser();
