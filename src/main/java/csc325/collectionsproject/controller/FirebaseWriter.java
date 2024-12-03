@@ -50,6 +50,8 @@ public class FirebaseWriter {
         Map<String, Object> data = new HashMap<>();
 
         data.put("Item Description", itemDescription);
+        data.put("Item Name", itemName);
+
 
         //asynchronously write data
         ApiFuture<WriteResult> result = docRef.set(data);

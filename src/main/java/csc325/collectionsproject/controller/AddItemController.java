@@ -189,7 +189,6 @@ public class AddItemController {
 
         // Retrieve the collection name from Firestore
         public String getCollectionName() {
-
                 try {
                         // Use the singleton instance to get the active username
                         UserSession active = UserSession.getInstance();

@@ -2,22 +2,17 @@ package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
-import com.google.firebase.cloud.FirestoreClient;
 import csc325.collectionsproject.CollectionsApplication;
-import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class CollectionViewController {
@@ -45,30 +40,30 @@ public class CollectionViewController {
     }
 
     //currently copied from getCollectionName in AddItemController
- public String getDocument() throws ExecutionException, InterruptedException {
+ public String getCollectionItemName() throws ExecutionException, InterruptedException {
      try {
          // Use the singleton instance to get the active username
          UserSession active = UserSession.getInstance();
          String username = active.getLoggedInUser().getUsername(); // Retrieve the username
 
          // Navigate to the user's "Collections" sub-collection
-         CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
+         CollectionReference collectionRef = CollectionsApplication.fstoreDB.collection("Users")
                  .document(username)
-                 .collection("Collections");
+                 .collection("Collections").document("Fortnite skinsCollections").collection("Collection Items");
 
          // Get all documents in the "Collections" sub-collection
-         ApiFuture<QuerySnapshot> future = collectionsRef.get();
-         QuerySnapshot querySnapshot = future.get();
+         ApiFuture<QuerySnapshot> future = collectionRef.get();
+         QuerySnapshot itemSnapshot = future.get();
 
-         List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+         List<QueryDocumentSnapshot> documents = itemSnapshot.getDocuments();
          for (QueryDocumentSnapshot document : documents) {
              String collectionId = document.getId(); // Get the document ID
              System.out.println("Collection ID: " + collectionId);
 
              // Optionally, retrieve specific fields from the document
-             String collectionTitle = document.getString("Collection Title");
-             System.out.println("Collection Title: " + collectionTitle);
-             return collectionTitle;
+             String itemName = document.getString("Item Name");
+             System.out.println("Item Name: " + itemName);
+             return itemName;
          }
      } catch (ExecutionException | InterruptedException e) {
          e.printStackTrace();
@@ -78,7 +73,7 @@ public class CollectionViewController {
 
     @FXML
     void addNewItemTest(ActionEvent event) throws ExecutionException, InterruptedException {
-        addItem("", getDocument());
+        addItem("", getCollectionItemName());
        // addItem("",)
     }
 
