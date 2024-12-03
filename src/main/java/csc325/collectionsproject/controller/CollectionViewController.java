@@ -80,8 +80,9 @@ public class CollectionViewController {
 
     //Test method linked to addItemInGridBtn, change this back to addNewItem() once that part works
     @FXML
-    void addNewItemTest(ActionEvent event) {
-        addItem("", "Added item!");
+    void addNewItemTest(ActionEvent event) throws ExecutionException, InterruptedException {
+     //   addItem("", "Added item!");
+        addItem("", getDocument());
     }
 
     @FXML
@@ -114,7 +115,6 @@ public class CollectionViewController {
             newItemController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/pipermelonart.png");
             newItemController.setLabel(itemName);
             //newItemController.setLabel(labelText != null ? labelText : "Collection Item Here");
-            newItemController.setLabel(labelText);
 
             // Add the item to the grid at the next available position
             itemGrid.add(itemNode, column, row);

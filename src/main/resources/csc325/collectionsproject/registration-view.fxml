@@ -55,7 +55,10 @@
                   <TextField fx:id="passwordTF" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnSpan="4" GridPane.rowIndex="4">
+               <children>
+                  <Label fx:id="loginStatusLabel" alignment="CENTER" prefHeight="18.0" prefWidth="225.0" textAlignment="CENTER" />
+               </children></HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
                <children>
                   <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" prefWidth="111.0" text="Register User">
@@ -66,7 +69,6 @@
                   <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#loginClicked" text="Login" />
                </children>
             </HBox>
-            <Label fx:id="loginStatusLabel" prefHeight="18.0" prefWidth="225.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>

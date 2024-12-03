@@ -38,15 +38,15 @@ public class RegistrationController {
 
     void validateLogIn() throws ExecutionException, InterruptedException, IOException {
 
-        String username = usernameTF.getText();
-        String password = passwordTF.getText();
+        String username = usernameTF.getText().trim();
+        String password = passwordTF.getText().trim();
         //Setting up firestore
         Firestore database = FirestoreClient.getFirestore();
         CollectionReference usersCollection = database.collection("Users");
         ApiFuture<QuerySnapshot> querySnapshot = usersCollection.whereEqualTo("Username", username).get();
         QuerySnapshot snapshot = querySnapshot.get();
 
-        if(snapshot.isEmpty()) { loginStatusLabel.setText("Incorrect Username or Password. Try again."); }
+        if(snapshot.isEmpty()) { loginStatusLabel.setText("Login Info not found. Please try again."); }
 
         // Iterate through document and validates login
         List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
@@ -56,7 +56,7 @@ public class RegistrationController {
             String storedPassword = (String) data.get("Password");
 
             // Validate password
-            if (storedPassword.equals(password)) {
+            if (storedUsername.equalsIgnoreCase(username) && storedPassword.equals(password)) {
                 // If credentials are valid, switch to another view
                 //user session code start
                 User user = new User(storedUsername, storedPassword);
@@ -68,7 +68,7 @@ public class RegistrationController {
                 System.out.println("Log-in Successful!");
             } else {
                 System.out.println("Incorrect password.");
-                loginStatusLabel.setText("Incorrect username or password. Try again.");
+                loginStatusLabel.setText("Login Info not found. Try again.");
             }
         }
 
@@ -84,16 +84,21 @@ public class RegistrationController {
     }
 
     public void registerUser() throws IOException, ExecutionException, InterruptedException {
-        //this needs some love uwu
+        //Firebase doesnt do case insensitive checks, so we have to store a lower case key in user WITH username
+
+        //This validation needs to switch username variables to usernameKey variables for case sensitivity to work
+
+
          String username = usernameTF.getText().trim();
          String password = passwordTF.getText().trim();
+         String usernameKey = usernameTF.getText().trim().toLowerCase();
 
-        Firestore database = FirestoreClient.getFirestore();
+        Firestore database = CollectionsApplication.getFirestoreDB();
         CollectionReference usersCollection = database.collection("Users");
         ApiFuture<QuerySnapshot> querySnapshot = usersCollection.whereEqualTo("Username", username).get();
         QuerySnapshot snapshot = querySnapshot.get();
 
-      //  if(snapshot.isEmpty()) { loginStatusLabel.setText("Incorrect Username or Password. Try again."); }
+        //  if(snapshot.isEmpty()) { loginStatusLabel.setText("Incorrect Username or Password. Try again."); }
 
         // Iterate through document and validates login
         List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
@@ -101,9 +106,8 @@ public class RegistrationController {
         for(QueryDocumentSnapshot document : documents ){
             Map<String, Object> data = document.getData();
             String storedUsername = (String) data.get("Username");
-            if (username.equals(storedUsername)) {
+            if (username.equalsIgnoreCase(storedUsername)) {
                 loginStatusLabel.setText("Username already exists.");
-                //user session remove active user
                 return;
             }
             else loginStatusLabel.setText("Successfully registered.");
@@ -117,22 +121,6 @@ public class RegistrationController {
             data.put("Password", password);
 
             ApiFuture<WriteResult> result = docRef.set(data);
-
-        //}
-
-
-        /* UserRecord userRecord;
-        try {
-            userRecord = CollectionsApplication.fauth.createUser(request);
-            System.out.println("Successfully created new user with Firebase Uid: " + userRecord.getUid()
-                    + " check Firebase > Authentication > Users tab");
-            return true;
-
-        } catch (FirebaseAuthException ex) {
-            // Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error creating a new user in the firebase");
-            return false;
-        } */
     }
 
     @FXML
