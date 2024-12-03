@@ -1,6 +1,10 @@
 package csc325.collectionsproject.controller;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.User;
+import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Toggle;
@@ -19,10 +26,10 @@ public class AddItemController {
         private ImageView addItemImg;
 
         @FXML
-        private TextField itemNameTF;
+        private TextField itemNameTF, itemDescriptionTF;
 
         @FXML
-        private Label privateToggleLbl, publicToggleLbl, starRatingLabel;
+        private Label privateToggleLbl, publicToggleLbl, starRatingLabel, addItemLbl;
 
         @FXML
         private HBox privacyToggleBox, starBox;
@@ -36,6 +43,9 @@ public class AddItemController {
         private ToggleGroup ratingToggleGwoup;
         int ratingValue;
         private CollectionViewController collectionController;
+
+
+        private Firestore firestore;
 
         @FXML
         private void initialize() {
@@ -59,6 +69,10 @@ public class AddItemController {
                 itemRating3.setToggleGroup(ratingToggleGwoup);
                 itemRating4.setToggleGroup(ratingToggleGwoup);
                 itemRating5.setToggleGroup(ratingToggleGwoup);
+
+
+
+
         }
 
         //individual collection controller instance for a specific collection
@@ -66,18 +80,20 @@ public class AddItemController {
                 this.collectionController = collectionController;
         }
 
+        //This is clicking the add new item button
         @FXML
-        void addNewItem(ActionEvent event) throws IOException {
-                //This is clicking the add new item button
-                //This is where a item is finalized for adding to a user collection
-                //CollectionItem collectionItem = new CollectionItem();
-                // Gather item details
-//                String imageUrl = ""; // test imageURL
-//                String labelText = itemNameTF.getText();
-                // Add the item to the collection
-//                collectionController.addItem(imageUrl, labelText);
-
+        void addNewItem(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
                 //Write Item in to Firebase
+                String itemName = itemNameTF.getText();
+                String itemDescription = itemDescriptionTF.getText();
+                String collectionName = getCollectionName();
+
+               // addItemLabel.setText(collectionName);
+                FirebaseWriter fbWriter = new FirebaseWriter();
+
+                // Add the item to the collection
+                fbWriter.addCollectionItemToCollection(collectionName ,itemName, itemDescription);
+               // addItemLbl.setText("asdf");
                 switchToCollectionView();
         }
 
@@ -170,5 +186,39 @@ public class AddItemController {
                 // starRatingLabel.setText();
                 }
         }
+
+        // Retrieve the collection name from Firestore
+        public String getCollectionName() {
+
+                try {
+                        // Use the singleton instance to get the active username
+                        UserSession active = UserSession.getInstance();
+                        String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+                        // Navigate to the user's "Collections" sub-collection
+                        CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
+                                .document(username)
+                                .collection("Collections");
+
+                        // Get all documents in the "Collections" sub-collection
+                        ApiFuture<QuerySnapshot> future = collectionsRef.get();
+                        QuerySnapshot querySnapshot = future.get();
+
+                        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+                        for (QueryDocumentSnapshot document : documents) {
+                                String collectionId = document.getId(); // Get the document ID
+                                System.out.println("Collection ID: " + collectionId);
+
+                                // Optionally, retrieve specific fields from the document
+                                String collectionTitle = document.getString("Collection Title");
+                                System.out.println("Collection Title: " + collectionTitle);
+                                return collectionTitle;
+                        }
+                } catch (ExecutionException | InterruptedException e) {
+                        e.printStackTrace();
+                }
+                return null;
+        }
+
 
 }

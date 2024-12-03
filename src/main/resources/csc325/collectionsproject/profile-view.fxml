@@ -42,7 +42,6 @@
         <items>
             <Button fx:id="newCollectionBtn" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="New Collection" />
           <Button fx:id="collectionViewBtn" mnemonicParsing="false" onAction="#openAllCollections" text="Collection View" />
-            <Button fx:id="settingsBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Profile Settings" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
         </items>
       </ToolBar>
