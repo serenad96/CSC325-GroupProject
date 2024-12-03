@@ -39,7 +39,6 @@ public class CollectionViewController {
 
     }
 
-    //currently copied from getCollectionName in AddItemController
  public String getCollectionItemName() throws ExecutionException, InterruptedException {
      try {
          // Use the singleton instance to get the active username
@@ -48,9 +47,9 @@ public class CollectionViewController {
 
          // Navigate to the user's "Collections" sub-collection
          CollectionReference collectionRef = CollectionsApplication.fstoreDB.collection("Users")
-                 .document(username)
+                 .document(username) //Username stored in active UserSession
                  .collection("Collections")
-                 .document("Fortnite skinsCollection")
+                 .document("Fortnite skinsCollection") // Actual name of Collection
                  .collection("Collection Items");
 
          // Get all documents in the "Collections" sub-collection
@@ -77,7 +76,7 @@ public class CollectionViewController {
                 itemNames.add(itemName);
             }
              */
-             return itemName;
+             return collectionId;
          }
          System.out.println("CI End of method print");
      } catch (ExecutionException | InterruptedException e) {
