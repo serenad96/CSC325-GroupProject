@@ -34,9 +34,6 @@ public class RegistrationController {
       System.out.println("Login clicked");
         validateLogIn();
 
-        FirebaseWriter fb = new FirebaseWriter();
-        fb.addCollectionItemToCollection("aubs","cool item", "coolest item");
-
     }
 
     void validateLogIn() throws ExecutionException, InterruptedException, IOException {

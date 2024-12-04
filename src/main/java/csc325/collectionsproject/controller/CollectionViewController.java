@@ -3,6 +3,8 @@ package csc325.collectionsproject.controller;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.CollectionSession;
+import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +28,8 @@ public class CollectionViewController {
     private int row = 0;
     private int column = 0;
 
+    String selectedCollectionName;
+
 
     @FXML
     void addNewItem(ActionEvent event) throws IOException {
@@ -33,11 +37,15 @@ public class CollectionViewController {
     }
 
     public void initialize() throws ExecutionException, InterruptedException {
+
+        //Get Selected Collection Name
+
         List<String> itemNames = getCollectionItems(); // Fetch item names in collection
         for (String itemName : itemNames) {
             addItem("", itemName); // Call addItem for each item
         }
     }
+
 /*
  public String getCollectionItemName() throws ExecutionException, InterruptedException {
      try {
@@ -78,18 +86,23 @@ public class CollectionViewController {
      return null;
  }
 */
-    public List<String> getCollectionItems(/*String collectionName*/) throws ExecutionException, InterruptedException {
+    public List<String> getCollectionItems() throws ExecutionException, InterruptedException {
         List<String> itemNames = new ArrayList<>(); // Store item names
         try {
             // Use the singleton instance to get the active username
             UserSession active = UserSession.getInstance();
             String username = active.getLoggedInUser().getUsername(); // Retrieve the username
 
+            //Retrieve the collectionName from the Collection Session
+            CollectionSession session = CollectionSession.getInstance();
+            String selectedCollection = session.getSelectedCollectionName();
+            System.out.println("Active collection in writer " + selectedCollection);
+
             // Navigate to the user's "Collections" sub-collection
             CollectionReference collectionRef = CollectionsApplication.fstoreDB.collection("Users")
                     .document(username) //Username stored in active UserSession
                     .collection("Collections")
-                    .document("Fortnite skinsCollection") // Actual name of Collection
+                    .document(selectedCollection + "Collection") // Actual name of Collection
                     .collection("Collection Items");
 
             // Get all documents in the "Collections" sub-collection

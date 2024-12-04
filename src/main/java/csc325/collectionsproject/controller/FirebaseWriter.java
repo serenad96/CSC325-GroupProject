@@ -76,11 +76,10 @@ public class FirebaseWriter {
 
 
     public void removeCollectionFromUser(String collectionTitle) {
-        //Get Active User
-        UserSession session1 = UserSession.getInstance();
-        User active = session1.getLoggedInUser();
-        //Print Username
-        System.out.println(active.getUsername());
+        // Gets Username from current session
+        UserSession session = UserSession.getInstance();
+        User active = session.getLoggedInUser();
+        System.out.println("Active user in writer " + active.getUsername());
 
         //Define Collection
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
@@ -99,12 +98,10 @@ public class FirebaseWriter {
     }
 
     public void removeCollectionItemFromCollection(String collectionTitle, String itemName) {
-
-        //Get Active User
-        UserSession session1 = UserSession.getInstance();
-        User active = session1.getLoggedInUser();
-        //Print Username
-        System.out.println(active.getUsername());
+        // Gets Username from current session
+        UserSession session = UserSession.getInstance();
+        User active = session.getLoggedInUser();
+        System.out.println("Active user in writer " + active.getUsername());
 
         //Define Collection
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
