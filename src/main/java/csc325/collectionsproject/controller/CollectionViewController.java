@@ -33,13 +33,12 @@ public class CollectionViewController {
     }
 
     public void initialize() throws ExecutionException, InterruptedException {
-        UserSession session = UserSession.getInstance();
         List<String> itemNames = getCollectionItems(); // Fetch item names in collection
         for (String itemName : itemNames) {
             addItem("", itemName); // Call addItem for each item
         }
     }
-
+/*
  public String getCollectionItemName() throws ExecutionException, InterruptedException {
      try {
          // Use the singleton instance to get the active username
@@ -78,7 +77,7 @@ public class CollectionViewController {
      }
      return null;
  }
-
+*/
     public List<String> getCollectionItems(/*String collectionName*/) throws ExecutionException, InterruptedException {
         List<String> itemNames = new ArrayList<>(); // Store item names
         try {

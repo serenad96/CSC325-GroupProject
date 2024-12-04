@@ -1,5 +1,9 @@
 package csc325.collectionsproject.controller;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
@@ -12,6 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ProfileController {
 
@@ -34,6 +41,45 @@ public class ProfileController {
     public void initialize() {
         UserSession session = UserSession.getInstance();
         profileNameLabel.setText("Welcome " + session.getLoggedInUser().getUsername() + "!");
+
+        //Populate all of a users collections
+        List<String> collectionNames = getCollectionNames(); // Fetch names of user's collection
+        for (String collectionName : collectionNames) {
+            addItem("", collectionName); // Call addItem for each item
+        }
+    }
+    public List<String> getCollectionNames() {
+        List<String> collectionNames = new ArrayList<>(); // Store item names
+        try {
+            // Use the singleton instance to get the active username
+            UserSession active = UserSession.getInstance();
+            String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+            // Navigate to the user's "Collections" sub-collection
+            CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
+                    .document(username)
+                    .collection("Collections");
+
+            // Get all documents in the "Collections" sub-collection
+            ApiFuture<QuerySnapshot> future = collectionsRef.get();
+            QuerySnapshot querySnapshot = future.get();
+
+            List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+            for (QueryDocumentSnapshot document : documents) {
+                // Retrieve collection name from the document
+                String collectionName = document.getString("Collection Title");
+                System.out.println("Collection Title: " + collectionName);
+
+                // if collectionName is not null, add it to the list of titles to return
+                System.out.println("Collection Title: " + collectionName);
+                if (collectionName != null) {
+                    collectionNames.add(collectionName);
+                }
+            }
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return collectionNames;
     }
 
     @FXML
