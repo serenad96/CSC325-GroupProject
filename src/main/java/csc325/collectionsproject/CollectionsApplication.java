@@ -63,6 +63,7 @@ public class CollectionsApplication extends Application {
     public static Firestore getFirestoreDB() {
         if (fstoreDB == null) {
             throw new IllegalStateException("Firestore has not been initialized.");
+            //Shouldnt ever trigger as fstoreDB is initialized immediately in start()
         }
         return fstoreDB;
     }

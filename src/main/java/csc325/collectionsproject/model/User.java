@@ -6,7 +6,6 @@ import java.util.Objects;
 public class User {
     public String username;
     public String password;
-    public String usernameKey;
     public Profile profile;
     //profile picture
     public Collection collection; //should be showcase
@@ -15,7 +14,6 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.usernameKey = username.toLowerCase();
         this.profile = new Profile();
         // this.collections = new <Collection>List();
         this.collection = new Collection("Test Collection","TestDescription");
@@ -27,14 +25,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getUsernameKey() {
-        return usernameKey;
-    }
-
-    public void setUsernameKey(String usernameKey) {
-        this.usernameKey = usernameKey;
     }
 
     public String getPassword() { return password; }

@@ -9,11 +9,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class CollectionViewController {
@@ -23,59 +23,22 @@ public class CollectionViewController {
     @FXML
     private GridPane itemGrid;
 
-    @FXML
-    Label collectionNameLbl;
-
     private int row = 0;
     private int column = 0;
 
 
     @FXML
     void addNewItem(ActionEvent event) throws IOException {
-        //addItem(String imageUrl, String labelText); commented out while adding component logic is incomplete
-        //dont forget to remove gridlines from gridpane
         switchToAddItemView();
-        //addItem("", "Added item!");
     }
 
-    public void initialize() {
-        String collectionName = getCollectionName();
-        collectionNameLbl.setText(collectionName);
-    }
-
-    // Retrieve the collection name from Firestore
-    public String getCollectionName() {
-        try {
-            // Use the singleton instance to get the active username
-            UserSession active = UserSession.getInstance();
-            String username = active.getLoggedInUser().getUsername(); // Retrieve the username
-
-            // Navigate to the user's "Collections" sub-collection
-            CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
-                    .document(username)
-                    .collection("Collections");
-
-            // Get all documents in the "Collections" sub-collection
-            ApiFuture<QuerySnapshot> future = collectionsRef.get();
-            QuerySnapshot querySnapshot = future.get();
-
-            List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
-            for (QueryDocumentSnapshot document : documents) {
-                String collectionId = document.getId(); // Get the document ID
-                System.out.println("Collection ID: " + collectionId);
-
-                // Optionally, retrieve specific fields from the document
-                String collectionTitle = document.getString("Collection Title");
-                System.out.println("Collection Title: " + collectionTitle);
-                return collectionTitle;
-            }
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
+    public void initialize() throws ExecutionException, InterruptedException {
+        UserSession session = UserSession.getInstance();
+        List<String> itemNames = getCollectionItems(); // Fetch item names in collection
+        for (String itemName : itemNames) {
+            addItem("", itemName); // Call addItem for each item
         }
-        return null;
     }
-
-
 
  public String getCollectionItemName() throws ExecutionException, InterruptedException {
      try {
@@ -94,10 +57,10 @@ public class CollectionViewController {
          ApiFuture<QuerySnapshot> future = collectionRef.get();
          QuerySnapshot itemSnapshot = future.get();
 
-         System.out.println("CI Test Print 1");
+         System.out.println("CIN Test Print 1");
 
          List<QueryDocumentSnapshot> documents = itemSnapshot.getDocuments();
-         System.out.println("Number of documents: " + documents.size());
+         System.out.println("Number of documents in item search: " + documents.size());
 
          for (QueryDocumentSnapshot document : documents) {
              System.out.println("CI For Each Loop Printing");
@@ -107,13 +70,6 @@ public class CollectionViewController {
              // Retrieve item name from the document
              String itemName = document.getString("Item Name");
              System.out.println("Item Name: " + itemName);
-
-             /* Multiple items loop
-            System.out.println("Item Name: " + itemName);
-            if (itemName != null) {
-                itemNames.add(itemName);
-            }
-             */
              return collectionId;
          }
          System.out.println("CI End of method print");
@@ -123,18 +79,57 @@ public class CollectionViewController {
      return null;
  }
 
+    public List<String> getCollectionItems(/*String collectionName*/) throws ExecutionException, InterruptedException {
+        List<String> itemNames = new ArrayList<>(); // Store item names
+        try {
+            // Use the singleton instance to get the active username
+            UserSession active = UserSession.getInstance();
+            String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+            // Navigate to the user's "Collections" sub-collection
+            CollectionReference collectionRef = CollectionsApplication.fstoreDB.collection("Users")
+                    .document(username) //Username stored in active UserSession
+                    .collection("Collections")
+                    .document("Fortnite skinsCollection") // Actual name of Collection
+                    .collection("Collection Items");
+
+            // Get all documents in the "Collections" sub-collection
+            ApiFuture<QuerySnapshot> future = collectionRef.get();
+            QuerySnapshot itemSnapshot = future.get();
+
+            System.out.println("DisplayItems Test Print 1");
+
+            List<QueryDocumentSnapshot> documents = itemSnapshot.getDocuments();
+            System.out.println("Number of documents: " + documents.size());
+
+            //For each document in the snapshot, iterate through this loop
+            for (QueryDocumentSnapshot document : documents) {
+                // Retrieve item name from the document
+                String itemName = document.getString("Item Name");
+                System.out.println("Item Name: " + itemName);
+
+                // if itenName is not null, add it to the list of titles to return
+                System.out.println("Item Name: " + itemName);
+                if (itemName != null) {
+                    itemNames.add(itemName);
+                }
+            }
+            System.out.println("DisplayItems End of method print");
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        //return list of item names
+        return itemNames;
+    }
+
     //Test method linked to addItemInGridBtn, change this back to addNewItem() once that part works
     @FXML
     void addNewItemTest(ActionEvent event) throws ExecutionException, InterruptedException {
-       addItem("", getCollectionItemName());
-
-
-        /* Do all items at once method
-        List<String> itemNames = getCollectionItemNames(); // Fetch item names
-        for (String itemName : itemNames) {
-            addItem("", itemName); // Call addItem for each item
-        }   */
-       // addItem("",)
+        // Build whole collection at once whatever
+//        List<String> itemNames = getCollectionItems(); // Fetch item names in collection
+//        for (String itemName : itemNames) {
+//            addItem("", itemName); // Call addItem for each item
+//        }
     }
 
     @FXML

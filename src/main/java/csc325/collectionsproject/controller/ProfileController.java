@@ -23,21 +23,13 @@ public class ProfileController {
 
 
     @FXML
-    private ImageView profilePicture;
-    @FXML
     private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, collectionViewBtn, viewAllButton;
     @FXML
     private AnchorPane ProfileView;
     @FXML
-    private ImageView primaryCollectionImage;
-    @FXML
     private Label profileNameLabel;
     @FXML
-    private ImageView showcaseItem1;
-    @FXML
-    private ImageView showcaseItem2;
-    @FXML
-    private ImageView showcaseItem3;
+    private ImageView profilePicture, primaryCollectionImage, showcaseItem1, showcaseItem2, showcaseItem3;
 
     public void initialize() {
         UserSession session = UserSession.getInstance();
