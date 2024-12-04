@@ -104,7 +104,7 @@
             </GridPane>
          </center>
          <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Item to [Collection Name]" BorderPane.alignment="TOP_LEFT">
+            <Text fx:id="collectionNameLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Item to [Collection Name]" BorderPane.alignment="TOP_LEFT">
                <BorderPane.margin>
                   <Insets bottom="20.0" left="42.0" top="15.0" />
                </BorderPane.margin>
