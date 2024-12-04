@@ -120,7 +120,6 @@
                         <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Button fx:id="addItemInGridBtn1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addCollectionToGrid" text="Add to Grid" />
                   <GridPane fx:id="itemGrid" alignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

@@ -73,7 +73,6 @@ public class ProfileController {
                 System.out.println("Collection Title: " + collectionName);
 
                 // if collectionName is not null, add it to the list of titles to return
-                System.out.println("Collection Title: " + collectionName);
                 if (collectionName != null) {
                     collectionNames.add(collectionName);
                 }
