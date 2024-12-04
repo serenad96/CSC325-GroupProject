@@ -19,7 +19,7 @@
          </font>
       </Label>
       <Button fx:id="viewAllButton" layoutX="431.0" layoutY="535.0" mnemonicParsing="false" onAction="#openAllCollections" prefHeight="25.0" prefWidth="162.0" text="View All" />
-      <Pane layoutX="26.0" layoutY="173.0" prefHeight="302.0" prefWidth="272.0">
+      <Pane layoutX="26.0" layoutY="173.0" onMouseClicked="#viewCollectionItems" prefHeight="302.0" prefWidth="272.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="302.0" stroke="BLACK" strokeType="INSIDE" width="272.0" />
             <Label layoutX="85.0" layoutY="257.0" prefHeight="17.0" prefWidth="103.0" text="Primary Collection" />

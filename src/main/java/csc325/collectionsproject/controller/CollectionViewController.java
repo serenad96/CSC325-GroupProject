@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
@@ -21,6 +22,9 @@ public class CollectionViewController {
 
     @FXML
     private GridPane itemGrid;
+
+    @FXML
+    Label collectionNameLbl;
 
     private int row = 0;
     private int column = 0;
@@ -35,9 +39,43 @@ public class CollectionViewController {
     }
 
     public void initialize() {
-        UserSession session = UserSession.getInstance();
-
+        String collectionName = getCollectionName();
+        collectionNameLbl.setText(collectionName);
     }
+
+    // Retrieve the collection name from Firestore
+    public String getCollectionName() {
+        try {
+            // Use the singleton instance to get the active username
+            UserSession active = UserSession.getInstance();
+            String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+            // Navigate to the user's "Collections" sub-collection
+            CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
+                    .document(username)
+                    .collection("Collections");
+
+            // Get all documents in the "Collections" sub-collection
+            ApiFuture<QuerySnapshot> future = collectionsRef.get();
+            QuerySnapshot querySnapshot = future.get();
+
+            List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+            for (QueryDocumentSnapshot document : documents) {
+                String collectionId = document.getId(); // Get the document ID
+                System.out.println("Collection ID: " + collectionId);
+
+                // Optionally, retrieve specific fields from the document
+                String collectionTitle = document.getString("Collection Title");
+                System.out.println("Collection Title: " + collectionTitle);
+                return collectionTitle;
+            }
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
  public String getCollectionItemName() throws ExecutionException, InterruptedException {
      try {
@@ -89,6 +127,7 @@ public class CollectionViewController {
     @FXML
     void addNewItemTest(ActionEvent event) throws ExecutionException, InterruptedException {
        addItem("", getCollectionItemName());
+
 
         /* Do all items at once method
         List<String> itemNames = getCollectionItemNames(); // Fetch item names
