@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane prefHeight="673.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionViewController">
    <top>
       <HBox BorderPane.alignment="CENTER">
@@ -54,13 +53,6 @@
                   <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="200.0" />
                </rowConstraints>
-               <children>
-                  <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addNewItemTest" text="Add New Item" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Button>
-               </children>
             </GridPane>
          </children>
          <padding>

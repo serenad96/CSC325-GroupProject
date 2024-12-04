@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutionException;
 
 public class CollectionViewController {
     @FXML
-    private Button addItemBtn, newCollectionBtn,profileBtn, addItemInGridBtn;
+    private Button addItemBtn, newCollectionBtn, profileBtn;
 
     @FXML
     private GridPane itemGrid;
@@ -172,8 +172,6 @@ public class CollectionViewController {
                 column = 0;
                 row++;
             }
-            itemGrid.getChildren().remove(addItemInGridBtn);
-            itemGrid.add(addItemInGridBtn, column, row);
 
         } catch (IOException e) {
             e.printStackTrace();
