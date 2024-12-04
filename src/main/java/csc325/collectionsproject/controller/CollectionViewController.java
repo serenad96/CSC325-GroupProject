@@ -126,10 +126,10 @@ public class CollectionViewController {
     @FXML
     void addNewItemTest(ActionEvent event) throws ExecutionException, InterruptedException {
         // Build whole collection at once whatever
-        List<String> itemNames = getCollectionItems(); // Fetch item names in collection
-        for (String itemName : itemNames) {
-            addItem("", itemName); // Call addItem for each item
-        }
+//        List<String> itemNames = getCollectionItems(); // Fetch item names in collection
+//        for (String itemName : itemNames) {
+//            addItem("", itemName); // Call addItem for each item
+//        }
     }
 
     @FXML
