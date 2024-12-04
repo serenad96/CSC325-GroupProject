@@ -7,7 +7,8 @@ public class User {
     public String username;
     public String password;
     public Profile profile;
-    public Collection collection;
+    //profile picture
+    public Collection collection; //should be showcase
  //   public List collections; //undecided on data type atm
 
     public User(String username, String password) {

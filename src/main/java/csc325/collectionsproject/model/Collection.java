@@ -1,22 +1,26 @@
 package csc325.collectionsproject.model;
 
 import java.util.ArrayList;
-import java.util.List;
-//Could possibly be a interface which implements standard collection & showcase collection?
+
 public class Collection {
 
     public String collectionTitle;
     public String collectionDescription;
     public ArrayList<CollectionItem> collectionItems = new ArrayList<>();
-   // public ArrayList<String> collectionTags;
-    //public int rating;
-    //make all ratings an eNum
+    public ArrayList<String> collectionTags;
 
     public Collection(String collectionTitle, String collectionDescription) {
         this.collectionTitle = collectionTitle;
-        //this.collectionTags = new ArrayList<String>();
         this.collectionDescription = collectionDescription;
-        this.collectionItems = new ArrayList<>();
+        this.collectionTags = new ArrayList<String>();
+        this.collectionItems = new ArrayList<>(); //coll Items needed?
+    }
+
+    public Collection(String collectionTitle, String collectionDescription, ArrayList<String> collectionTags) {
+        this.collectionTitle = collectionTitle;
+        this.collectionDescription = collectionDescription;
+        this.collectionTags = new ArrayList<String>();
+        this.collectionItems = new ArrayList<>(); //coll Items needed?
     }
 
     public Collection() {
@@ -53,22 +57,11 @@ public class Collection {
     }
 
     /*
+    //get tags
+
     public void setTags(ArrayList<String> tags) {
         this.collectionTags = tags;
     }
 
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    } */
-/*
-
-Tags
-Other important fields
-Rating, etc.
- */
-
+   */
 }

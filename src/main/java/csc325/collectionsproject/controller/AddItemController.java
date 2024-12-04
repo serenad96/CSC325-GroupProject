@@ -1,9 +1,9 @@
 package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,10 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.TextField;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import javafx.scene.text.*;
 
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
@@ -28,10 +27,10 @@ public class AddItemController {
         private ImageView addItemImg;
 
         @FXML
-        private TextField itemNameTF;
+        private TextField itemNameTF, itemDescriptionTF;
 
         @FXML
-        private Label privateToggleLbl, publicToggleLbl, starRatingLabel, addItemLabel;
+        private Label privateToggleLbl, publicToggleLbl, starRatingLabel, addItemLbl;
 
         @FXML
         private HBox privacyToggleBox, starBox;
@@ -42,9 +41,12 @@ public class AddItemController {
         @FXML
         private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5, itemPrivacyToggle;
 
+        @FXML
+        private Text collectionNameLbl;
+
         private ToggleGroup ratingToggleGwoup;
         int ratingValue;
-        private CollectionViewController collectionController;
+       // private CollectionViewController collectionController;
 
         @FXML
         private void initialize() {
@@ -68,34 +70,62 @@ public class AddItemController {
                 itemRating3.setToggleGroup(ratingToggleGwoup);
                 itemRating4.setToggleGroup(ratingToggleGwoup);
                 itemRating5.setToggleGroup(ratingToggleGwoup);
-
-
-                /*DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document("Collection Title");
-                addItemLabel.setText(docRef.toString());*/
-
-
         }
-
-
 
         //individual collection controller instance for a specific collection
-        public void setCollectionController(CollectionViewController collectionController) {
-                this.collectionController = collectionController;
-        }
+//        public void setCollectionController(CollectionViewController collectionController) {
+//                this.collectionController = collectionController;
+//        }
 
+        //This is clicking the add new item button in the minibar
         @FXML
         void addNewItem(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
-                //This is clicking the add new item button
-                //This is where a item is finalized for adding to a user collection
-                //CollectionItem collectionItem = new CollectionItem();
-                // Gather item details
-//                String imageUrl = ""; // test imageURL
-//                String labelText = itemNameTF.getText();
-                // Add the item to the collection
-//                collectionController.addItem(imageUrl, labelText);
-
                 //Write Item in to Firebase
+                String itemName = itemNameTF.getText();
+                String itemDescription = itemDescriptionTF.getText();
+                String collectionName = getCollectionName();
+                System.out.println("Collection name from getCollectionName : " + collectionName);
+               // addItemLabel.setText(collectionName);
+                FirebaseWriter fbWriter = new FirebaseWriter();
+
+                // Add the item to the collection
+                fbWriter.addCollectionItemToCollection(collectionName ,itemName, itemDescription);
+               // addItemLbl.setText("asdf");
+
+
                 switchToCollectionView();
+        }
+
+        // Retrieve the collection name from Firestore
+        public String getCollectionName() {
+                try {
+                        // Use the singleton instance to get the active username
+                        UserSession active = UserSession.getInstance();
+                        String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+                        // Navigate to the user's "Collections" sub-collection
+                        CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
+                                .document(username)
+                                .collection("Collections");
+
+                        // Get all documents in the "Collections" sub-collection
+                        ApiFuture<QuerySnapshot> future = collectionsRef.get();
+                        QuerySnapshot querySnapshot = future.get();
+
+                        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+                        for (QueryDocumentSnapshot document : documents) {
+                                String collectionId = document.getId(); // Get the document ID
+                                System.out.println("Collection ID: " + collectionId);
+
+                                // Get collection title
+                                String collectionTitle = document.getString("Collection Title");
+                                System.out.println("Collection Title: " + collectionTitle);
+                                return collectionTitle;
+                        }
+                } catch (ExecutionException | InterruptedException e) {
+                        e.printStackTrace();
+                }
+                return null;
         }
 
         @FXML
@@ -187,7 +217,5 @@ public class AddItemController {
                 // starRatingLabel.setText();
                 }
         }
-
-
 
 }

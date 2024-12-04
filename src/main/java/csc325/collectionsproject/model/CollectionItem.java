@@ -6,10 +6,9 @@ import java.util.ArrayList;
 public class CollectionItem {
 
     public String itemName;
-    public ImageView itemImage;
+    public ImageView itemImage; //should this be image or imageview?
     public String itemDescription;
-    public boolean privacySetting;
-    public ArrayList<String> itemTags;
+    boolean privacySetting; //default will be public -> Move this to Collection
     //item rating once that is established
 
 
@@ -18,7 +17,7 @@ public class CollectionItem {
         this.itemImage = new ImageView();
         this.itemDescription = description; //change later
         this.privacySetting = privacyToggle; //set this to button toggle in gui
-        this.itemTags = new ArrayList<>();
+        //rating
     }
 
 //Might need to change one of these constructors
@@ -49,14 +48,6 @@ public class CollectionItem {
 
     public void setPrivacySetting(boolean privacySetting) {
         this.privacySetting = privacySetting;
-    }
-
-    public ArrayList<String> getItemTags() {
-        return itemTags;
-    }
-
-    public void setItemTags(ArrayList<String> itemTags) {
-        this.itemTags = itemTags;
     }
 
     @Override

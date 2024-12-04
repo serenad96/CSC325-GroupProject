@@ -1,6 +1,9 @@
 package csc325.collectionsproject.controller;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,10 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class CollectionViewController {
     @FXML
-    private Button addItemBtn, newCollectionBtn,profileBtn, addItemInGridBtn;
+    private Button addItemBtn, newCollectionBtn, profileBtn;
 
     @FXML
     private GridPane itemGrid;
@@ -21,19 +27,108 @@ public class CollectionViewController {
     private int column = 0;
 
 
-
-
     @FXML
     void addNewItem(ActionEvent event) throws IOException {
-        //addItem(String imageUrl, String labelText); commented out while adding component logic is incomplete
-        //dont forget to remove gridlines from gridpane
         switchToAddItemView();
-        //addItem("", "Added item!");
     }
 
+    public void initialize() throws ExecutionException, InterruptedException {
+        List<String> itemNames = getCollectionItems(); // Fetch item names in collection
+        for (String itemName : itemNames) {
+            addItem("", itemName); // Call addItem for each item
+        }
+    }
+/*
+ public String getCollectionItemName() throws ExecutionException, InterruptedException {
+     try {
+         // Use the singleton instance to get the active username
+         UserSession active = UserSession.getInstance();
+         String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+         // Navigate to the user's "Collections" sub-collection
+         CollectionReference collectionRef = CollectionsApplication.fstoreDB.collection("Users")
+                 .document(username) //Username stored in active UserSession
+                 .collection("Collections")
+                 .document("Fortnite skinsCollection") // Actual name of Collection
+                 .collection("Collection Items");
+
+         // Get all documents in the "Collections" sub-collection
+         ApiFuture<QuerySnapshot> future = collectionRef.get();
+         QuerySnapshot itemSnapshot = future.get();
+
+         System.out.println("CIN Test Print 1");
+
+         List<QueryDocumentSnapshot> documents = itemSnapshot.getDocuments();
+         System.out.println("Number of documents in item search: " + documents.size());
+
+         for (QueryDocumentSnapshot document : documents) {
+             System.out.println("CI For Each Loop Printing");
+             String collectionId = document.getId(); // Get the document ID
+             System.out.println("Collection ID: " + collectionId);
+
+             // Retrieve item name from the document
+             String itemName = document.getString("Item Name");
+             System.out.println("Item Name: " + itemName);
+             return collectionId;
+         }
+         System.out.println("CI End of method print");
+     } catch (ExecutionException | InterruptedException e) {
+         e.printStackTrace();
+     }
+     return null;
+ }
+*/
+    public List<String> getCollectionItems(/*String collectionName*/) throws ExecutionException, InterruptedException {
+        List<String> itemNames = new ArrayList<>(); // Store item names
+        try {
+            // Use the singleton instance to get the active username
+            UserSession active = UserSession.getInstance();
+            String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+            // Navigate to the user's "Collections" sub-collection
+            CollectionReference collectionRef = CollectionsApplication.fstoreDB.collection("Users")
+                    .document(username) //Username stored in active UserSession
+                    .collection("Collections")
+                    .document("Fortnite skinsCollection") // Actual name of Collection
+                    .collection("Collection Items");
+
+            // Get all documents in the "Collections" sub-collection
+            ApiFuture<QuerySnapshot> future = collectionRef.get();
+            QuerySnapshot itemSnapshot = future.get();
+
+            System.out.println("DisplayItems Test Print 1");
+
+            List<QueryDocumentSnapshot> documents = itemSnapshot.getDocuments();
+            System.out.println("Number of documents: " + documents.size());
+
+            //For each document in the snapshot, iterate through this loop
+            for (QueryDocumentSnapshot document : documents) {
+                // Retrieve item name from the document
+                String itemName = document.getString("Item Name");
+                System.out.println("Item Name: " + itemName);
+
+                // if itenName is not null, add it to the list of titles to return
+                System.out.println("Item Name: " + itemName);
+                if (itemName != null) {
+                    itemNames.add(itemName);
+                }
+            }
+            System.out.println("DisplayItems End of method print");
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        //return list of item names
+        return itemNames;
+    }
+
+    //Test method linked to addItemInGridBtn, change this back to addNewItem() once that part works
     @FXML
-    void addNewItemTest(ActionEvent event) {
-        addItem("", "Added item!");
+    void addNewItemTest(ActionEvent event) throws ExecutionException, InterruptedException {
+        // Build whole collection at once whatever
+//        List<String> itemNames = getCollectionItems(); // Fetch item names in collection
+//        for (String itemName : itemNames) {
+//            addItem("", itemName); // Call addItem for each item
+//        }
     }
 
     @FXML
@@ -53,8 +148,9 @@ public class CollectionViewController {
 
     //just pass a CollectionItem here when it works, or we can get the data from the database? whats easier
     //collection view grid logic uwu happy thanksgiving
-    public void addItem(String imageUrl, String labelText) {
+    public void addItem(String imageUrl, String itemName) {
         try {
+            //switchToAddItemView();
             // Load the FXML for the item component
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/csc325/collectionsproject/components/item-component.fxml"));
             Node itemNode = loader.load();
@@ -62,7 +158,8 @@ public class CollectionViewController {
             // Get the controller of the item component
             ItemComponentController newItemController = loader.getController();
             newItemController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/pipermelonart.png");
-            newItemController.setLabel(labelText);
+            newItemController.setLabel(itemName);
+            //newItemController.setLabel(labelText != null ? labelText : "Collection Item Here");
 
             // Add the item to the grid at the next available position
             itemGrid.add(itemNode, column, row);
@@ -74,11 +171,13 @@ public class CollectionViewController {
                 column = 0;
                 row++;
             }
-            itemGrid.getChildren().remove(addItemInGridBtn);
-            itemGrid.add(addItemInGridBtn, column, row);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+    // Retrieve the collection name from Firestore
+
 }
