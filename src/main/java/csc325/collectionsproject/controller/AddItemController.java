@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import javafx.scene.text.*;
 
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
@@ -40,9 +41,12 @@ public class AddItemController {
         @FXML
         private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5, itemPrivacyToggle;
 
+        @FXML
+        private Text collectionNameLbl;
+
         private ToggleGroup ratingToggleGwoup;
         int ratingValue;
-        private CollectionViewController collectionController;
+       // private CollectionViewController collectionController;
 
         @FXML
         private void initialize() {
@@ -66,18 +70,14 @@ public class AddItemController {
                 itemRating3.setToggleGroup(ratingToggleGwoup);
                 itemRating4.setToggleGroup(ratingToggleGwoup);
                 itemRating5.setToggleGroup(ratingToggleGwoup);
-
-
-
-
         }
 
         //individual collection controller instance for a specific collection
-        public void setCollectionController(CollectionViewController collectionController) {
-                this.collectionController = collectionController;
-        }
+//        public void setCollectionController(CollectionViewController collectionController) {
+//                this.collectionController = collectionController;
+//        }
 
-        //This is clicking the add new item button
+        //This is clicking the add new item button in the minibar
         @FXML
         void addNewItem(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
                 //Write Item in to Firebase
@@ -91,7 +91,41 @@ public class AddItemController {
                 // Add the item to the collection
                 fbWriter.addCollectionItemToCollection(collectionName ,itemName, itemDescription);
                // addItemLbl.setText("asdf");
+
+
                 switchToCollectionView();
+        }
+
+        // Retrieve the collection name from Firestore
+        public String getCollectionName() {
+                try {
+                        // Use the singleton instance to get the active username
+                        UserSession active = UserSession.getInstance();
+                        String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+                        // Navigate to the user's "Collections" sub-collection
+                        CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
+                                .document(username)
+                                .collection("Collections");
+
+                        // Get all documents in the "Collections" sub-collection
+                        ApiFuture<QuerySnapshot> future = collectionsRef.get();
+                        QuerySnapshot querySnapshot = future.get();
+
+                        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+                        for (QueryDocumentSnapshot document : documents) {
+                                String collectionId = document.getId(); // Get the document ID
+                                System.out.println("Collection ID: " + collectionId);
+
+                                // Get collection title
+                                String collectionTitle = document.getString("Collection Title");
+                                System.out.println("Collection Title: " + collectionTitle);
+                                return collectionTitle;
+                        }
+                } catch (ExecutionException | InterruptedException e) {
+                        e.printStackTrace();
+                }
+                return null;
         }
 
         @FXML
@@ -183,38 +217,5 @@ public class AddItemController {
                 // starRatingLabel.setText();
                 }
         }
-
-        // Retrieve the collection name from Firestore
-        public String getCollectionName() {
-                try {
-                        // Use the singleton instance to get the active username
-                        UserSession active = UserSession.getInstance();
-                        String username = active.getLoggedInUser().getUsername(); // Retrieve the username
-
-                        // Navigate to the user's "Collections" sub-collection
-                        CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
-                                .document(username)
-                                .collection("Collections");
-
-                        // Get all documents in the "Collections" sub-collection
-                        ApiFuture<QuerySnapshot> future = collectionsRef.get();
-                        QuerySnapshot querySnapshot = future.get();
-
-                        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
-                        for (QueryDocumentSnapshot document : documents) {
-                                String collectionId = document.getId(); // Get the document ID
-                                System.out.println("Collection ID: " + collectionId);
-
-                                // Optionally, retrieve specific fields from the document
-                                String collectionTitle = document.getString("Collection Title");
-                                System.out.println("Collection Title: " + collectionTitle);
-                                return collectionTitle;
-                        }
-                } catch (ExecutionException | InterruptedException e) {
-                        e.printStackTrace();
-                }
-                return null;
-        }
-
 
 }
