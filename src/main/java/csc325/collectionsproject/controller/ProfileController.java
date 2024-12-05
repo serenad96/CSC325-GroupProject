@@ -2,10 +2,8 @@ package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
-import com.google.api.core.ApiFuture;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
@@ -26,7 +24,7 @@ public class ProfileController {
 
 
     @FXML
-    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, collectionViewBtn, viewAllButton, addItemInGridBtn;
+    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, collectionViewBtn, viewAllBtn, addItemInGridBtn;
     @FXML
     private GridPane itemGrid;
     @FXML
@@ -45,12 +43,12 @@ public class ProfileController {
         profileNameLabel.setText("Welcome " + session.getLoggedInUser().getUsername() + "!");
 
         //Populate all of a users collections
-        List<String> collectionNames = getCollectionNames(); // Fetch names of user's collection
+        List<String> collectionNames = getAllCollections(); // Fetch names of user's collection
         for (String collectionName : collectionNames) {
             addItem("", collectionName); // Call addItem for each item
         }
     }
-    public List<String> getCollectionNames() {
+    public List<String> getAllCollections() {
         List<String> collectionNames = new ArrayList<>(); // Store item names
         try {
             // Use the singleton instance to get the active username
@@ -122,10 +120,6 @@ public class ProfileController {
         switchToCreateCollectionView();
     }
 
-    @FXML
-    void openAllCollections(ActionEvent event) throws IOException {
-        switchToCollectionView();
-    }
 
     @FXML
     void openPrimaryCollection(ActionEvent event) throws IOException {

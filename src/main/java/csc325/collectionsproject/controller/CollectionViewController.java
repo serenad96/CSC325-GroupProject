@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
@@ -24,6 +25,9 @@ public class CollectionViewController {
 
     @FXML
     private GridPane itemGrid;
+
+    @FXML
+    private Label collectionNameLbl;
 
     private int row = 0;
     private int column = 0;
@@ -39,53 +43,20 @@ public class CollectionViewController {
     public void initialize() throws ExecutionException, InterruptedException {
 
         //Get Selected Collection Name
-
         List<String> itemNames = getCollectionItems(); // Fetch item names in collection
         for (String itemName : itemNames) {
             addItem("", itemName); // Call addItem for each item
         }
+
+        //Retrieve the collectionName from the Collection Session
+        CollectionSession session = CollectionSession.getInstance();
+        String selectedCollection = session.getSelectedCollectionName();
+
+        collectionNameLbl.setText(selectedCollection);
+        System.out.println("Active collection in writer " + selectedCollection);
+
     }
 
-/*
- public String getCollectionItemName() throws ExecutionException, InterruptedException {
-     try {
-         // Use the singleton instance to get the active username
-         UserSession active = UserSession.getInstance();
-         String username = active.getLoggedInUser().getUsername(); // Retrieve the username
-
-         // Navigate to the user's "Collections" sub-collection
-         CollectionReference collectionRef = CollectionsApplication.fstoreDB.collection("Users")
-                 .document(username) //Username stored in active UserSession
-                 .collection("Collections")
-                 .document("Fortnite skinsCollection") // Actual name of Collection
-                 .collection("Collection Items");
-
-         // Get all documents in the "Collections" sub-collection
-         ApiFuture<QuerySnapshot> future = collectionRef.get();
-         QuerySnapshot itemSnapshot = future.get();
-
-         System.out.println("CIN Test Print 1");
-
-         List<QueryDocumentSnapshot> documents = itemSnapshot.getDocuments();
-         System.out.println("Number of documents in item search: " + documents.size());
-
-         for (QueryDocumentSnapshot document : documents) {
-             System.out.println("CI For Each Loop Printing");
-             String collectionId = document.getId(); // Get the document ID
-             System.out.println("Collection ID: " + collectionId);
-
-             // Retrieve item name from the document
-             String itemName = document.getString("Item Name");
-             System.out.println("Item Name: " + itemName);
-             return collectionId;
-         }
-         System.out.println("CI End of method print");
-     } catch (ExecutionException | InterruptedException e) {
-         e.printStackTrace();
-     }
-     return null;
- }
-*/
     public List<String> getCollectionItems() throws ExecutionException, InterruptedException {
         List<String> itemNames = new ArrayList<>(); // Store item names
         try {

@@ -3,6 +3,7 @@ package csc325.collectionsproject.controller;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.CollectionSession;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
@@ -80,17 +81,21 @@ public class AddItemController {
         //This is clicking the add new item button in the minibar
         @FXML
         void addNewItem(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
+                CollectionSession session = CollectionSession.getInstance();
+                String selectedCollection = session.getSelectedCollectionName();
+
+
                 //Write Item in to Firebase
                 String itemName = itemNameTF.getText();
                 String itemDescription = itemDescriptionTF.getText();
-                String collectionName = getCollectionName();
-                System.out.println("Collection name from getCollectionName : " + collectionName);
+                System.out.println("Collection name from getCollectionName : " + selectedCollection);
                // addItemLabel.setText(collectionName);
                 FirebaseWriter fbWriter = new FirebaseWriter();
 
                 // Add the item to the collection
-                fbWriter.addCollectionItemToCollection(collectionName ,itemName, itemDescription);
+                fbWriter.addCollectionItemToCollection(selectedCollection ,itemName, itemDescription);
                // addItemLbl.setText("asdf");
+
 
 
                 switchToCollectionView();
@@ -99,6 +104,7 @@ public class AddItemController {
         // Retrieve the collection name from Firestore
         public String getCollectionName() {
                 try {
+
                         // Use the singleton instance to get the active username
                         UserSession active = UserSession.getInstance();
                         String username = active.getLoggedInUser().getUsername(); // Retrieve the username
