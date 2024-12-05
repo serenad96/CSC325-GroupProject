@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,6 +25,9 @@ public class CollectionViewController {
 
     @FXML
     private GridPane itemGrid;
+
+    @FXML
+    private Label collectionNameLbl;
 
     private int row = 0;
     private int column = 0;
