@@ -97,7 +97,7 @@
       <ToolBar prefHeight="57.0">
         <items>
             <Button fx:id="newCollectionBtn" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="New Collection" />
-          <Button fx:id="collectionViewBtn" mnemonicParsing="false" onAction="#openAllCollections" text="Collection View" />
+          <Button fx:id="collectionViewBtn" mnemonicParsing="false" text="Collection View" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
             <ImageView fx:id="profilePicture" fitHeight="47.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" translateX="450.0" />
         </items>
