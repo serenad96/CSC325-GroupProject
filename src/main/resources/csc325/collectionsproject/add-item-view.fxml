@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="488.0" prefWidth="648.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.AddItemController">
+<BorderPane prefHeight="488.0" prefWidth="648.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.AddItemController">
    <top>
       <ToolBar prefHeight="25.0" prefWidth="648.0" BorderPane.alignment="CENTER">
         <items>
@@ -135,7 +135,7 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <ImageView fx:id="addItemImg" fitHeight="178.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="addItemImg" fitHeight="178.0" fitWidth="200.0" onMouseClicked="#uploadImage" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets bottom="-5.0" left="5.0" right="5.0" />
                </VBox.margin>
@@ -143,7 +143,7 @@
                   <Image url="@imgs/yello.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="addImgBtn" mnemonicParsing="false" text="Add Image">
+            <Button fx:id="addImgBtn" mnemonicParsing="false" onAction="#uploadImage" text="Add Image">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>

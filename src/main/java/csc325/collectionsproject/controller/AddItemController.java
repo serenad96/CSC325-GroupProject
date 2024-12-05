@@ -10,10 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.TextField;
+
+import java.io.File;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import javafx.scene.text.*;
@@ -21,6 +25,7 @@ import javafx.scene.text.*;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Toggle;
+import javafx.stage.FileChooser;
 
 public class AddItemController {
 
@@ -224,4 +229,20 @@ public class AddItemController {
                 }
         }
 
+
+        @FXML
+        void uploadImage(ActionEvent event) {
+                FileChooser imgChooser = new FileChooser();
+                imgChooser.setTitle("Choose an Item Image");
+                imgChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.gif"));
+                File file = imgChooser.showOpenDialog(addItemImg.getScene().getWindow());
+                if (file != null) {
+                    addItemImg.setImage(new Image(file.toURI().toString()));
+                    //String filePath = "src/main/resources/csc325/collectionsproject/imgs";
+                } else {
+                        System.out.println("Gay baby error");
+                }
+
+                //Need to make images save
+        }
 }
