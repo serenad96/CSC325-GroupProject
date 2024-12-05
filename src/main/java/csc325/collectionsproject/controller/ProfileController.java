@@ -89,13 +89,13 @@ public class ProfileController {
     public void addItem(String imageUrl, String itemName) {
         try {
             // Load the FXML for the item component
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/csc325/collectionsproject/components/item-component.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/csc325/collectionsproject/components/collection-component.fxml"));
             Node itemNode = loader.load();
 
             // Get the controller of the item component
-            ItemComponentController newItemController = loader.getController();
-            newItemController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/pipermelonart.png");
-            newItemController.setLabel(itemName);
+            CollectionComponentController newCollectionController = loader.getController();
+            newCollectionController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/trilo.jpg");
+            newCollectionController.setLabel(itemName);
             //newItemController.setLabel(labelText != null ? labelText : "Collection Item Here");
 
             // Add the item to the grid at the next available position
