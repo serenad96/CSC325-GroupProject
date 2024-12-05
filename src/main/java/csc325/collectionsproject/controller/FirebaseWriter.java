@@ -8,6 +8,8 @@ import csc325.collectionsproject.model.Collection;
 import csc325.collectionsproject.model.CollectionItem;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.*;
 import java.util.concurrent.ExecutionException;
@@ -70,29 +72,14 @@ public class FirebaseWriter {
         //print added collection name to console
         System.out.println("Collection " + collectionTitle + " added");
 
-
-
-
-        //TEST CODE
-
-        //ApiFuture<DocumentReference> result = subCollectionRef.add(collectionData);
-
-        // Use set() to add the collection data inside the user document
- //       ApiFuture<WriteResult> result = docRef.set(collectionData, SetOptions.merge());
-
-        //asynchronously write data
-      //  ApiFuture<WriteResult> result = docRef.update(collectionData);
-  //      System.out.println("Collection added: " + result.get().getUpdateTime());
-
     }
 
 
     public void removeCollectionFromUser(String collectionTitle) {
-        //Get Active User
-        UserSession session1 = UserSession.getInstance();
-        User active = session1.getLoggedInUser();
-        //Print Username
-        System.out.println(active.getUsername());
+        // Gets Username from current session
+        UserSession session = UserSession.getInstance();
+        User active = session.getLoggedInUser();
+        System.out.println("Active user in writer " + active.getUsername());
 
         //Define Collection
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
@@ -111,12 +98,10 @@ public class FirebaseWriter {
     }
 
     public void removeCollectionItemFromCollection(String collectionTitle, String itemName) {
-
-        //Get Active User
-        UserSession session1 = UserSession.getInstance();
-        User active = session1.getLoggedInUser();
-        //Print Username
-        System.out.println(active.getUsername());
+        // Gets Username from current session
+        UserSession session = UserSession.getInstance();
+        User active = session.getLoggedInUser();
+        System.out.println("Active user in writer " + active.getUsername());
 
         //Define Collection
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
