@@ -5,6 +5,7 @@ public class CollectionSession {
         private static csc325.collectionsproject.model.CollectionSession instance;
         // Variable to store the logged-in user's information
         private String selectedCollectionName;
+        private String selectedCollectionItemName;
 
         // Private constructor (to prevent instantiation before registration/login events occur)
         private CollectionSession() {}
@@ -25,4 +26,11 @@ public class CollectionSession {
         return selectedCollectionName;
     }
 
+    public void setSelectedCollectionItemName(String selectedCollectionItemName) {
+        this.selectedCollectionItemName = selectedCollectionItemName;
+    }
+
+    public String getSelectedCollectionItemName() {
+            return selectedCollectionItemName;
+    }
 }
