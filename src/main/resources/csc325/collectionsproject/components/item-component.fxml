@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="itemPane" onMouseClicked="#viewCollection" prefHeight="171.0" prefWidth="154.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.ItemComponentController">
+<AnchorPane fx:id="itemPane" onMouseClicked="#viewItem" prefHeight="171.0" prefWidth="154.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.ItemComponentController">
    <children>
       <VBox fx:id="itemVBox" alignment="CENTER" layoutX="18.0" layoutY="14.0" spacing="10.0" style="-fx-background-color: #FAF9F6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

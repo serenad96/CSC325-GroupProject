@@ -52,6 +52,25 @@ public class ItemComponentController {
         pcontroller.switchToCollectionView();
     }
 
+    public void viewItem(MouseEvent mouseEvent) {
+        //Start CollectionSession
+        CollectionSession sessionI = CollectionSession.getInstance();
+
+        //Calling Profile Controller
+        ProfileController pcontroller = new ProfileController();
+
+        //Get item name from view label
+        String selectedCollectionItemName = itemNameLbl.getText();
+                //Displays Clicked Collections Name
+                System.out.println(selectedCollectionItemName);
+
+        //Set Selected Collection Name
+        sessionI.setSelectedCollectionItemName(selectedCollectionItemName);
+
+        //Switch to Item View
+        //pcontroller.switchToItemView();
+    }
+
     public void setImage(String imageUrl) {
         //should this be a new Image()? How to get the info from collection image?
         if (imageUrl == null || imageUrl.isEmpty()) {
