@@ -42,7 +42,7 @@ public class CollectionViewController {
 
     public void initialize() throws ExecutionException, InterruptedException {
 
-        //Get Selected Collection Name
+        //Get Selected Collection Name here, then populate with code below
 
         List<String> itemNames = getCollectionItems(); // Fetch item names in collection
         for (String itemName : itemNames) {
