@@ -1,9 +1,7 @@
 package csc325.collectionsproject.controller;
 
-import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.CollectionSession;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
@@ -35,8 +33,7 @@ public class ItemComponentController {
             ItemComponentController.class.getResource("/csc325/collectionsproject/imgs/pipermelonart.png").toExternalForm();
 
     @FXML
-    void displayItemInfo(MouseEvent event) throws IOException {
-                //displayItemInfo name is WRONG, this method is used to view a specific collection
+    void viewCollection(MouseEvent event) throws IOException {
         //Start CollectionSession
         CollectionSession session = CollectionSession.getInstance();
 
