@@ -15,7 +15,7 @@
          <children>
             <ImageView fx:id="itemImage" fitHeight="112.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/pipermelonart.png" />
+                  <Image url="@../imgs/pipermelonart.png" />
                </image>
             </ImageView>
             <HBox fx:id="itemLabelHBox" alignment="CENTER" style="-fx-background-color: LIGHTGREEN; -fx-background-radius: 10;">
