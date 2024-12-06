@@ -10,8 +10,18 @@
     -fx-text-fill: #828282;
 }
 
+.toggle-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-cursor: hand;
+}
+
 .toggle-Box {
     -fx-border-width: .1;
+}
+
+.button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-cursor: hand;
 }
 
 /* END OF SELIN CODE */
