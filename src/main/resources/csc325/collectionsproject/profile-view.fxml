@@ -18,12 +18,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.ProfileController">
+<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.ProfileController">
    <top>
       <ToolBar prefHeight="57.0" BorderPane.alignment="CENTER">
         <items>
             <Button fx:id="newCollectionBtn" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="New Collection" />
-          <Button fx:id="collectionViewBtn" mnemonicParsing="false" text="Collection View" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
             <ImageView fx:id="profilePicture" fitHeight="47.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" translateX="450.0" />
         </items>

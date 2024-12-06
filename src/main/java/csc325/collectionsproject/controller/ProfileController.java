@@ -24,7 +24,7 @@ public class ProfileController {
 
 
     @FXML
-    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, collectionViewBtn, viewAllBtn, addItemInGridBtn;
+    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, viewAllBtn, addItemInGridBtn;
     @FXML
     private GridPane itemGrid;
     @FXML
@@ -135,43 +135,4 @@ public class ProfileController {
     public void switchToCreateCollectionView() throws IOException {
         CollectionsApplication.setRoot("create-collection-view");
     }
-/*
-    public void viewCollectionItems(ActionEvent event) throws IOException {
-        switchToCollectionView();
-        getCollectionName();
-
-
-    }
-
-    public String getCollectionName() {
-        try {
-            // Use the singleton instance to get the active username
-            UserSession active = UserSession.getInstance();
-            String username = active.getLoggedInUser().getUsername(); // Retrieve the username
-
-            // Navigate to the user's "Collections" sub-collection
-            CollectionReference collectionsRef = CollectionsApplication.fstoreDB.collection("Users")
-                    .document(username)
-                    .collection("Collections");
-
-            // Get all documents in the "Collections" sub-collection
-            ApiFuture<QuerySnapshot> future = collectionsRef.get();
-            QuerySnapshot querySnapshot = future.get();
-
-            List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
-            for (QueryDocumentSnapshot document : documents) {
-                String collectionId = document.getId(); // Get the document ID
-                System.out.println("Collection ID: " + collectionId);
-
-                // Optionally, retrieve specific fields from the document
-                String collectionTitle = document.getString("Collection Title");
-                System.out.println("Collection Title: " + collectionTitle);
-                return collectionTitle;
-            }
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-*/
 }
