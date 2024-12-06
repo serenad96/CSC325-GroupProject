@@ -7,24 +7,19 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="673.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionViewController">
    <top>
-      <HBox BorderPane.alignment="CENTER">
-         <children>
-            <ToolBar prefHeight="40.0" prefWidth="894.0">
-               <items>
-                  <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
-                  <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" text="New Collection" />
-                  <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" text="Add Item To This Collection" />
-               </items>
-            </ToolBar>
-         </children>
-      </HBox>
+      <ToolBar prefHeight="40.0" prefWidth="894.0">
+         <items>
+            <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
+            <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" text="New Collection" />
+            <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" text="Add Item To This Collection" />
+         </items>
+      </ToolBar>
    </top>
    <center>
       <VBox alignment="CENTER" prefHeight="335.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
@@ -53,13 +48,6 @@
                   <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="200.0" />
                </rowConstraints>
-               <children>
-                  <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addNewItemTest" text="Add New Item" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Button>
-               </children>
             </GridPane>
          </children>
          <padding>

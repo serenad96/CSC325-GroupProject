@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="collectionPane" onMouseClicked="#viewCollection" prefHeight="171.0" prefWidth="154.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionComponentController">
+   <children>
+      <VBox fx:id="collVbox" alignment="CENTER" layoutX="18.0" layoutY="14.0" spacing="10.0" style="-fx-background-color: #FAF9F6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="collectImg" fitHeight="112.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/trilo.jpg" />
+               </image>
+            </ImageView>
+            <HBox fx:id="collLabelHBox" alignment="CENTER" style="-fx-background-color: ORANGE; -fx-background-radius: 10;">
+               <children>
+                  <Label fx:id="collectionNameLbl" text="Collection Name" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
