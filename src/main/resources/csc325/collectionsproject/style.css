@@ -1,3 +1,5 @@
+/* SELIN CODE IGNORE - aujbs */
+
 .toggle-button{
     -fx-border-color: black;
     -fx-border-width: 0;
@@ -22,4 +24,61 @@
     -fx-cursor: hand;
 }
 
+/* END OF SELIN CODE */
 
+.label{
+
+}
+
+.login-page{
+    /*-fx-background-color: #28b428;*/
+    -fx-background-color: linear-gradient(to bottom right, #27b56e, #28b428);
+}
+
+.login-pane-top{
+    -fx-border-width: 10 10 0 10;
+    -fx-border-color: white;
+    -fx-padding: 10 15 10 15;
+    -fx-background-color: white;
+    -fx-border-style: solid outside line-cap round;
+}
+.login-pane{
+    -fx-border-width: 0 10 0 10;
+    -fx-border-color: white;
+    -fx-padding: 10 15 10 15;
+    -fx-background-color: white;
+    -fx-border-style: solid outside line-cap round;
+}
+.login-pane-bottom{
+    -fx-border-width: 0 10 10 10;
+    -fx-border-color: white;
+    -fx-padding: 10 15 10 15;
+    -fx-background-color: white;
+    -fx-border-style: solid outside line-cap round;
+}
+
+.button{
+
+}
+
+.welcome-text{
+    -fx-width: 50%;
+    -fx-padding: 0 50% 0 50%;
+    -fx-effect: dropshadow(gaussian, rgba(40, 180, 40, 0.7), 15, 0.5, 0.0, 0.0);
+}
+
+#loginBtn{
+    -fx-background-color: #bdbdbd;
+}
+#loginBtn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #28b428;
+}
+
+#registerBtn{
+    -fx-background-color: #bdbdbd;
+}
+#registerBtn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #28b428;
+}
