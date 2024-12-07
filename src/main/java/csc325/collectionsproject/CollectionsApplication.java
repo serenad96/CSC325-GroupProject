@@ -9,6 +9,7 @@ import csc325.collectionsproject.controller.FirebaseWriter;
 import csc325.collectionsproject.model.CollectionItem;
 
 import csc325.collectionsproject.model.FirestoreContext;
+import csc325.collectionsproject.model.ResourceManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,6 +37,8 @@ public class CollectionsApplication extends Application {
         //Initialize Firestore, authorization, db
         fstoreDB = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
+        //preload resources
+        ResourceManager.initialize();
 
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("registration-view.fxml"));
         scene = new Scene(fxmlLoader.load(), 860, 640);

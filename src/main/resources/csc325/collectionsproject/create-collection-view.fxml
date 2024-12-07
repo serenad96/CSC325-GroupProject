@@ -110,9 +110,9 @@
                <children>
                   <ToggleButton fx:id="privacyToggle" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#privacyToggleClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
                      <graphic>
-                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="toggleIcon" fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/toggle_on_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+                              <Image url="@icons/toggle_on.png" />
                            </image>
                         </ImageView>
                      </graphic>
