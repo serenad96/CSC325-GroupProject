@@ -110,8 +110,8 @@
 /* Profile Page */
 
 .profile-page{
-    -fx-background-color: #001702;
-    /*-fx-background-color: linear-gradient(white, white, white, DARKGREEN, DARKGREEN);*/
+    /*-fx-background-color: #001702;*/
+    -fx-background-color: linear-gradient(white, white, white, DARKGREEN, DARKGREEN);
 }
 
 .primary_collection{
@@ -150,14 +150,14 @@
 }
 .addCollect:hover{
     -fx-text-fill: white;
-    -fx-background-color: ORANGE;
+    -fx-background-color: #fa4c19;
 }
 
 .addItem2{
     -fx-background-color: white;
 }
 .addItem2:hover{
-    -fx-background-color: ORANGE;
+    -fx-background-color: GREEN;
     -fx-text-fill: white;
 }
 
@@ -181,7 +181,7 @@
 /* Collection View */
 
 .collect-view{
-    -fx-background-color: #001702;
+    -fx-background-color: linear-gradient(white, ORANGE);
 }
 
 /* Create Collection View */
