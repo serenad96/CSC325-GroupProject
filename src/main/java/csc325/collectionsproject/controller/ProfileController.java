@@ -99,6 +99,7 @@ public class ProfileController {
     @FXML
     void addCollectionToGrid(ActionEvent event) {
         addItem("", "Collection uwu!!!"); // Call addItem for each item
+
     }
 
     public void addItem(String imageUrl, String itemName) {
