@@ -1,21 +1,20 @@
 package csc325.collectionsproject.model;
 
-import java.util.List;
+import javafx.scene.image.ImageView;
 import java.util.Objects;
 
 public class User {
     public String username;
     public String password;
-    public Profile profile;
+    public String profilePicString;
+
     //profile picture
     public Collection collection; //should be showcase
- //   public List collections; //undecided on data type atm
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.profile = new Profile();
-        // this.collections = new <Collection>List();
+        this.profilePicString = "";
         this.collection = new Collection("Test Collection","TestDescription");
     }
 
@@ -31,6 +30,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getProfilePicString() {
+        return profilePicString;
+    }
+
+    public void setProfilePicString(String profilePicString) {
+        this.profilePicString = profilePicString;
     }
 
     public Collection getCollection() { return collection; }

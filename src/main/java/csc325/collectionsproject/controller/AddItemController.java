@@ -30,22 +30,22 @@ import javafx.stage.FileChooser;
 public class AddItemController {
 
         @FXML
-        private ImageView addItemImg;
+        private ImageView addItemImg, profilePicture;
 
         @FXML
         private TextField itemNameTF, itemDescriptionTF;
 
         @FXML
-        private Label privateToggleLbl, publicToggleLbl, starRatingLabel, addItemLbl;
+        private Label starRatingLabel, addItemLbl;
 
         @FXML
-        private HBox privacyToggleBox, starBox;
+        private HBox starBox;
 
         @FXML
         private Button addImgBtn, addNewItemBtn, backBtn, newCollectionBtn, profileBtn, collectionViewBtn;
 
         @FXML
-        private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5, itemPrivacyToggle;
+        private ToggleButton itemRating1, itemRating2, itemRating3, itemRating4, itemRating5;
 
         @FXML
         private Text collectionNameLbl;
@@ -56,19 +56,6 @@ public class AddItemController {
 
         @FXML
         private void initialize() {
-                // Privacy label is invisible cuz default public uwu data yummy
-                itemPrivacyToggle.setSelected(true);
-                if (itemPrivacyToggle.isSelected()) {
-                        publicToggleLbl.setVisible(true);
-                        publicToggleLbl.setManaged(true);
-                        privateToggleLbl.setVisible(false);
-                        privateToggleLbl.setManaged(false);
-                } else {
-                        publicToggleLbl.setVisible(false);
-                        publicToggleLbl.setManaged(false);
-                        privateToggleLbl.setVisible(true);
-                        privateToggleLbl.setManaged(true);
-                }
                 //i makea da rating pizza
                 ratingToggleGwoup = new ToggleGroup();
                 itemRating1.setToggleGroup(ratingToggleGwoup);
@@ -76,6 +63,12 @@ public class AddItemController {
                 itemRating3.setToggleGroup(ratingToggleGwoup);
                 itemRating4.setToggleGroup(ratingToggleGwoup);
                 itemRating5.setToggleGroup(ratingToggleGwoup);
+
+                //Set profile picture if one has been set previously
+                if(!UserSession.getInstance().getLoggedInUser().getProfilePicString().isEmpty()) {
+                        profilePicture.setImage(new Image(UserSession.getInstance().getLoggedInUser().getProfilePicString()));
+                        System.out.println("Set profile pic on add item view!");
+                }
         }
 
         //individual collection controller instance for a specific collection
@@ -154,18 +147,6 @@ public class AddItemController {
 
         @FXML
         void itemPrivacyToggleClicked(ActionEvent event) {
-                if (itemPrivacyToggle.isSelected()) {
-                        publicToggleLbl.setVisible(true);
-                        publicToggleLbl.setManaged(true);
-                        privateToggleLbl.setVisible(false);
-                        privateToggleLbl.setManaged(false);
-                } else {
-                        publicToggleLbl.setVisible(false);
-                        publicToggleLbl.setManaged(false);
-                        privateToggleLbl.setVisible(true);
-                        privateToggleLbl.setManaged(true);
-                }
-                System.out.println("Item Privacy Toggled");
         }
 
         @FXML
