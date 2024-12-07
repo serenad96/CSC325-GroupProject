@@ -6,12 +6,10 @@ import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.control.TextField;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,9 +18,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import javafx.scene.text.*;
 
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Toggle;
 import javafx.stage.FileChooser;
 
 public class AddItemController {
@@ -31,7 +26,10 @@ public class AddItemController {
         private ImageView addItemImg, profilePicture, star1, star2, star3, star4, star5;
 
         @FXML
-        private TextField itemNameTF, itemDescriptionTF;
+        private TextField itemNameTF;
+
+        @FXML
+        private TextArea itemDescriptionTF;
 
         @FXML
         private Label starRatingLabel, addItemLbl;
