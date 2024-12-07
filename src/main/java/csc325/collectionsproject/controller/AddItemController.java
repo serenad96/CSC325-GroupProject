@@ -3,9 +3,7 @@ package csc325.collectionsproject.controller;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
-import csc325.collectionsproject.model.CollectionSession;
-import csc325.collectionsproject.model.User;
-import csc325.collectionsproject.model.UserSession;
+import csc325.collectionsproject.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,7 +28,7 @@ import javafx.stage.FileChooser;
 public class AddItemController {
 
         @FXML
-        private ImageView addItemImg, profilePicture;
+        private ImageView addItemImg, profilePicture, star1, star2, star3, star4, star5;
 
         @FXML
         private TextField itemNameTF, itemDescriptionTF;
@@ -69,6 +67,8 @@ public class AddItemController {
                         profilePicture.setImage(new Image(UserSession.getInstance().getLoggedInUser().getProfilePicString()));
                         System.out.println("Set profile pic on add item view!");
                 }
+                String selected = CollectionSession.getInstance().getSelectedCollectionName();
+                collectionNameLbl.setText("Add Item to " + selected);
         }
 
         //individual collection controller instance for a specific collection
@@ -172,8 +172,14 @@ public class AddItemController {
                                         System.out.println("Selected Rating 1");
                                         starRatingLabel.setText("1 STAR THIS THING SUCKS");
                                         //set boolean value of item on create item, define value here
+                                        //RATING VALUE DOESNT DO ANYTHING RN I THINK IT NEEDS TO BE STORED SOMEWHERE TO WORK
                                         ratingValue = 1;
-                                        // Do stuff for Rating 1
+                                        // Do stuff for Rating 1                         "rating_full_gold_star.png"
+                                        star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star2.setImage(ResourceManager.getImage("rating_empty_star.png"));
+                                        star3.setImage(ResourceManager.getImage("rating_empty_star.png"));
+                                        star4.setImage(ResourceManager.getImage("rating_empty_star.png"));
+                                        star5.setImage(ResourceManager.getImage("rating_empty_star.png"));
                                         break;
 
                                 case "itemRating2":
@@ -181,24 +187,44 @@ public class AddItemController {
                                         starRatingLabel.setText("2 STAR THIS THING IS FINE IG");
                                         // Do stuff for Rating 2
                                         ratingValue = 2;
+                                        star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star2.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star3.setImage(ResourceManager.getImage("rating_empty_star.png"));
+                                        star4.setImage(ResourceManager.getImage("rating_empty_star.png"));
+                                        star5.setImage(ResourceManager.getImage("rating_empty_star.png"));
                                         break;
                                 case "itemRating3":
                                         System.out.println("Selected Rating 3");
                                         starRatingLabel.setText("3 STARS yeah aight");
                                         // Do stuff for Rating 3
                                         ratingValue = 3;
+                                        star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star2.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star3.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star4.setImage(ResourceManager.getImage("rating_empty_star.png"));
+                                        star5.setImage(ResourceManager.getImage("rating_empty_star.png"));
                                         break;
                                 case "itemRating4":
                                         System.out.println("Selected Rating 4");
                                         starRatingLabel.setText("4 STARs oooo KINDA Spicy");
                                         // Do stuff for Rating 4
                                         ratingValue = 4;
+                                        star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star2.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star3.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star4.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star5.setImage(ResourceManager.getImage("rating_empty_star.png"));
                                         break;
                                 case "itemRating5":
                                         System.out.println("Selected Rating 5");
                                         starRatingLabel.setText("5 STARS BABY!!!!!!!!!");
                                         // Do stuff for Rating 5
                                         ratingValue = 5;
+                                        star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star2.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star3.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star4.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
+                                        star5.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
                                         break;
                                 default:
                                         System.out.println("default case");

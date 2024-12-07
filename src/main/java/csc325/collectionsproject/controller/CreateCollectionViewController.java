@@ -2,6 +2,7 @@ package csc325.collectionsproject.controller;
 
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.CollectionSession;
+import csc325.collectionsproject.model.ResourceManager;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,16 +12,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
-import csc325.collectionsproject.controller.FirebaseWriter;
 import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class CreateCollectionViewController {
 
     @FXML
-    private ImageView collectionImage, profilePicture;
+    private ImageView collectionImage, profilePicture, toggleIcon;
 
     @FXML
     private Button addImgBtn, backBtn, createCollectionBtn, profileBtn;
@@ -37,6 +38,8 @@ public class CreateCollectionViewController {
     @FXML
     private Label privateToggleLbl, publicToggleLbl;
 
+    private static final String ICONS_PATH = "/csc325/collectionsproject/icons/";
+
     @FXML
     private void initialize() {
         // Privacy label is invisible cuz default public uwu data yummy
@@ -48,6 +51,8 @@ public class CreateCollectionViewController {
             profilePicture.setImage(new Image(UserSession.getInstance().getLoggedInUser().getProfilePicString()));
             System.out.println("Set profile pic on create collection view!");
         }
+
+
     }
 
 
@@ -78,11 +83,13 @@ public class CreateCollectionViewController {
             publicToggleLbl.setManaged(true);
             privateToggleLbl.setVisible(false);
             privateToggleLbl.setManaged(false);
+            toggleIcon.setImage(ResourceManager.getImage("toggle_on.png"));
         } else {
             publicToggleLbl.setVisible(false);
             publicToggleLbl.setManaged(false);
             privateToggleLbl.setVisible(true);
             privateToggleLbl.setManaged(true);
+            toggleIcon.setImage(ResourceManager.getImage("toggle_off.png"));
         }
     }
 
