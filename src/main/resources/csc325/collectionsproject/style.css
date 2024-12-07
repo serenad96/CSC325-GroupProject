@@ -11,7 +11,6 @@
 }
 
 .toggle-button:hover {
-    -fx-background-color: rgba(0, 0, 0, 0.1);
     -fx-cursor: hand;
 }
 
@@ -24,6 +23,11 @@
 }
 
 /* END OF SELIN CODE */
+
+.text-field{
+    -fx-prompt-text-fill: GREEN;
+    -fx-highlight-fill: ORANGE; /* doesnt work :( */
+}
 
 .label{
 
@@ -103,13 +107,13 @@
 
 .profile-page{
     /*-fx-background-color: white;*/
-    -fx-background-color: linear-gradient(white, white, DARKGREEN)
+    -fx-background-color: linear-gradient(white, white, white, DARKGREEN, DARKGREEN);
 }
 
 .primary_collection{
     -fx-padding: 15 20 15 20;
-    -fx-background-color: linear-gradient(to bottom right, DARKGREEN, #003104);
-    -fx-border-color: linear-gradient(to bottom right, DARKGREEN, #003104);
+    -fx-background-color: linear-gradient(to bottom right, ORANGE, RED);
+    -fx-border-color: linear-gradient(to bottom right, ORANGE, RED);
     -fx-border-style: solid;
     -fx-border-color: #da9100;
     -fx-border-width: 2 2 2 2;
@@ -153,8 +157,6 @@
     -fx-background-color: DARKGREEN;
 }
 
-
-
 #collVbox:hover{
     -fx-effect: dropshadow(gaussian, rgba(40, 255, 40, 0.5), 10, 0.7, 0.0, 0.0);
     -fx-cursor: hand;
@@ -176,4 +178,34 @@
 
 .collect-view{
     -fx-background-color: linear-gradient(white, ORANGE);
+}
+
+/* Create Collection View */
+
+.create-collect-view{
+    -fx-background-color: linear-gradient(ORANGE, #ff4d00);
+}
+
+.green-button{
+    -fx-background-color: white;
+}
+.green-button:hover{
+    -fx-text-fill: white;
+    -fx-background-color: GREEN;
+}
+
+.create-text-h1{
+    -fx-text-alignment: center;
+
+}
+
+.create-right{ /* right half of the create new collection view */
+
+}
+
+#publicToggleLbl{
+    -fx-font-size: 24;
+}
+#privateToggleLbl{
+    -fx-font-size: 24;
 }

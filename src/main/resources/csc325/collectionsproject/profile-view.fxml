@@ -82,7 +82,7 @@
                                     <Button fx:id="viewPrimaryCollectionBtn" layoutX="240.0" layoutY="263.0" mnemonicParsing="false" onAction="#openPrimaryCollection" text="View Full Collecton" />
                                     <HBox alignment="CENTER" layoutX="28.0" layoutY="19.0" spacing="20.0" styleClass="primary_collection_imgs">
                                        <children>
-                                          <ImageView fx:id="showcaseItem1" fitHeight="225.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="showcaseItem1" fitHeight="225.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true" >
                                              <image>
                                                 <Image url="@imgs/pipermelonart.png" />
                                              </image>
