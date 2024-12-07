@@ -93,6 +93,7 @@ public class AddItemController {
                 //Write Item in to Firebase
                 String itemName = itemNameTF.getText();
                 String itemDescription = itemDescriptionTF.getText();
+               // int itemRating= (int) itemRating1.getUserData();
                 System.out.println("Collection name from getCollectionName : " + selectedCollection);
                // addItemLabel.setText(collectionName);
                 FirebaseWriter fbWriter = new FirebaseWriter();

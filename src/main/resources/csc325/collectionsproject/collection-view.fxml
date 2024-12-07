@@ -17,7 +17,7 @@
          <items>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
             <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" text="New Collection" />
-            <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" text="Add Item To This Collection" />
+            <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" text="Add New Item" />
             <Button fx:id="deleteCollectionBtn" mnemonicParsing="false" onAction="#deleteCollection" text="Delete Collection" />
          </items>
       </ToolBar>
