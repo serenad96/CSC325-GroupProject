@@ -48,6 +48,8 @@ public class CreateCollectionViewController {
             profilePicture.setImage(new Image(UserSession.getInstance().getLoggedInUser().getProfilePicString()));
             System.out.println("Set profile pic on create collection view!");
         }
+
+
     }
 
 

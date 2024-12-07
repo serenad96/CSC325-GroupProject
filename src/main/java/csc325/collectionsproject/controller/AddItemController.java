@@ -3,6 +3,7 @@ package csc325.collectionsproject.controller;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.Collection;
 import csc325.collectionsproject.model.CollectionSession;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
@@ -69,6 +70,8 @@ public class AddItemController {
                         profilePicture.setImage(new Image(UserSession.getInstance().getLoggedInUser().getProfilePicString()));
                         System.out.println("Set profile pic on add item view!");
                 }
+                String selected = CollectionSession.getInstance().getSelectedCollectionName();
+                collectionNameLbl.setText("Add Item to " + selected);
         }
 
         //individual collection controller instance for a specific collection
