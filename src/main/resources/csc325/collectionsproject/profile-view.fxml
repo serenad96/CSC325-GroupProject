@@ -15,10 +15,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@style.css" styleClass="profile-page" fx:controller="csc325.collectionsproject.controller.ProfileController">
+<BorderPane styleClass="profile-page" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.ProfileController">
    <top>
       <ToolBar prefHeight="57.0" BorderPane.alignment="CENTER">
         <items>
@@ -30,12 +29,11 @@
             <Button fx:id="newCollectionBtn" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="New Collection" />
             <Button fx:id="uploadProfilePicBtn" mnemonicParsing="false" onAction="#uploadImage" text="Upload Profile Picture" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
-            <ImageView fx:id="profilePicture" fitHeight="47.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" translateX="450.0" />
         </items>
       </ToolBar>
    </top>
    <center>
-      <ScrollPane minViewportHeight="800.0" styleClass="profile-page" minViewportWidth="500.0" prefViewportHeight="800.0" fitToWidth="true" BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" minViewportHeight="800.0" minViewportWidth="500.0" prefViewportHeight="800.0" styleClass="profile-page" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
@@ -44,7 +42,7 @@
                <children>
                   <VBox alignment="CENTER" minHeight="550.0" spacing="30.0">
                      <children>
-                        <Label fx:id="profileNameLabel" styleClass="green-label" alignment="CENTER" contentDisplay="CENTER" style="-fx-background-radius: 10;" text="Profile Name" textFill="WHITE">
+                        <Label fx:id="profileNameLabel" alignment="CENTER" contentDisplay="CENTER" style="-fx-background-radius: 10;" styleClass="green-label" text="Profile Name" textFill="WHITE">
                            <font>
                               <Font size="64.0" />
                            </font>
@@ -52,7 +50,7 @@
                               <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                            </padding>
                         </Label>
-                        <HBox alignment="CENTER" styleClass="primary_collection" spacing="30.0">
+                        <HBox alignment="CENTER" spacing="30.0" styleClass="primary_collection">
                            <children>
                               <Pane prefHeight="302.0" prefWidth="272.0">
                                  <children>
@@ -82,7 +80,7 @@
                                  <children>
 
                                     <Button fx:id="viewPrimaryCollectionBtn" layoutX="240.0" layoutY="263.0" mnemonicParsing="false" onAction="#openPrimaryCollection" text="View Full Collecton" />
-                                    <HBox styleClass="primary_collection_imgs" alignment="CENTER" layoutX="28.0" layoutY="19.0" spacing="20.0">
+                                    <HBox alignment="CENTER" layoutX="28.0" layoutY="19.0" spacing="20.0" styleClass="primary_collection_imgs">
                                        <children>
                                           <ImageView fx:id="showcaseItem1" fitHeight="225.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -115,7 +113,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefWidth="1023.0" spacing="10.0">
                      <children>
-                        <Label contentDisplay="CENTER" styleClass="green-label" style="-fx-background-radius: 10;" text="Your Collections" textFill="WHITE">
+                        <Label contentDisplay="CENTER" style="-fx-background-radius: 10;" styleClass="green-label" text="Your Collections" textFill="WHITE">
                            <font>
                               <Font name="Century Gothic" size="36.0" />
                            </font>

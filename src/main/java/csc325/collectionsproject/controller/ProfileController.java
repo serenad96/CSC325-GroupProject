@@ -26,7 +26,7 @@ public class ProfileController {
 
 
     @FXML
-    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, viewAllBtn, addItemInGridBtn, uploadProfilePicBtn;
+    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, viewAllBtn, addItemInGridBtn, uploadProfilePicBtn, deleteCollectionBtn;
     @FXML
     private GridPane itemGrid;
     @FXML
@@ -152,7 +152,7 @@ public class ProfileController {
     }
 
     @FXML
-    void uploadImage(ActionEvent event) {
+     void uploadImage(ActionEvent event) {
         FileChooser imgChooser = new FileChooser();
         imgChooser.setTitle("Choose an Profile Picture");
         imgChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.gif"));
@@ -169,6 +169,8 @@ public class ProfileController {
         } else {
             System.out.println("Image Upload Error");
         }}
+
+
 
 
 

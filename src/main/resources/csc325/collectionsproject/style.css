@@ -106,7 +106,7 @@
 }
 
 #viewPrimaryCollectionBtn{
-    -fx-background-color: #white;
+    -fx-background-color: white;
 }
 #viewPrimaryCollectionBtn:hover{
     -fx-text-fill: white;

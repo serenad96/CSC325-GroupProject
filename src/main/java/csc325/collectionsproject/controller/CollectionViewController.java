@@ -10,19 +10,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
 public class CollectionViewController {
     @FXML
-    private Button addItemBtn, newCollectionBtn, profileBtn;
+    private Button addItemBtn, newCollectionBtn, profileBtn, deleteCollectionBtn;
 
     @FXML
     private GridPane itemGrid;
@@ -106,15 +106,28 @@ public class CollectionViewController {
         return itemNames;
     }
 
-    //Test method linked to addItemInGridBtn, change this back to addNewItem() once that part works
-    @FXML
-    void addNewItemTest(ActionEvent event) throws ExecutionException, InterruptedException {
-        // Build whole collection at once whatever
-//        List<String> itemNames = getCollectionItems(); // Fetch item names in collection
-//        for (String itemName : itemNames) {
-//            addItem("", itemName); // Call addItem for each item
-//        }
+
+    public void deleteCollection() throws IOException, InterruptedException {
+    FirebaseWriter firebaseWriter = new FirebaseWriter();
+   RegistrationController controller = new RegistrationController();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION); //Create popup when delete button is clicked
+        alert.setTitle("Delete Warning");
+        alert.setHeaderText("Are you sure?");
+        String s ="This will be deleted forever! (a long time)";
+        alert.setContentText(s);
+
+        Optional<ButtonType> result=alert.showAndWait();
+        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+
+            firebaseWriter.removeCollectionFromUser();
+            controller.switchToProfileView();
+
+        }
+
+
     }
+
 
     @FXML
     public void switchToAddItemView() throws IOException {
