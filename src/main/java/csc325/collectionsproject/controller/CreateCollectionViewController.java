@@ -84,7 +84,7 @@ public class CreateCollectionViewController {
             collectionImage.setImage(new Image(file.toURI().toString()));
             //String filePath = "src/main/resources/csc325/collectionsproject/imgs";
         } else {
-            System.out.println("Gay baby error");
+            System.out.println("Image Upload Error");
         }
 
     }

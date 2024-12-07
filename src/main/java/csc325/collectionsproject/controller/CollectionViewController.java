@@ -163,6 +163,5 @@ public class CollectionViewController {
     }
 
 
-    // Retrieve the collection name from Firestore
 
 }

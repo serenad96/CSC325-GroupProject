@@ -137,7 +137,7 @@
                   <Image url="@imgs/trilo.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="addImgBtn" mnemonicParsing="false" text="Add Image">
+            <Button fx:id="addImgBtn" mnemonicParsing="false" onAction="#uploadImage" text="Add Image">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
