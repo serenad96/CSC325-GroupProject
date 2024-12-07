@@ -19,7 +19,7 @@
 
 <BorderPane prefHeight="488.0" prefWidth="648.0" styleClass="create-collect-view" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CreateCollectionViewController">
    <top>
-      <ToolBar prefHeight="25.0" prefWidth="648.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+      <ToolBar minHeight="62.4" prefHeight="25.0" prefWidth="648.0" styleClass="top-bar" BorderPane.alignment="CENTER">
          <items>
             <ImageView fx:id="profilePicture" fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
