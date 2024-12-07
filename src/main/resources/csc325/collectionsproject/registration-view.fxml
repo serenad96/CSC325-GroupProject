@@ -29,7 +29,7 @@
   </rowConstraints>
    <children>
       <HBox alignment="CENTER" styleClass="login-pane-top" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
-       <Label fx:id="profileNameLabel" styleClass="welcome-text" alignment="CENTER" contentDisplay="CENTER" prefHeight="77.0" prefWidth="410.0" style="-fx-background-radius: 10; -fx-background-color: GREEN;" text="Welcome! Please Log-in" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="3">
+       <Label fx:id="profileNameLabel" styleClass="green-label" alignment="CENTER" contentDisplay="CENTER" prefHeight="77.0" prefWidth="410.0" style="-fx-background-radius: 10; -fx-background-color: GREEN;" text="Welcome! Please Log-in" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="3">
            <font>
                <Font size="32.0" />
            </font>

@@ -20,7 +20,6 @@
 }
 
 .button:hover {
-    -fx-background-color: rgba(0, 0, 0, 0.1);
     -fx-cursor: hand;
 }
 
@@ -30,9 +29,11 @@
 
 }
 
+/* Login / Registration Page */
+
 .login-page{
     /*-fx-background-color: #28b428;*/
-    -fx-background-color: linear-gradient(to bottom right, #27b56e, #28b428);
+    -fx-background-color: linear-gradient(to bottom right, DARKGREEN, #003104);
 }
 
 .login-pane-top{
@@ -61,9 +62,8 @@
 
 }
 
-.welcome-text{
-    -fx-width: 50%;
-    -fx-padding: 0 50% 0 50%;
+.green-label{
+    -fx-background-color: GREEN;
     -fx-effect: dropshadow(gaussian, rgba(40, 180, 40, 0.7), 15, 0.5, 0.0, 0.0);
 }
 
@@ -81,4 +81,43 @@
 #registerBtn:hover{
     -fx-text-fill: white;
     -fx-background-color: #28b428;
+}
+
+/* Profile Page */
+
+.profile-page{
+    /*-fx-background-color: white;*/
+    -fx-background-color: linear-gradient(white, white, DARKGREEN)
+}
+
+.primary_collection{
+    -fx-padding: 15 20 15 20;
+    -fx-background-color: linear-gradient(to bottom right, DARKGREEN, #003104);
+    -fx-border-color: linear-gradient(to bottom right, DARKGREEN, #003104);
+    -fx-border-style: solid;
+    -fx-border-color: #da9100;
+    -fx-border-width: 2 2 2 2;
+    -fx-effect: dropshadow(gaussian, rgba(218, 145, 0, 0.9), 15, 0.7, 0.0, 0.0);
+}
+
+.primary_collection_imgs{
+    -fx-border-color: #28b428;
+    -fx-border-style: solid line-cap round;
+}
+
+#viewPrimaryCollectionBtn{
+    -fx-background-color: #white;
+}
+#viewPrimaryCollectionBtn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #28b428;
+}
+
+/* Collection / Item Component */
+
+.collection-img{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
+}
+.collection-label{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
 }
