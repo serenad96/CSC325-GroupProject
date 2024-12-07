@@ -21,17 +21,12 @@
    <top>
       <ToolBar prefHeight="25.0" prefWidth="648.0" BorderPane.alignment="CENTER">
          <items>
-            <ImageView fx:id="logo" fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profilePicture" fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/trilo.jpg" />
                </image>
             </ImageView>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
-            <ImageView fx:id="profilePic" fitHeight="42.0" fitWidth="46.0" onMouseClicked="#profilePicClicked" pickOnBounds="true" preserveRatio="true" translateX="480.0">
-               <image>
-                  <Image url="@imgs/qt.png" />
-               </image>
-            </ImageView>
          </items>
       </ToolBar>
    </top>
@@ -113,7 +108,6 @@
          <children>
             <HBox fx:id="privacyToggleBox" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="publicToggleLbl" text="Public" />
                   <ToggleButton fx:id="privacyToggle" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#privacyToggleClicked" prefHeight="10.0" prefWidth="23.0" stylesheets="@style.css">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -123,7 +117,8 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <Label fx:id="privateToggleLbl" text="Private" />
+                  <Label fx:id="publicToggleLbl" text="Public" />
+                  <Label fx:id="privateToggleLbl" disable="true" text="Private" visible="false" />
                </children>
                <VBox.margin>
                   <Insets />

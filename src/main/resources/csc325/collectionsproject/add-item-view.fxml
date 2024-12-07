@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
@@ -22,7 +21,7 @@
    <top>
       <ToolBar prefHeight="25.0" prefWidth="648.0" BorderPane.alignment="CENTER">
         <items>
-            <ImageView fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profilePicture" fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/trilo.jpg" />
                </image>
@@ -30,7 +29,6 @@
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
           <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" text="New Collection" />
             <Button fx:id="collectionViewBtn" mnemonicParsing="false" onAction="#switchToCollectionView" text="Collection View" />
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" />
         </items>
       </ToolBar>
    </top>
@@ -110,23 +108,6 @@
    <right>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="170.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="privacyToggleBox" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
-               <children>
-                    <ToggleButton fx:id="itemPrivacyToggle" maxHeight="23.0" maxWidth="1.7976931348623157E308" minWidth="23.0" onAction="#itemPrivacyToggleClicked" prefHeight="10.0" prefWidth="23.0" selected="true" stylesheets="@style.css">
-                     <graphic>
-                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/toggle_on_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></ToggleButton>
-                  <Label fx:id="publicToggleLbl" text="Public" />
-                  <Label fx:id="privateToggleLbl" text="Private" visible="false" />
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
             <ImageView fx:id="addItemImg" fitHeight="178.0" fitWidth="200.0" onMouseClicked="#uploadImage" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets bottom="-5.0" left="5.0" right="5.0" />
