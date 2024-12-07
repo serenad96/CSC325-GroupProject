@@ -56,7 +56,9 @@ public class ProfileController {
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/csc325/collectionsproject/profilePicImageState.txt"))) {
             uploadedImageUri = reader.readLine(); // Read the saved URI
             if (uploadedImageUri != null) {
+                System.out.println("Profile pic set on profile load!");
                 profilePicture.setImage(new Image(uploadedImageUri)); // Restore the image
+                UserSession.getInstance().getLoggedInUser().setProfilePicString(uploadedImageUri);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -160,6 +162,7 @@ public class ProfileController {
         File file = imgChooser.showOpenDialog(profilePicture.getScene().getWindow());
         if (file != null) {
             uploadedImageUri  = file.toURI().toString();
+            UserSession.getInstance().getLoggedInUser().setProfilePicString(uploadedImageUri);
             profilePicture.setImage(new Image(uploadedImageUri));
             // Save the Image State to a file
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/csc325/collectionsproject/profilePicImageState.txt"))) {
