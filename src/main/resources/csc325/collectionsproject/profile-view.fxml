@@ -124,7 +124,7 @@
                               <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                            </padding>
                         </Label>
-                        <Label prefHeight="23.0" prefWidth="380.0" text="Click On A Collection To View It's Contents">
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="380.0" text="Click On A Collection To View It's Contents">
                            <font>
                               <Font name="Century Gothic" size="18.0" />
                            </font>
@@ -143,7 +143,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="200.0" />
                            </rowConstraints>
                            <children>
-                              <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addCollectionToGrid" text="Add to Grid" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createNewCollection" text="Add New Collection" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>

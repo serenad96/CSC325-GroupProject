@@ -79,12 +79,12 @@
                   <Insets />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
             <Button fx:id="loginBtn" defaultButton="true" mnemonicParsing="false" onAction="#loginClicked" prefHeight="25.0" prefWidth="115.0" text="Log-in">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font size="14.0" />
                </font></Button>
          </children>
       </HBox>

@@ -121,3 +121,16 @@
 .collection-label{
     -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
 }
+
+#addItemInGridBtn{
+    -fx-background-color: white;
+}
+#addItemInGridBtn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: ORANGE;
+}
+
+#collVbox:hover{
+    -fx-effect: dropshadow(gaussian, rgba(40, 255, 40, 0.5), 10, 0.7, 0.0, 0.0);
+    -fx-cursor: hand;
+}
