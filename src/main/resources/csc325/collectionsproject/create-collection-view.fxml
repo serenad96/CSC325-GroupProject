@@ -31,7 +31,7 @@
       </ToolBar>
    </top>
    <center>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane styleClass="create-collect-pane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="create-text-h1" text="Create New Collection" BorderPane.alignment="CENTER">
                <BorderPane.margin>

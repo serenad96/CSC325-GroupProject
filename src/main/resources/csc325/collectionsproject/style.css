@@ -198,7 +198,10 @@
     -fx-background-color: GREEN;
 }
 
-
+.create-collect-pane{
+    -fx-background-color: white;
+    -fx-border-style: solid;
+}
 
 .create-text-h1{
     -fx-text-alignment: center;
