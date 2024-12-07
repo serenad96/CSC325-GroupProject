@@ -1,27 +1,30 @@
 package csc325.collectionsproject;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import com.google.firebase.cloud.FirestoreClient;
+import csc325.collectionsproject.controller.FirebaseWriter;
 import csc325.collectionsproject.model.CollectionItem;
+
 import csc325.collectionsproject.model.FirestoreContext;
+import csc325.collectionsproject.model.ResourceManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.cloud.FirestoreClient;
 
-import com.google.firebase.auth.*;
-import com.google.cloud.firestore.*;
-import com.google.api.core.ApiFuture;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 public class CollectionsApplication extends Application {
     public static Scene scene;    // Firestore reference
@@ -30,14 +33,17 @@ public class CollectionsApplication extends Application {
     private final FirestoreContext contxtFirebase = new FirestoreContext();
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ExecutionException, InterruptedException {
         //Initialize Firestore, authorization, db
         fstoreDB = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
+        //preload resources
+        ResourceManager.initialize();
 
- //     FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("collection-view.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("registration-view.fxml"));
-        scene = new Scene(fxmlLoader.load(), 860, 640);
+        scene = new Scene(fxmlLoader.load(), 1260, 840);
+
+        stage.setMaximized(true);
         stage.setTitle("CollectionsApp");
         stage.setScene(scene);
         stage.show();
@@ -53,9 +59,19 @@ public class CollectionsApplication extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
-        launch();
+    /**
+     * Static method to get the Firestore instance.
+     * @return the Firestore instance.
+     */
+    public static Firestore getFirestoreDB() {
+        if (fstoreDB == null) {
+            throw new IllegalStateException("Firestore has not been initialized.");
+            //Shouldnt ever trigger as fstoreDB is initialized immediately in start()
+        }
+        return fstoreDB;
     }
+
+    public static void main(String[] args) {launch();}
 
 
 

@@ -1,0 +1,217 @@
+/* SELIN CODE IGNORE - aujbs */
+
+.toggle-button{
+    -fx-border-color: black;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 1em; /* 12 */
+    -fx-text-fill: #828282;
+}
+
+.toggle-button:hover {
+    -fx-cursor: hand;
+}
+
+.toggle-Box {
+    -fx-border-width: .1;
+}
+
+.button:hover {
+    -fx-cursor: hand;
+}
+
+/* END OF SELIN CODE */
+
+.text-field{
+    /*-fx-prompt-text-fill: ORANGE;*/
+    -fx-highlight-fill: ORANGE; /* doesnt work :( */
+}
+
+.label{
+
+}
+
+/* Top Bar */
+
+.top-bar{
+    -fx-background-color: DARKGREEN;
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: black;
+}
+.top-bar-button{
+    -fx-background-color: white;
+}
+.top-bar-button:hover{
+    -fx-background-color: orange;
+    -fx-text-fill: white;
+}
+
+/* Login / Registration Page */
+
+.login-page{
+    /*-fx-background-color: #28b428;*/
+    -fx-background-color: linear-gradient(to bottom right, DARKGREEN, #003104);
+}
+
+.login-pane-top{
+    -fx-border-width: 10 10 0 10;
+    -fx-border-color: white;
+    -fx-padding: 10 15 10 15;
+    -fx-background-color: white;
+    -fx-border-style: solid outside line-cap round;
+}
+.login-pane{
+    -fx-border-width: 0 10 0 10;
+    -fx-border-color: white;
+    -fx-padding: 10 15 10 15;
+    -fx-background-color: white;
+    -fx-border-style: solid outside line-cap round;
+}
+.login-pane-bottom{
+    -fx-border-width: 0 10 10 10;
+    -fx-border-color: white;
+    -fx-padding: 10 15 10 15;
+    -fx-background-color: white;
+    -fx-border-style: solid outside line-cap round;
+}
+
+.button{
+
+}
+
+.green-label{
+    -fx-background-color: GREEN;
+    -fx-effect: dropshadow(gaussian, rgba(40, 180, 40, 0.7), 15, 0.5, 0.0, 0.0);
+}
+.orange-label{
+    -fx-background-color: linear-gradient(to bottom right, ORANGE, RED);
+    -fx-effect: dropshadow(gaussian, rgba(218, 145, 0, 0.9), 15, 0.7, 0.0, 0.0);
+}
+
+#loginBtn{
+    -fx-background-color: #bdbdbd;
+}
+#loginBtn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #28b428;
+}
+
+#registerBtn{
+    -fx-background-color: #bdbdbd;
+}
+#registerBtn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #28b428;
+}
+
+/* Profile Page */
+
+.profile-page{
+    /*-fx-background-color: #001702;*/
+    -fx-background-color: linear-gradient(white, white, white, DARKGREEN, DARKGREEN);
+}
+
+.primary_collection{
+    -fx-padding: 15 20 15 20;
+    -fx-background-color: linear-gradient(to bottom right, ORANGE, RED);
+    -fx-border-color: linear-gradient(to bottom right, ORANGE, RED);
+    -fx-border-style: solid;
+    -fx-border-width: 2 2 2 2;
+    -fx-effect: dropshadow(gaussian, rgba(218, 145, 0, 0.9), 15, 0.7, 0.0, 0.0);
+}
+
+.primary_collection_imgs{
+    -fx-border-color: #28b428;
+    -fx-border-style: solid line-cap round;
+}
+
+#viewPrimaryCollectionBtn{
+    -fx-background-color: white;
+}
+#viewPrimaryCollectionBtn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #28b428;
+}
+
+/* Collection / Item Component */
+
+.collection-img{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
+}
+.collection-label{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
+}
+
+.addCollect{
+    -fx-background-color: white;
+}
+.addCollect:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #fa4c19;
+}
+
+.addItem2{
+    -fx-background-color: white;
+}
+.addItem2:hover{
+    -fx-background-color: GREEN;
+    -fx-text-fill: white;
+}
+
+#collVbox:hover{
+    -fx-effect: dropshadow(gaussian, rgba(40, 255, 40, 0.5), 10, 0.7, 0.0, 0.0);
+    -fx-cursor: hand;
+}
+
+#itemVBox:hover{
+    -fx-effect: dropshadow(gaussian, rgba(255, 191, 0, 0.7), 10, 0.7, 0.0, 0.0);
+    -fx-cursor: hand;
+}
+
+#itemImage{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
+}
+#itemLabelHBox{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
+}
+
+/* Collection View */
+
+.collect-view{
+    -fx-background-color: linear-gradient(white, ORANGE);
+}
+
+/* Create Collection View */
+
+.create-collect-view{
+    -fx-background-color: #001702;
+}
+
+.green-button{
+    -fx-background-color: white;
+}
+.green-button:hover{
+    -fx-text-fill: white;
+    -fx-background-color: GREEN;
+}
+
+
+
+.create-text-h1{
+    -fx-text-alignment: center;
+
+}
+
+.create-right{ /* right half of the create new collection view */
+
+}
+
+#publicToggleLbl{
+    -fx-font-size: 24;
+}
+#privateToggleLbl{
+    -fx-font-size: 24;
+}

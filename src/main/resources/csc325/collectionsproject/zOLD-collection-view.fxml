@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionViewController">
+    <header>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+         <children>
+            <Pane layoutX="32.0" layoutY="60.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="199.0" layoutY="60.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="363.0" layoutY="60.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="530.0" layoutY="60.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="702.0" layoutY="60.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="32.0" layoutY="234.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="199.0" layoutY="235.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="363.0" layoutY="236.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="530.0" layoutY="236.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="702.0" layoutY="237.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="32.0" layoutY="411.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="199.0" layoutY="412.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="363.0" layoutY="413.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="530.0" layoutY="413.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="702.0" layoutY="414.0" prefHeight="145.0" prefWidth="134.0">
+               <opaqueInsets>
+                  <Insets right="3.0" />
+               </opaqueInsets>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="156.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                  <Button layoutX="25.0" layoutY="106.0" mnemonicParsing="false" text="[Item Name]" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="83.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+               </children>
+            </Pane>
+            <ToolBar layoutX="-1.0" prefHeight="40.0" prefWidth="894.0">
+              <items>
+                  <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
+                  <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" text="New Collection" />
+                  <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" text="Add Item To This Collection" />
+              </items>
+            </ToolBar>
+         </children></AnchorPane>
+    </header>
+    <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+    </content>
+    <expandableContent>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+    </expandableContent>
+</DialogPane>
