@@ -29,16 +29,16 @@
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
          </items>
          <BorderPane.margin>
-            <Insets bottom="40.0" />
+            <Insets bottom="60.0" />
          </BorderPane.margin>
       </ToolBar>
    </top>
    <center>
-      <BorderPane styleClass="create-collect-pane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="create-collect-pane" BorderPane.alignment="CENTER">
          <top>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="create-text-h1" text="Create New Collection" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets bottom="20.0" left="42.0" top="15.0" />
+                  <Insets bottom="20.0" top="15.0" />
                </BorderPane.margin>
                <font>
                   <Font size="32.0" />
@@ -81,12 +81,12 @@
                   </Button>
                   <Button fx:id="createCollectionBtn" maxHeight="90.0" maxWidth="115.0" minHeight="40.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="40.0" prefWidth="115.0" styleClass="top-bar-button" text="Create Collection" />
                </children>
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
                <BorderPane.margin>
-                  <Insets top="30.0" />
+                  <Insets />
                </BorderPane.margin>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
             </VBox>
          </right>
          <center>
