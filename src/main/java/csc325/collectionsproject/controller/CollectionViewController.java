@@ -11,8 +11,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
@@ -30,6 +33,9 @@ public class CollectionViewController {
     @FXML
     private Label collectionNameLbl;
 
+    @FXML
+    private ImageView profilePicture;
+
     private int row = 0;
     private int column = 0;
 
@@ -42,20 +48,22 @@ public class CollectionViewController {
     }
 
     public void initialize() throws ExecutionException, InterruptedException {
+        //Retrieve the collectionName from the Collection Session
+        CollectionSession session = CollectionSession.getInstance();
+        String selectedCollection = session.getSelectedCollectionName();
 
         //Get Selected Collection Name
         List<String> itemNames = getCollectionItems(); // Fetch item names in collection
         for (String itemName : itemNames) {
             addItem("", itemName); // Call addItem for each item
         }
-
-        //Retrieve the collectionName from the Collection Session
-        CollectionSession session = CollectionSession.getInstance();
-        String selectedCollection = session.getSelectedCollectionName();
-
+        //Set profile picture if one has been set previously
+        if(!UserSession.getInstance().getLoggedInUser().getProfilePicString().isEmpty()) {
+            profilePicture.setImage(new Image(UserSession.getInstance().getLoggedInUser().getProfilePicString()));
+            System.out.println("Set profile pic on collection view!");
+        }
         collectionNameLbl.setText(selectedCollection);
         System.out.println("Active collection in writer " + selectedCollection);
-
     }
 
     public List<String> getCollectionItems() throws ExecutionException, InterruptedException {
@@ -109,7 +117,7 @@ public class CollectionViewController {
 
     public void deleteCollection() throws IOException, InterruptedException {
     FirebaseWriter firebaseWriter = new FirebaseWriter();
-   RegistrationController controller = new RegistrationController();
+    RegistrationController controller = new RegistrationController();
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION); //Create popup when delete button is clicked
         alert.setTitle("Delete Warning");
@@ -153,7 +161,6 @@ public class CollectionViewController {
     //collection view grid logic uwu happy thanksgiving
     public void addItem(String imageUrl, String itemName) {
         try {
-            //switchToAddItemView();
             // Load the FXML for the item component
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/csc325/collectionsproject/components/item-component.fxml"));
             Node itemNode = loader.load();
@@ -174,6 +181,7 @@ public class CollectionViewController {
                 column = 0;
                 row++;
             }
+            //add button back to grid in next slot
             itemGrid.getChildren().remove(addItemInGridBtn);
             itemGrid.add(addItemInGridBtn, column, row);
 
