@@ -29,6 +29,22 @@
 
 }
 
+/* Top Bar */
+
+.top-bar{
+    -fx-background-color: DARKGREEN;
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: black;
+}
+.top-bar-button{
+    -fx-background-color: white;
+}
+.top-bar-button:hover{
+    -fx-background-color: orange;
+    -fx-text-fill: white;
+}
+
 /* Login / Registration Page */
 
 .login-page{
@@ -122,15 +138,42 @@
     -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
 }
 
-#addItemInGridBtn{
+.addCollect{
     -fx-background-color: white;
 }
-#addItemInGridBtn:hover{
+.addCollect:hover{
     -fx-text-fill: white;
     -fx-background-color: ORANGE;
 }
 
+.addItem2{
+    -fx-background-color: white;
+}
+.addItem2:hover{
+    -fx-background-color: DARKGREEN;
+}
+
+
+
 #collVbox:hover{
     -fx-effect: dropshadow(gaussian, rgba(40, 255, 40, 0.5), 10, 0.7, 0.0, 0.0);
     -fx-cursor: hand;
+}
+
+#itemVBox:hover{
+    -fx-effect: dropshadow(gaussian, rgba(255, 191, 0, 0.7), 10, 0.7, 0.0, 0.0);
+    -fx-cursor: hand;
+}
+
+#itemImage{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
+}
+#itemLabelHBox{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
+}
+
+/* Collection View */
+
+.collect-view{
+    -fx-background-color: linear-gradient(white, ORANGE);
 }

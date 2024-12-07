@@ -24,7 +24,6 @@ import java.util.concurrent.ExecutionException;
 
 public class ProfileController {
 
-
     @FXML
     private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, viewAllBtn, addItemInGridBtn, uploadProfilePicBtn, deleteCollectionBtn;
     @FXML

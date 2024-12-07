@@ -14,6 +14,7 @@ import java.util.concurrent.ExecutionException;
 
 public class FirebaseWriter {
 
+   // int itemRating
     public void addCollectionItemToCollection(String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
 
         UserSession session = UserSession.getInstance();
@@ -28,6 +29,7 @@ public class FirebaseWriter {
 
         data.put("Item Description", itemDescription);
         data.put("Item Name", itemName);
+        //data.put("Item Rating", itemRating);
 
         //asynchronously write data
         ApiFuture<WriteResult> result = docRef.set(data);

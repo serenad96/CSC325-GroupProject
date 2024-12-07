@@ -19,15 +19,15 @@
 
 <BorderPane styleClass="profile-page" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.ProfileController">
    <top>
-      <ToolBar prefHeight="57.0" BorderPane.alignment="CENTER">
+      <ToolBar styleClass="top-bar" prefHeight="57.0" BorderPane.alignment="CENTER">
         <items>
             <ImageView fx:id="profilePicture" fitHeight="49.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/defaultProfilePic.png" />
                </image>
             </ImageView>
-            <Button fx:id="newCollectionBtn" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="New Collection" />
-            <Button fx:id="uploadProfilePicBtn" mnemonicParsing="false" onAction="#uploadImage" text="Upload Profile Picture" />
+            <Button fx:id="newCollectionBtn" styleClass="top-bar-button" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="New Collection" />
+            <Button fx:id="uploadProfilePicBtn" styleClass="top-bar-button" mnemonicParsing="false" onAction="#uploadImage" prefHeight="26.0" text="Upload Profile Picture" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
         </items>
       </ToolBar>
@@ -143,7 +143,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="200.0" />
                            </rowConstraints>
                            <children>
-                              <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createNewCollection" text="Add New Collection" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <Button fx:id="addItemInGridBtn" styleClass="addCollect"  alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createNewCollection" text="Add New Collection" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
