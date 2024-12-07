@@ -144,6 +144,11 @@ public class CollectionViewController {
         CollectionsApplication.setRoot("create-collection-view");
     }
 
+    @FXML
+    void createNewItem(ActionEvent event) throws IOException {
+        switchToAddItemView();
+    }
+
     //just pass a CollectionItem here when it works, or we can get the data from the database? whats easier
     //collection view grid logic uwu happy thanksgiving
     public void addItem(String imageUrl, String itemName) {
