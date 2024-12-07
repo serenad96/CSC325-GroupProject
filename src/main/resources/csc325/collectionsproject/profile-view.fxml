@@ -18,12 +18,17 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.layout.StackPane?>
 <BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@style.css" styleClass="profile-page" fx:controller="csc325.collectionsproject.controller.ProfileController">
    <top>
       <ToolBar prefHeight="57.0" BorderPane.alignment="CENTER">
         <items>
+            <ImageView fx:id="profilePicture" fitHeight="49.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/defaultProfilePic.png" />
+               </image>
+            </ImageView>
             <Button fx:id="newCollectionBtn" layoutX="236.0" layoutY="10.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="26.0" prefWidth="111.0" text="New Collection" />
+            <Button fx:id="uploadProfilePicBtn" mnemonicParsing="false" onAction="#uploadImage" text="Upload Profile Picture" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
             <ImageView fx:id="profilePicture" fitHeight="47.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" translateX="450.0" />
         </items>
@@ -120,6 +125,11 @@
                            <padding>
                               <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                            </padding>
+                        </Label>
+                        <Label prefHeight="23.0" prefWidth="380.0" text="Click On A Collection To View It's Contents">
+                           <font>
+                              <Font name="Century Gothic" size="18.0" />
+                           </font>
                         </Label>
                         <GridPane fx:id="itemGrid" alignment="CENTER">
                            <columnConstraints>
