@@ -28,6 +28,9 @@
             </ImageView>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
          </items>
+         <BorderPane.margin>
+            <Insets bottom="40.0" />
+         </BorderPane.margin>
       </ToolBar>
    </top>
    <center>
