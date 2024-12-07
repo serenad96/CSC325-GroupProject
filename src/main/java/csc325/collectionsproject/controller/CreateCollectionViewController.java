@@ -86,6 +86,6 @@ public class CreateCollectionViewController {
         } else {
             System.out.println("Gay baby error");
         }
-        
+
     }
 }

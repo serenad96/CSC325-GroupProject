@@ -8,10 +8,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" stylesheets="@style.css" styleClass="login-page" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.RegistrationController">
+<GridPane prefHeight="400.0" prefWidth="600.0" styleClass="login-page" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.RegistrationController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -28,8 +27,8 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <HBox alignment="CENTER" styleClass="login-pane-top" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
-       <Label fx:id="profileNameLabel" styleClass="welcome-text" alignment="CENTER" contentDisplay="CENTER" prefHeight="77.0" prefWidth="410.0" style="-fx-background-radius: 10; -fx-background-color: GREEN;" text="Welcome! Please Log-in" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="3">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="login-pane-top" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+       <Label fx:id="profileNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="77.0" prefWidth="410.0" style="-fx-background-radius: 10; -fx-background-color: GREEN;" styleClass="welcome-text" text="Welcome! Please Log-in" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="3">
            <font>
                <Font size="32.0" />
            </font>
@@ -41,7 +40,7 @@
            </GridPane.margin>
        </Label>
        </HBox>
-      <HBox alignment="CENTER" styleClass="login-pane" layoutX="160.0" layoutY="68.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+      <HBox alignment="CENTER" layoutX="160.0" layoutY="68.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="login-pane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
          <children>
             <Label text="Username:">
                <HBox.margin>
@@ -54,7 +53,7 @@
             <TextField fx:id="usernameTF" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" styleClass="login-pane" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="login-pane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
          <children>
             <Label text="Password:">
                <HBox.margin>
@@ -67,19 +66,25 @@
             <TextField fx:id="passwordTF" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" styleClass="login-pane" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="login-pane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
          <children>
             <Label fx:id="loginStatusLabel" alignment="CENTER" prefHeight="18.0" prefWidth="225.0" textAlignment="CENTER" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" styleClass="login-pane-bottom" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" styleClass="login-pane-bottom" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
          <children>
-            <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" prefWidth="111.0" text="Register User">
+            <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" prefHeight="25.0" prefWidth="115.0" text="Register User">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Button>
-            <Button fx:id="loginBtn" defaultButton="true" mnemonicParsing="false" onAction="#loginClicked" text="Login" />
+            <Button fx:id="loginBtn" defaultButton="true" mnemonicParsing="false" onAction="#loginClicked" prefHeight="25.0" prefWidth="115.0" text="Log-in">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>
