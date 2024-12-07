@@ -124,7 +124,7 @@
                               <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                            </padding>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="380.0" text="Click On A Collection To View It's Contents">
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="380.0" textFill="white" text="Click On A Collection To View It's Contents">
                            <font>
                               <Font name="Century Gothic" size="18.0" />
                            </font>

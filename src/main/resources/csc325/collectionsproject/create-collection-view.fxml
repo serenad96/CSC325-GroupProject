@@ -17,16 +17,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="488.0" prefWidth="648.0" stylesheets="@style.css" styleClass="create-collect-view" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CreateCollectionViewController">
+<BorderPane prefHeight="488.0" prefWidth="648.0" styleClass="create-collect-view" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CreateCollectionViewController">
    <top>
-      <ToolBar styleClass="top-bar" prefHeight="25.0" prefWidth="648.0" BorderPane.alignment="CENTER">
+      <ToolBar prefHeight="25.0" prefWidth="648.0" styleClass="top-bar" BorderPane.alignment="CENTER">
          <items>
             <ImageView fx:id="profilePicture" fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/trilo.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="profileBtn" styleClass="top-bar-button" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
+            <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
          </items>
       </ToolBar>
    </top>
@@ -48,7 +48,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="backBtn" styleClass="green-button" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#goBack" text="&lt;- Back" GridPane.rowIndex="6">
+                  <Button fx:id="backBtn" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#goBack" styleClass="top-bar-button" text="&lt;- Back" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="25.0" />
                      </GridPane.margin>
@@ -92,7 +92,7 @@
             </GridPane>
          </center>
          <top>
-            <Text styleClass="create-text-h1" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Collection" BorderPane.alignment="TOP_LEFT">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="create-text-h1" text="Create New Collection" BorderPane.alignment="TOP_LEFT">
                <BorderPane.margin>
                   <Insets bottom="20.0" left="42.0" top="15.0" />
                </BorderPane.margin>
@@ -104,7 +104,7 @@
       </BorderPane>
    </center>
    <right>
-      <VBox styleClass="create-right" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="470.0" spacing="15.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="470.0" spacing="15.0" styleClass="create-right" BorderPane.alignment="CENTER">
          <children>
             <HBox fx:id="privacyToggleBox" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
                <children>
@@ -117,8 +117,8 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <Label fx:id="publicToggleLbl" text="Public" />
-                  <Label fx:id="privateToggleLbl" disable="true" text="Private" visible="false" />
+                  <Label fx:id="publicToggleLbl" text="Public" textFill="WHITE" />
+                  <Label fx:id="privateToggleLbl" disable="true" text="Private" textFill="#076101" visible="false" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -132,12 +132,12 @@
                   <Image url="@imgs/trilo.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="addImgBtn" styleClass="green-button"  mnemonicParsing="false" onAction="#uploadImage" text="Add Image">
+            <Button fx:id="addImgBtn" mnemonicParsing="false" onAction="#uploadImage" styleClass="top-bar-button" text="Add Image">
                <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="createCollectionBtn" styleClass="green-button"  maxHeight="90.0" maxWidth="115.0" minHeight="40.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="40.0" prefWidth="115.0" text="Create Collection" />
+            <Button fx:id="createCollectionBtn" maxHeight="90.0" maxWidth="115.0" minHeight="40.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="40.0" prefWidth="115.0" styleClass="top-bar-button" text="Create Collection" />
          </children>
          <padding>
             <Insets left="10.0" right="10.0" />

@@ -32,7 +32,7 @@
    <center>
       <VBox alignment="CENTER" prefHeight="335.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="collectionNameLbl" styleClass="green-label" style="-fx-background-radius: 10;" text="Collection Name" textFill="WHITE">
+            <Label fx:id="collectionNameLbl" styleClass="orange-label" style="-fx-background-radius: 10;" text="Collection Name" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="36.0" />
                </font>

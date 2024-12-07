@@ -25,7 +25,7 @@
 /* END OF SELIN CODE */
 
 .text-field{
-    -fx-prompt-text-fill: GREEN;
+    /*-fx-prompt-text-fill: ORANGE;*/
     -fx-highlight-fill: ORANGE; /* doesnt work :( */
 }
 
@@ -86,6 +86,10 @@
     -fx-background-color: GREEN;
     -fx-effect: dropshadow(gaussian, rgba(40, 180, 40, 0.7), 15, 0.5, 0.0, 0.0);
 }
+.orange-label{
+    -fx-background-color: linear-gradient(to bottom right, ORANGE, RED);
+    -fx-effect: dropshadow(gaussian, rgba(218, 145, 0, 0.9), 15, 0.7, 0.0, 0.0);
+}
 
 #loginBtn{
     -fx-background-color: #bdbdbd;
@@ -106,8 +110,8 @@
 /* Profile Page */
 
 .profile-page{
-    /*-fx-background-color: white;*/
-    -fx-background-color: linear-gradient(white, white, white, DARKGREEN, DARKGREEN);
+    -fx-background-color: #001702;
+    /*-fx-background-color: linear-gradient(white, white, white, DARKGREEN, DARKGREEN);*/
 }
 
 .primary_collection{
@@ -115,7 +119,6 @@
     -fx-background-color: linear-gradient(to bottom right, ORANGE, RED);
     -fx-border-color: linear-gradient(to bottom right, ORANGE, RED);
     -fx-border-style: solid;
-    -fx-border-color: #da9100;
     -fx-border-width: 2 2 2 2;
     -fx-effect: dropshadow(gaussian, rgba(218, 145, 0, 0.9), 15, 0.7, 0.0, 0.0);
 }
@@ -154,7 +157,8 @@
     -fx-background-color: white;
 }
 .addItem2:hover{
-    -fx-background-color: DARKGREEN;
+    -fx-background-color: ORANGE;
+    -fx-text-fill: white;
 }
 
 #collVbox:hover{
@@ -177,13 +181,13 @@
 /* Collection View */
 
 .collect-view{
-    -fx-background-color: linear-gradient(white, ORANGE);
+    -fx-background-color: #001702;
 }
 
 /* Create Collection View */
 
 .create-collect-view{
-    -fx-background-color: linear-gradient(ORANGE, #ff4d00);
+    -fx-background-color: #001702;
 }
 
 .green-button{
@@ -193,6 +197,8 @@
     -fx-text-fill: white;
     -fx-background-color: GREEN;
 }
+
+
 
 .create-text-h1{
     -fx-text-alignment: center;

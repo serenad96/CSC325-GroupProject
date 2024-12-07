@@ -18,7 +18,7 @@
                   <Image url="@../imgs/trilo.jpg" />
                </image>
             </ImageView>
-            <HBox fx:id="collLabelHBox" styleClass="collection-label" alignment="CENTER" style="-fx-background-color: ORANGE; -fx-background-radius: 10;">
+            <HBox fx:id="collLabelHBox" styleClass="collection-label" alignment="CENTER" style="-fx-background-color: #fa4c19; -fx-background-radius: 10;">
                <children>
                   <Label fx:id="collectionNameLbl" text="Collection Name" textFill="WHITE">
                      <font>
