@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@style.css" fx:controller="csc325.collectionsproject.controller.ProfileController">
+<BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.ProfileController">
    <top>
       <ToolBar prefHeight="57.0" BorderPane.alignment="CENTER">
         <items>
@@ -29,7 +29,7 @@
       </ToolBar>
    </top>
    <center>
-      <ScrollPane minViewportHeight="800.0" minViewportWidth="500.0" prefViewportHeight="800.0" BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" minViewportHeight="800.0" minViewportWidth="500.0" prefViewportHeight="800.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
@@ -150,9 +150,6 @@
                </children>
             </VBox>
          </content>
-         <padding>
-            <Insets left="250.0" />
-         </padding>
       </ScrollPane>
    </center>
 </BorderPane>
