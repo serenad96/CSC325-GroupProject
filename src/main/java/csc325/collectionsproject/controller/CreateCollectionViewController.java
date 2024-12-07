@@ -7,17 +7,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
 import csc325.collectionsproject.controller.FirebaseWriter;
+import javafx.stage.FileChooser;
+
+import java.io.File;
 import java.io.IOException;
 
 public class CreateCollectionViewController {
 
     @FXML
-    private ImageView addCollectionImage;
+    private ImageView collectionImage, profilePic;
 
     @FXML
     private Button addImgBtn, backBtn, createCollectionBtn, profileBtn;
@@ -36,9 +40,6 @@ public class CreateCollectionViewController {
 
     @FXML
     private Label privateToggleLbl, publicToggleLbl;
-
-    @FXML
-    private ImageView profilePic;
 
 
     @FXML
@@ -71,5 +72,20 @@ public class CreateCollectionViewController {
     @FXML
     public void switchToProfileView() throws IOException {
         CollectionsApplication.setRoot("profile-view");
+    }
+
+    @FXML
+    void uploadImage(ActionEvent event) {
+        FileChooser imgChooser = new FileChooser();
+        imgChooser.setTitle("Choose an Item Image");
+        imgChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.gif"));
+        File file = imgChooser.showOpenDialog(collectionImage.getScene().getWindow());
+        if (file != null) {
+            collectionImage.setImage(new Image(file.toURI().toString()));
+            //String filePath = "src/main/resources/csc325/collectionsproject/imgs";
+        } else {
+            System.out.println("Image Upload Error");
+        }
+
     }
 }

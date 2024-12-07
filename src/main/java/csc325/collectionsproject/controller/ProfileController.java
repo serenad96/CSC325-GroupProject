@@ -12,10 +12,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -24,7 +26,7 @@ public class ProfileController {
 
 
     @FXML
-    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, viewAllBtn, addItemInGridBtn;
+    private Button viewPrimaryCollectionBtn, newCollectionBtn, settingsBtn, viewAllBtn, addItemInGridBtn, uploadProfilePicBtn, deleteCollectionBtn;
     @FXML
     private GridPane itemGrid;
     @FXML
@@ -32,13 +34,15 @@ public class ProfileController {
     @FXML
     private ImageView profilePicture, primaryCollectionImage, showcaseItem1, showcaseItem2, showcaseItem3;
 
+    //Uniform Resource Identifier for remembering image state
+    private String uploadedImageUri;
 
     //GridPane indices
     private int row = 0;
     private int column = 0;
 
-
     public void initialize() {
+
         UserSession session = UserSession.getInstance();
         profileNameLabel.setText("Welcome " + session.getLoggedInUser().getUsername() + "!");
 
@@ -47,7 +51,18 @@ public class ProfileController {
         for (String collectionName : collectionNames) {
             addItem("", collectionName); // Call addItem for each item
         }
+
+        //Remembers last uploaded profile picture
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/csc325/collectionsproject/profilePicImageState.txt"))) {
+            uploadedImageUri = reader.readLine(); // Read the saved URI
+            if (uploadedImageUri != null) {
+                profilePicture.setImage(new Image(uploadedImageUri)); // Restore the image
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
     public List<String> getAllCollections() {
         List<String> collectionNames = new ArrayList<>(); // Store item names
         try {
@@ -84,6 +99,7 @@ public class ProfileController {
     @FXML
     void addCollectionToGrid(ActionEvent event) {
         addItem("", "Collection uwu!!!"); // Call addItem for each item
+
     }
 
     public void addItem(String imageUrl, String itemName) {
@@ -135,4 +151,28 @@ public class ProfileController {
     public void switchToCreateCollectionView() throws IOException {
         CollectionsApplication.setRoot("create-collection-view");
     }
+
+    @FXML
+     void uploadImage(ActionEvent event) {
+        FileChooser imgChooser = new FileChooser();
+        imgChooser.setTitle("Choose an Profile Picture");
+        imgChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.gif"));
+        File file = imgChooser.showOpenDialog(profilePicture.getScene().getWindow());
+        if (file != null) {
+            uploadedImageUri  = file.toURI().toString();
+            profilePicture.setImage(new Image(uploadedImageUri));
+            // Save the Image State to a file
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/csc325/collectionsproject/profilePicImageState.txt"))) {
+                writer.write(uploadedImageUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Image Upload Error");
+        }}
+
+
+
+
+
 }

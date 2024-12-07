@@ -29,7 +29,7 @@
   </rowConstraints>
    <children>
       <HBox alignment="CENTER" styleClass="login-pane-top" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
-       <Label fx:id="profileNameLabel" styleClass="welcome-text" alignment="CENTER" contentDisplay="CENTER" prefHeight="77.0" prefWidth="410.0" style="-fx-background-radius: 10; -fx-background-color: GREEN;" text="Welcome! Please Log-in" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="3">
+       <Label fx:id="profileNameLabel" styleClass="green-label" alignment="CENTER" contentDisplay="CENTER" prefHeight="77.0" prefWidth="410.0" style="-fx-background-radius: 10; -fx-background-color: GREEN;" text="Welcome! Please Log-in" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="3">
            <font>
                <Font size="32.0" />
            </font>
@@ -41,7 +41,7 @@
            </GridPane.margin>
        </Label>
        </HBox>
-      <HBox alignment="CENTER" styleClass="login-pane" layoutX="160.0" layoutY="68.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+      <HBox alignment="CENTER" layoutX="160.0" layoutY="68.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="login-pane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
          <children>
             <Label text="Username:">
                <HBox.margin>
@@ -54,7 +54,7 @@
             <TextField fx:id="usernameTF" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" styleClass="login-pane" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="login-pane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
          <children>
             <Label text="Password:">
                <HBox.margin>
@@ -67,19 +67,25 @@
             <TextField fx:id="passwordTF" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" styleClass="login-pane" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="login-pane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
          <children>
             <Label fx:id="loginStatusLabel" alignment="CENTER" prefHeight="18.0" prefWidth="225.0" textAlignment="CENTER" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" styleClass="login-pane-bottom" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" styleClass="login-pane-bottom" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
          <children>
-            <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" prefWidth="111.0" text="Register User">
+            <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#registerButtonClicked" prefHeight="25.0" prefWidth="115.0" text="Register User">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
-            <Button fx:id="loginBtn" defaultButton="true" mnemonicParsing="false" onAction="#loginClicked" text="Login" />
+            <Button fx:id="loginBtn" defaultButton="true" mnemonicParsing="false" onAction="#loginClicked" prefHeight="25.0" prefWidth="115.0" text="Log-in">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>
