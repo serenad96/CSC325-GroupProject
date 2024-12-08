@@ -23,8 +23,8 @@
                </image>
             </ImageView>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
-            <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" styleClass="top-bar-button" text="New Collection" />
             <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" styleClass="top-bar-button" text="Add Item" />
+            <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" styleClass="top-bar-button" text="New Collection" />
             <Button fx:id="deleteCollectionBtn" mnemonicParsing="false" onAction="#deleteCollection" styleClass="top-bar-button" text="Delete Collection" />
             <Button fx:id="setFavoriteCollectionBtn" maxHeight="25.6" mnemonicParsing="false" onAction="#setFavoriteCollection" styleClass="top-bar-button" text="Favorite Collection">
                <graphic>
