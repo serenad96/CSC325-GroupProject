@@ -84,13 +84,12 @@ public class AddItemController {
                 //Write Item in to Firebase
                 String itemName = itemNameTF.getText();
                 String itemDescription = itemDescriptionTF.getText();
-               // int itemRating= (int) itemRating1.getUserData();
                 System.out.println("Collection name from getCollectionName : " + selectedCollection);
                // addItemLabel.setText(collectionName);
                 FirebaseWriter fbWriter = new FirebaseWriter();
 
                 // Add the item to the collection
-                fbWriter.addCollectionItemToCollection(selectedCollection ,itemName, itemDescription);
+                fbWriter.addCollectionItemToCollection(selectedCollection ,itemName, itemDescription, ratingValue);
                // addItemLbl.setText("asdf");
 
 
@@ -168,7 +167,7 @@ public class AddItemController {
                                 case "itemRating1":
                                         System.out.println("Star Rating ID Value: '" + currentStarRATING.getId() + "'");
                                         System.out.println("Selected Rating 1");
-                                        starRatingLabel.setText("1 STAR THIS THING SUCKS");
+                                        starRatingLabel.setText("1 STAR \nTHIS THING SUCKS");
                                         //set boolean value of item on create item, define value here
                                         //RATING VALUE DOESNT DO ANYTHING RN I THINK IT NEEDS TO BE STORED SOMEWHERE TO WORK
                                         ratingValue = 1;
@@ -182,7 +181,7 @@ public class AddItemController {
 
                                 case "itemRating2":
                                         System.out.println("Selected Rating 2");
-                                        starRatingLabel.setText("2 STAR THIS THING IS FINE IG");
+                                        starRatingLabel.setText("2 STARS \nTHIS THING IS FINE IG");
                                         // Do stuff for Rating 2
                                         ratingValue = 2;
                                         star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
@@ -193,7 +192,7 @@ public class AddItemController {
                                         break;
                                 case "itemRating3":
                                         System.out.println("Selected Rating 3");
-                                        starRatingLabel.setText("3 STARS yeah aight");
+                                        starRatingLabel.setText("3 STARS \nyeah aight");
                                         // Do stuff for Rating 3
                                         ratingValue = 3;
                                         star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
@@ -204,7 +203,7 @@ public class AddItemController {
                                         break;
                                 case "itemRating4":
                                         System.out.println("Selected Rating 4");
-                                        starRatingLabel.setText("4 STARs oooo KINDA Spicy");
+                                        starRatingLabel.setText("4 STARS \noooo KINDA Spicy");
                                         // Do stuff for Rating 4
                                         ratingValue = 4;
                                         star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
@@ -215,7 +214,7 @@ public class AddItemController {
                                         break;
                                 case "itemRating5":
                                         System.out.println("Selected Rating 5");
-                                        starRatingLabel.setText("5 STARS BABY!!!!!!!!!");
+                                        starRatingLabel.setText("5 STARS \nALL THE WAY BABY \nWOOOOOOO!!!!!!!!!");
                                         // Do stuff for Rating 5
                                         ratingValue = 5;
                                         star1.setImage(ResourceManager.getImage("rating_full_gold_star.png"));
