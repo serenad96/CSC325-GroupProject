@@ -128,5 +128,25 @@ public class FirebaseWriter {
         }
     }
 
+    void setFavoriteCollection() {
+        // Gets Username from current session
+        UserSession session = UserSession.getInstance();
+        User active = session.getLoggedInUser();
+
+        //Retrieve the collectionName from the Collection Session
+        CollectionSession sessionC = CollectionSession.getInstance();
+        String selectedCollection = sessionC.getSelectedCollectionName();
+
+        String username = active.getUsername();
+
+
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(username);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("Favorite Collection", selectedCollection);
+
+        ApiFuture<WriteResult> result = docRef.update(data);
+    }
+
 
 }

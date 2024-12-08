@@ -1,9 +1,7 @@
 package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
@@ -20,6 +18,7 @@ import javafx.stage.FileChooser;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class ProfileController {
@@ -40,7 +39,7 @@ public class ProfileController {
     private int row = 0;
     private int column = 0;
 
-    public void initialize() {
+    public void initialize() throws ExecutionException, InterruptedException {
 
         UserSession session = UserSession.getInstance();
         profileNameLabel.setText("Welcome " + session.getLoggedInUser().getUsername() + "!");
@@ -50,6 +49,12 @@ public class ProfileController {
         for (String collectionName : collectionNames) {
             addItem("", collectionName); // Call addItem for each item
         }
+
+        //Display Favorite Collection
+        String favCollection = getFavoriteCollection();
+
+        System.out.println("Your favorite collection is " + favCollection);
+
 
         //Remembers last uploaded profile picture
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/csc325/collectionsproject/profilePicImageState.txt"))) {
@@ -95,6 +100,24 @@ public class ProfileController {
             e.printStackTrace();
         }
         return collectionNames;
+    }
+
+    public String getFavoriteCollection() throws ExecutionException, InterruptedException {
+        //Get Active User
+        UserSession active = UserSession.getInstance();
+        String username = active.getLoggedInUser().getUsername();
+
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users")
+                .document(username);
+
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot itemSnapshot = future.get();
+
+        // Retrieve favorite collection from the document
+        Map<String,Object> data=itemSnapshot.getData();
+        String favCollection = (String) data.get("Favorite Collection");
+
+        return favCollection;
     }
 
     @FXML

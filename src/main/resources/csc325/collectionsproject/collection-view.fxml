@@ -26,6 +26,7 @@
             <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" styleClass="top-bar-button" text="New Collection" />
             <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" styleClass="top-bar-button" text="Add Item" />
             <Button fx:id="deleteCollectionBtn" mnemonicParsing="false" onAction="#deleteCollection" styleClass="top-bar-button" text="Delete Collection" />
+            <Button fx:id="setFavoriteCollection" mnemonicParsing="false" onAction="#setFavoriteCollection" styleClass="top-bar-button" text="Set Collection as Favorite" />
          </items>
       </ToolBar>
    </top>
