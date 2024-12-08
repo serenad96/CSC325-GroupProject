@@ -3,6 +3,7 @@ package csc325.collectionsproject.controller;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.CollectionSession;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,7 +54,12 @@ public class ProfileController {
         //Display Favorite Collection
         String favCollection = getFavoriteCollection();
 
-        System.out.println("Your favorite collection is " + favCollection);
+        if (favCollection != null) { // Check if user has a favorite collection, if not prompt them to add one
+            favCollectionLbl.setText(favCollection);
+        } else {
+            favCollectionLbl.setText("Set a Collection as Favorite and it will show here!");
+        }
+
 
 
         //Remembers last uploaded profile picture
@@ -162,7 +168,17 @@ public class ProfileController {
 
 
     @FXML
-    void openPrimaryCollection(ActionEvent event) throws IOException {
+    void openFavoriteCollection(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
+
+        //Start CollectionSession
+        CollectionSession session = CollectionSession.getInstance();
+
+        //Get Favorite Collection
+        String favCollection = getFavoriteCollection();
+
+        //Set Selected Collection Name
+        session.setSelectedCollectionName(favCollection);
+
         switchToCollectionView();
     }
 

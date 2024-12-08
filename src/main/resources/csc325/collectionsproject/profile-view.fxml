@@ -64,7 +64,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                           </ImageView>
-                                          <Label fx:id="favCollectionLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="279.0" text="Your Fav Collection" textFill="WHITE">
+                                          <Label fx:id="favCollectionLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="279.0" text="Set a Collection as Favorite and it will show here!" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -79,7 +79,7 @@
                               <Pane prefHeight="302.0" prefWidth="596.0">
                                  <children>
 
-                                    <Button fx:id="viewPrimaryCollectionBtn" layoutX="240.0" layoutY="263.0" mnemonicParsing="false" onAction="#openPrimaryCollection" text="View Full Collecton" />
+                                    <Button fx:id="viewPrimaryCollectionBtn" layoutX="240.0" layoutY="263.0" mnemonicParsing="false" onAction="#openFavoriteCollection" text="View Full Collecton" />
                                     <HBox alignment="CENTER" layoutX="28.0" layoutY="19.0" spacing="20.0" styleClass="primary_collection_imgs">
                                        <children>
                                           <ImageView fx:id="showcaseItem1" fitHeight="225.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
