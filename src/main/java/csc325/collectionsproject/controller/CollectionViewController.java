@@ -106,8 +106,6 @@ public class CollectionViewController {
             ApiFuture<QuerySnapshot> future = collectionRef.get();
             QuerySnapshot itemSnapshot = future.get();
 
-            System.out.println("DisplayItems Test Print 1");
-
             List<QueryDocumentSnapshot> documents = itemSnapshot.getDocuments();
             System.out.println("Number of documents: " + documents.size());
 
@@ -130,7 +128,6 @@ public class CollectionViewController {
     }
 
     public void getCollectionDesc() throws ExecutionException, InterruptedException {
-
         // Use the singleton instance to get the active username
         UserSession active = UserSession.getInstance();
         String username = active.getLoggedInUser().getUsername(); // Retrieve the username
@@ -221,7 +218,6 @@ public class CollectionViewController {
             ItemComponentController newItemController = loader.getController();
             newItemController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/pipermelonart.png");
             newItemController.setLabel(itemName);
-            //newItemController.setLabel(labelText != null ? labelText : "Collection Item Here");
 
             // Add the item to the grid at the next available position
             itemGrid.add(itemNode, column, row);
