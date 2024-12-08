@@ -144,9 +144,7 @@ public class FirebaseWriter {
 
         Map<String, Object> data = new HashMap<>();
         data.put("Favorite Collection", selectedCollection);
-
+        UserSession.getInstance().getLoggedInUser().setFavCollectionString(selectedCollection);
         ApiFuture<WriteResult> result = docRef.update(data);
     }
-
-
 }

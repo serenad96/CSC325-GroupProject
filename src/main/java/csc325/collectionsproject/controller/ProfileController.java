@@ -52,7 +52,7 @@ public class ProfileController {
         }
 
         //Display Favorite Collection
-        String favCollection = getFavoriteCollection();
+        String favCollection = session.getLoggedInUser().getFavCollectionString();
 
         if (favCollection != null) { // Check if user has a favorite collection, if not prompt them to add one
             favCollectionLbl.setText(favCollection);
@@ -61,9 +61,7 @@ public class ProfileController {
             favCollectionLbl.setText("Set a Collection as Favorite and it will show here!");
             viewPrimaryCollectionBtn.setManaged(false);
         }
-
-
-
+        System.out.println("User fav Collection on profile init: " + UserSession.getInstance().getLoggedInUser().getFavCollectionString());
 
         //Remembers last uploaded profile picture
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/csc325/collectionsproject/profilePicImageState.txt"))) {
@@ -111,23 +109,24 @@ public class ProfileController {
         return collectionNames;
     }
 
-    public String getFavoriteCollection() throws ExecutionException, InterruptedException {
-        //Get Active User
-        UserSession active = UserSession.getInstance();
-        String username = active.getLoggedInUser().getUsername();
-
-        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users")
-                .document(username);
-
-        ApiFuture<DocumentSnapshot> future = docRef.get();
-        DocumentSnapshot itemSnapshot = future.get();
-
-        // Retrieve favorite collection from the document
-        Map<String,Object> data=itemSnapshot.getData();
-        String favCollection = (String) data.get("Favorite Collection");
-
-        return favCollection;
-    }
+//    public String getFavoriteCollection() throws ExecutionException, InterruptedException {
+//        //Get Active User
+//        UserSession active = UserSession.getInstance();
+//        String username = active.getLoggedInUser().getUsername();
+//
+//        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users")
+//                .document(username);
+//
+//        ApiFuture<DocumentSnapshot> future = docRef.get();
+//        DocumentSnapshot itemSnapshot = future.get();
+//
+//        // Retrieve favorite collection from the document
+//        Map<String,Object> data=itemSnapshot.getData();
+//        String favCollection = (String) data.get("Favorite Collection");
+//        active.getLoggedInUser().setFavCollectionString(favCollection);
+//
+//        return favCollection;
+//    }
 
     @FXML
     void addCollectionToGrid(ActionEvent event) {
@@ -173,11 +172,11 @@ public class ProfileController {
     @FXML
     void openFavoriteCollection(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
 
+        //Get Favorite Collection
+        String favCollection = UserSession.getInstance().getLoggedInUser().getFavCollectionString();
+
         //Start CollectionSession
         CollectionSession session = CollectionSession.getInstance();
-
-        //Get Favorite Collection
-        String favCollection = getFavoriteCollection();
 
         //Set Selected Collection Name
         session.setSelectedCollectionName(favCollection);
@@ -185,7 +184,7 @@ public class ProfileController {
         if (favCollection != null) {
             switchToCollectionView();
         } else {
-            System.out.println("");
+            System.out.println("else in open fav collection - profile cont");
         }
     }
 
@@ -218,9 +217,4 @@ public class ProfileController {
         } else {
             System.out.println("Image Upload Error");
         }}
-
-
-
-
-
 }
