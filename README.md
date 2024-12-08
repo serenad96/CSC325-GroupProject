@@ -26,7 +26,7 @@ Initial Project Submission:
 
 # Code Contributors
 
-Serena D'Avanzo - [Github](https://github.com/serenad96)  
+Serena D'Avanzo - [College Github](https://github.com/serenad96) [Personal Github](https://github.com/Sereenabee)  
 Aubrey "Aubsickle" Morra - [College Github](https://github.com/AubsFSC) [Personal Github](https://github.com/Aubsickle)  
 Selin Saracoglu - [Github](https://github.com/selincs)  
 
