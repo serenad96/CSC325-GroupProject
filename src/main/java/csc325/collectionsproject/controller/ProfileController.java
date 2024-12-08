@@ -56,9 +56,12 @@ public class ProfileController {
 
         if (favCollection != null) { // Check if user has a favorite collection, if not prompt them to add one
             favCollectionLbl.setText(favCollection);
+            viewPrimaryCollectionBtn.setManaged(true);
         } else {
             favCollectionLbl.setText("Set a Collection as Favorite and it will show here!");
+            viewPrimaryCollectionBtn.setManaged(false);
         }
+
 
 
 
@@ -179,7 +182,11 @@ public class ProfileController {
         //Set Selected Collection Name
         session.setSelectedCollectionName(favCollection);
 
-        switchToCollectionView();
+        if (favCollection != null) {
+            switchToCollectionView();
+        } else {
+            System.out.println("");
+        }
     }
 
     @FXML
