@@ -18,7 +18,10 @@ public class ResourceManager {
                 "rating_full_gold_star.png",
                 "rating_half_gold_star.png",
                 "orange_heart.png",
-                "fav_collection.png"
+                "fav_collection.png",
+                "cats-08.png",
+                "cats-02.png",
+                "cats-01.png"
         };
 
         for (String fileName : iconFiles) {

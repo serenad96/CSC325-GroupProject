@@ -14,6 +14,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import com.google.cloud.firestore.Firestore;
@@ -45,6 +46,8 @@ public class CollectionsApplication extends Application {
 
         stage.setMaximized(true);
         stage.setTitle("Collection Perfection");
+        Image icon = ResourceManager.getImage("orange_heart.png");
+        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
 
