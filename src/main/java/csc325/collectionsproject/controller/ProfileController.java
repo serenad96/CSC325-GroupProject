@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +56,7 @@ public class ProfileController {
         if (favCollection != null) { // Check if user has a favorite collection, if not prompt them to add one
             favCollectionLbl.setText(favCollection);
         } else {
-            favCollectionLbl.setText("Set a Collection as Favorite and it will show here!");
+            favCollectionLbl.setText("Set a Collection as Favorite \nand it will show here!");
         }
 
 

@@ -2,13 +2,9 @@ package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
-import com.google.firebase.database.DataSnapshot;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.*;
 import csc325.collectionsproject.model.Collection;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
