@@ -64,7 +64,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                           </ImageView>
-                                          <Label fx:id="favCollectionLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="279.0" text="Set a Collection as Favorite and it will show here!" textFill="WHITE">
+                                          <Label fx:id="favCollectionLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="272.0" text="Set a Collection as Favorite and it will show here!" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -89,12 +89,12 @@
                                           </ImageView>
                                           <ImageView fx:id="showcaseItem2" fitHeight="225.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@imgs/trilo.jpg" />
+                                                <Image url="@imgs/cats-08.png" />
                                              </image>
                                           </ImageView>
                                           <ImageView fx:id="showcaseItem3" fitHeight="199.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@imgs/qt.png" />
+                                                <Image url="@imgs/cats-04.png" />
                                              </image>
                                           </ImageView>
                                        </children>

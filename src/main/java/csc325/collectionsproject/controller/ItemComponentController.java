@@ -52,12 +52,10 @@ public class ItemComponentController {
         pcontroller.switchToCollectionView();
     }
 
-    public void viewItem(MouseEvent mouseEvent) {
+    @FXML
+    public void viewItem(MouseEvent mouseEvent) throws IOException {
         //Start CollectionSession
         CollectionSession sessionI = CollectionSession.getInstance();
-
-        //Calling Profile Controller
-        ProfileController pcontroller = new ProfileController();
 
         //Get item name from view label
         String selectedCollectionItemName = itemNameLbl.getText();
@@ -68,7 +66,8 @@ public class ItemComponentController {
         sessionI.setSelectedCollectionItemName(selectedCollectionItemName);
 
         //Switch to Item View
-        //pcontroller.switchToItemView();
+        CollectionViewController cview = new CollectionViewController();
+        cview.viewItemDetails();
     }
 
     public void setImage(String imageUrl) {

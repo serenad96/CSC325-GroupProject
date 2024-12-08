@@ -6,12 +6,10 @@ import com.google.firebase.cloud.FirestoreClient;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;

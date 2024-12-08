@@ -38,7 +38,7 @@ public class CollectionsApplication extends Application {
         //Initialize Firestore, authorization, db
         fstoreDB = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
-        //preload resources
+        //preload icon resources so that GUI pages can load without issue
         ResourceManager.initialize();
 
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource("registration-view.fxml"));
