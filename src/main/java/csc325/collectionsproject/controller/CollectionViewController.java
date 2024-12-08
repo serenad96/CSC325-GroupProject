@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
@@ -31,7 +32,7 @@ public class CollectionViewController {
     private GridPane itemGrid;
 
     @FXML
-    private Label collectionNameLbl;
+    private Label collectionNameLbl, collectionDescLbl;
 
     @FXML
     private ImageView profilePicture;
@@ -51,6 +52,7 @@ public class CollectionViewController {
         //Retrieve the collectionName from the Collection Session
         CollectionSession session = CollectionSession.getInstance();
         String selectedCollection = session.getSelectedCollectionName();
+        getCollectionDesc();
 
         //Get Selected Collection Name
         List<String> itemNames = getCollectionItems(); // Fetch item names in collection
@@ -58,12 +60,13 @@ public class CollectionViewController {
             addItem("", itemName); // Call addItem for each item
         }
         //Set profile picture if one has been set previously
-        if(!UserSession.getInstance().getLoggedInUser().getProfilePicString().isEmpty()) {
+        if (!UserSession.getInstance().getLoggedInUser().getProfilePicString().isEmpty()) {
             profilePicture.setImage(new Image(UserSession.getInstance().getLoggedInUser().getProfilePicString()));
             System.out.println("Set profile pic on collection view!");
         }
         collectionNameLbl.setText(selectedCollection);
         System.out.println("Active collection in writer " + selectedCollection);
+
     }
 
     public List<String> getCollectionItems() throws ExecutionException, InterruptedException {
@@ -100,7 +103,7 @@ public class CollectionViewController {
                 String itemName = document.getString("Item Name");
                 System.out.println("Item Name: " + itemName);
 
-                // if itenName is not null, add it to the list of titles to return
+                // if itemName is not null, add it to the list of titles to return
                 System.out.println("Item Name: " + itemName);
                 if (itemName != null) {
                     itemNames.add(itemName);
@@ -113,6 +116,36 @@ public class CollectionViewController {
         //return list of item names
         return itemNames;
     }
+
+    public void getCollectionDesc() throws ExecutionException, InterruptedException {
+
+        // Use the singleton instance to get the active username
+        UserSession active = UserSession.getInstance();
+        String username = active.getLoggedInUser().getUsername(); // Retrieve the username
+
+        //Retrieve the collectionName from the Collection Session
+        CollectionSession session = CollectionSession.getInstance();
+        String selectedCollection = session.getSelectedCollectionName();
+
+        // Navigate to the user's "Collections" sub-collection
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users")
+                .document(username) //Username stored in active UserSession
+                .collection("Collections")
+                .document(selectedCollection + "Collection"); // Actual name of Collection
+
+
+        // Get all documents in the "Collections" sub-collection
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot itemSnapshot = future.get();
+      //  List<QueryDocumentSnapshot> documents = itemSnapshot.getData();
+
+        //For each document in the snapshot, iterate through this loop
+        // Retrieve item name from the document
+            Map<String,Object> data=itemSnapshot.getData();
+            String collectionDesc = (String) data.get("Collection Description");
+            collectionDescLbl.setText(collectionDesc);
+    }
+
 
 
     public void deleteCollection() throws IOException, InterruptedException {
