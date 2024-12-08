@@ -20,6 +20,7 @@
         <items>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
             <Button fx:id="setFavItemBtn" mnemonicParsing="false" styleClass="top-bar-button" text="Set As Favorite" />
+            <Button fx:id="deleteItemBtn" mnemonicParsing="false" styleClass="top-bar-button" onAction="#deleteItem" text="Delete Item" />
         </items>
       </ToolBar>
    </top>

@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 
 public class ItemViewController {
 
+    public Button deleteItemBtn;
     @FXML
     private Button backBtn, profileBtn, setFavItemBtn;
 
@@ -84,4 +85,12 @@ public class ItemViewController {
         CollectionsApplication.setRoot("profile-view");
     }
 
+    public void deleteItem(ActionEvent actionEvent) throws IOException {
+        //Call Firebase Writer
+        FirebaseWriter fbWriter = new FirebaseWriter();
+        //Delete Item
+        fbWriter.removeCollectionItemFromCollection();
+        //Switch to Collection View
+        switchToCollectionView();
+    }
 }
