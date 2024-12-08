@@ -28,7 +28,7 @@ public class ProfileController {
     @FXML
     private GridPane itemGrid;
     @FXML
-    private Label profileNameLabel;
+    private Label profileNameLabel, favCollectionLbl;
     @FXML
     private ImageView profilePicture, primaryCollectionImage, showcaseItem1, showcaseItem2, showcaseItem3;
 

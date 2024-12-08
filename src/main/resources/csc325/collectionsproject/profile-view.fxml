@@ -64,7 +64,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                           </ImageView>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="279.0" text="Your Fav Collection" textFill="WHITE">
+                                          <Label fx:id="favCollectionLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="279.0" text="Your Fav Collection" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
