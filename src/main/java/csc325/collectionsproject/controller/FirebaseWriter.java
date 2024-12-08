@@ -88,7 +88,7 @@ public class FirebaseWriter {
 
     }
 
-    public void removeCollectionItemFromCollection(String itemName) {
+    public void removeCollectionItemFromCollection() {
         // Gets Username from current session
         UserSession session = UserSession.getInstance();
         User active = session.getLoggedInUser();
@@ -97,10 +97,11 @@ public class FirebaseWriter {
         //Retrieve the collectionName from the Collection Session
         CollectionSession sessionC = CollectionSession.getInstance();
         String selectedCollection = sessionC.getSelectedCollectionName();
+        String selectedItem = sessionC.getSelectedCollectionItemName();
 
         //Define Collection
         DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users").document(active.getUsername())
-                .collection("Collections").document(selectedCollection + "Collection").collection("Collection Items").document(itemName);
+                .collection("Collections").document(selectedCollection + "Collection").collection("Collection Items").document(selectedItem);
 
         docRef.delete();
 
