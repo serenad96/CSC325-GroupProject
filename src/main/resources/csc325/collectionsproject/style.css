@@ -237,3 +237,20 @@
 .create-item-view{
     -fx-background-color: linear-gradient(to bottom right, #90ee90, GREEN);
 }
+
+/* Item View */
+
+.item-view{
+    -fx-background-color: linear-gradient(white, DARKGREEN);
+}
+
+.item-desc .viewport{
+    -fx-background-color: #94be94;
+    -fx-border-style: solid;
+    -fx-border-color: #94be94;
+    -fx-text-fill: white;
+}
+
+.item-text{
+    -fx-effect: dropshadow(gaussian, rgba(40, 40, 40, 0.5), 10, 0.5, 0.0, 0.0);
+}
