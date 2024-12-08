@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="collectionPane" onMouseClicked="#viewCollection" prefHeight="171.0" prefWidth="154.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionComponentController">
+<AnchorPane fx:id="collectionPane" onMouseClicked="#viewCollection" prefHeight="171.0" prefWidth="154.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionComponentController">
    <children>
       <VBox fx:id="collVbox" alignment="CENTER" layoutX="18.0" layoutY="14.0" spacing="10.0" stylesheets="@../style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="collectImg" styleClass="collection-img" fitHeight="112.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="collectImg" fitHeight="112.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" styleClass="collection-img">
                <image>
-                  <Image url="@../imgs/trilo.jpg" />
+                  <Image url="@../imgs/lookingUp.png" />
                </image>
             </ImageView>
-            <HBox fx:id="collLabelHBox" styleClass="collection-label" alignment="CENTER" style="-fx-background-color: #fa4c19; -fx-background-radius: 10;">
+            <HBox fx:id="collLabelHBox" alignment="CENTER" style="-fx-background-color: #fa4c19; -fx-background-radius: 10;" styleClass="collection-label">
                <children>
                   <Label fx:id="collectionNameLbl" text="Collection Name" textFill="WHITE">
                      <font>
