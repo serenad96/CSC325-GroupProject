@@ -13,26 +13,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="673.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/20.0.1" stylesheets="@style.css" styleClass="collect-view" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionViewController">
+<BorderPane prefHeight="673.0" prefWidth="693.0" styleClass="collect-view" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CollectionViewController">
    <top>
-      <ToolBar styleClass="top-bar" prefHeight="57.0" prefWidth="894.0">
+      <ToolBar prefHeight="62.4" prefWidth="894.0" styleClass="top-bar">
          <items>
             <ImageView fx:id="profilePicture" fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/trilo.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="profileBtn" styleClass="top-bar-button" mnemonicParsing="false" onAction="#switchToProfileView" text="Profile" />
-            <Button fx:id="newCollectionBtn" styleClass="top-bar-button" mnemonicParsing="false" onAction="#switchToCreateCollectionView" text="New Collection" />
-            <Button fx:id="addItemBtn" styleClass="top-bar-button" mnemonicParsing="false" onAction="#addNewItem" text="Add Item To This Collection" />
-            <Button fx:id="deleteCollectionBtn" styleClass="top-bar-button" mnemonicParsing="false" onAction="#deleteCollection" text="Delete Collection" />
+            <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
+            <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" styleClass="top-bar-button" text="New Collection" />
+            <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" styleClass="top-bar-button" text="Add Item To This Collection" />
+            <Button fx:id="deleteCollectionBtn" mnemonicParsing="false" onAction="#deleteCollection" styleClass="top-bar-button" text="Delete Collection" />
          </items>
       </ToolBar>
    </top>
    <center>
       <VBox alignment="CENTER" prefHeight="335.0" prefWidth="419.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="collectionNameLbl" styleClass="green-label" style="-fx-background-radius: 10;" text="Collection Name" textFill="WHITE">
+            <Label fx:id="collectionNameLbl" style="-fx-background-radius: 10;" styleClass="green-label" text="Collection Name" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="36.0" />
                </font>
@@ -57,7 +57,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="200.0" />
                </rowConstraints>
                <children>
-                  <Button fx:id="addItemInGridBtn" styleClass="addItem2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createNewItem" text="Add New Item" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createNewItem" styleClass="addItem2" text="Add New Item" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
