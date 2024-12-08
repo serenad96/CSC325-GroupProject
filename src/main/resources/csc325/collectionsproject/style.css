@@ -28,6 +28,9 @@
     -fx-prompt-text-fill: GREEN;
     -fx-highlight-fill: ORANGE; /* doesnt work :( */
 }
+.text-area{
+    -fx-prompt-text-fill: GREEN;
+}
 
 .label{
 
@@ -227,4 +230,10 @@
 }
 #privateToggleLbl{
     -fx-font-size: 24;
+}
+
+/* Create Item View */
+
+.create-item-view{
+    -fx-background-color: linear-gradient(to bottom right, #90ee90, GREEN);
 }
