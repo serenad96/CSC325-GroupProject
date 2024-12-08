@@ -89,12 +89,12 @@
                                           </ImageView>
                                           <ImageView fx:id="showcaseItem2" fitHeight="225.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@imgs/trilo.jpg" />
+                                                <Image url="@imgs/cats-08.png" />
                                              </image>
                                           </ImageView>
                                           <ImageView fx:id="showcaseItem3" fitHeight="199.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@imgs/qt.png" />
+                                                <Image url="@imgs/cats-04.png" />
                                              </image>
                                           </ImageView>
                                        </children>
