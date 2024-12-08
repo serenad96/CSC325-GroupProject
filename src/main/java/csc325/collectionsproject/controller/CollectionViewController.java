@@ -4,6 +4,7 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
 import csc325.collectionsproject.model.CollectionSession;
+import csc325.collectionsproject.model.ResourceManager;
 import csc325.collectionsproject.model.User;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
@@ -26,7 +27,7 @@ import java.util.concurrent.ExecutionException;
 
 public class CollectionViewController {
     @FXML
-    private Button addItemBtn, newCollectionBtn, profileBtn, deleteCollectionBtn, addItemInGridBtn;
+    private Button addItemBtn, newCollectionBtn, profileBtn, deleteCollectionBtn, addItemInGridBtn, setFavoriteCollectionBtn;
 
     @FXML
     private GridPane itemGrid;
@@ -35,10 +36,12 @@ public class CollectionViewController {
     private Label collectionNameLbl, collectionDescLbl;
 
     @FXML
-    private ImageView profilePicture;
+    private ImageView profilePicture, favCollectionImg;
+
 
     private int row = 0;
     private int column = 0;
+    boolean isFavorite = false;
 
     String selectedCollectionName;
 
@@ -65,6 +68,19 @@ public class CollectionViewController {
             System.out.println("Set profile pic on collection view!");
         }
         collectionNameLbl.setText(selectedCollection);
+
+        System.out.println("Selected collection" + selectedCollection);
+        System.out.println("User fav Collection on collection init: " + UserSession.getInstance().getLoggedInUser().getFavCollectionString());
+        if (selectedCollection.equals(UserSession.getInstance().getLoggedInUser().getFavCollectionString())) {
+            isFavorite = true;
+            favCollectionImg.setImage(ResourceManager.getImage("fav_collection.png"));
+            System.out.println("Fav = true");
+        } else {
+            System.out.println("Fav = false");
+            favCollectionImg.setImage(ResourceManager.getImage("orange_heart.png"));
+            isFavorite = false;
+        }
+
         System.out.println("Active collection in writer " + selectedCollection);
 
     }
@@ -101,7 +117,6 @@ public class CollectionViewController {
             for (QueryDocumentSnapshot document : documents) {
                 // Retrieve item name from the document
                 String itemName = document.getString("Item Name");
-                System.out.println("Item Name: " + itemName);
 
                 // if itemName is not null, add it to the list of titles to return
                 System.out.println("Item Name: " + itemName);
@@ -109,7 +124,6 @@ public class CollectionViewController {
                     itemNames.add(itemName);
                 }
             }
-            System.out.println("DisplayItems End of method print");
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -223,6 +237,15 @@ public class CollectionViewController {
         }
     }
 
-
-
+    @FXML
+    public void setFavoriteCollection(ActionEvent actionEvent) {
+        FirebaseWriter fbwriter = new FirebaseWriter();
+        if (!isFavorite) {
+            favCollectionImg.setImage(ResourceManager.getImage("fav_collection.png"));
+            UserSession.getInstance().getLoggedInUser().setFavCollectionString(selectedCollectionName);
+            isFavorite = true;
+            System.out.println("Fav collection set to " + UserSession.getInstance().getLoggedInUser().getFavCollectionString());
+        }
+        fbwriter.setFavoriteCollection();
+    }
 }

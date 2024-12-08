@@ -25,8 +25,11 @@
 /* END OF SELIN CODE */
 
 .text-field{
-    /*-fx-prompt-text-fill: ORANGE;*/
+    -fx-prompt-text-fill: GREEN;
     -fx-highlight-fill: ORANGE; /* doesnt work :( */
+}
+.text-area{
+    -fx-prompt-text-fill: GREEN;
 }
 
 .label{
@@ -187,7 +190,7 @@
 /* Create Collection View */
 
 .create-collect-view{
-    -fx-background-color: #001702;
+    -fx-background-color: linear-gradient(to bottom right, #FEE68E, ORANGE);
 }
 
 .green-button{
@@ -198,7 +201,20 @@
     -fx-background-color: GREEN;
 }
 
+.create-collect-button{
+    -fx-background-color:#bdbdbd;
+}
+.create-collect-button:hover{
+    -fx-background-color: orange;
+    -fx-text-fill: white;
+}
 
+.create-collect-pane{
+    -fx-background-color: white;
+    -fx-border-style: solid outside line-cap round;
+    -fx-border-width: 9 10 9 10;
+    -fx-border-color: white;
+}
 
 .create-text-h1{
     -fx-text-alignment: center;
@@ -214,4 +230,10 @@
 }
 #privateToggleLbl{
     -fx-font-size: 24;
+}
+
+/* Create Item View */
+
+.create-item-view{
+    -fx-background-color: linear-gradient(to bottom right, #90ee90, GREEN);
 }

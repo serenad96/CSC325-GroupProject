@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToolBar?>
@@ -19,7 +20,7 @@
 
 <BorderPane prefHeight="488.0" prefWidth="648.0" styleClass="create-collect-view" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.CreateCollectionViewController">
    <top>
-      <ToolBar prefHeight="25.0" prefWidth="648.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+      <ToolBar minHeight="62.4" prefHeight="25.0" prefWidth="648.0" styleClass="top-bar" BorderPane.alignment="CENTER">
          <items>
             <ImageView fx:id="profilePicture" fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -28,27 +29,84 @@
             </ImageView>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
          </items>
+         <BorderPane.margin>
+            <Insets bottom="60.0" />
+         </BorderPane.margin>
       </ToolBar>
    </top>
    <center>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="create-collect-pane" BorderPane.alignment="CENTER">
+         <top>
+            <Text fill="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="create-text-h1" text="Create New Collection" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" top="15.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Text>
+         </top>
+         <right>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="470.0" spacing="15.0" styleClass="create-right" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="privacyToggleBox" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <ToggleButton fx:id="privacyToggle" maxHeight="23.0" maxWidth="60" minWidth="23.0" onAction="#privacyToggleClicked" prefHeight="30.0" prefWidth="53.0">
+                           <graphic>
+                              <ImageView fx:id="toggleIcon" fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/toggle_on.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </ToggleButton>
+                        <Label fx:id="publicToggleLbl" text="Public" textFill="#3c943f" />
+                        <Label fx:id="privateToggleLbl" disable="true" text="Private" textFill="#076101" visible="false" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <ImageView fx:id="collectionImage" fitHeight="378.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="-5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@imgs/trilo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="addImgBtn" mnemonicParsing="false" onAction="#uploadImage" styleClass="create-collect-button" text="Add Image">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="createCollectionBtn" maxHeight="90.0" maxWidth="115.0" minHeight="40.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="40.0" prefWidth="115.0" styleClass="create-collect-button" text="Create Collection" />
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </VBox>
+         </right>
          <center>
-            <GridPane BorderPane.alignment="CENTER">
+            <GridPane minWidth="500.0" BorderPane.alignment="CENTER">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="14.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="14.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="backBtn" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#goBack" styleClass="top-bar-button" text="&lt;- Back" GridPane.rowIndex="6">
+                  <Button fx:id="backBtn" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#goBack" styleClass="create-collect-button" text="&lt;- Back" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="25.0" />
                      </GridPane.margin>
@@ -58,8 +116,6 @@
                         <TextField fx:id="collectionName" prefHeight="34.0" prefWidth="212.0" promptText="Collection Name" />
                         <TextField layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
                         <TextField layoutX="10.0" layoutY="60.0" prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
-                        <TextField layoutX="10.0" layoutY="109.0" prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
-                        <TextField layoutX="10.0" layoutY="159.0" prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
                      </children>
                      <GridPane.margin>
                         <Insets top="15.0" />
@@ -70,8 +126,6 @@
                         <TextField prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
                         <TextField layoutX="10.0" layoutY="25.0" prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
                         <TextField layoutX="10.0" layoutY="75.0" prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
-                        <TextField layoutX="10.0" layoutY="124.0" prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
-                        <TextField layoutX="10.0" layoutY="174.0" prefHeight="34.0" prefWidth="212.0" promptText="Tag" />
                      </children>
                      <padding>
                         <Insets top="15.0" />
@@ -80,71 +134,22 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </VBox>
-                  <TextField fx:id="collectionDesc" prefHeight="34.0" prefWidth="212.0" promptText="Description" GridPane.columnSpan="2" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </GridPane.margin>
-                  </TextField>
+                  <TextArea fx:id="collectionDesc" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="3" />
                </children>
                <BorderPane.margin>
                   <Insets left="25.0" />
                </BorderPane.margin>
             </GridPane>
          </center>
-         <top>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="create-text-h1" text="Create New Collection" BorderPane.alignment="TOP_LEFT">
-               <BorderPane.margin>
-                  <Insets bottom="20.0" left="42.0" top="15.0" />
-               </BorderPane.margin>
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Text>
-         </top>
       </BorderPane>
    </center>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
    <right>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="470.0" spacing="15.0" styleClass="create-right" BorderPane.alignment="CENTER">
-         <children>
-            <HBox fx:id="privacyToggleBox" alignment="CENTER" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
-               <children>
-                  <ToggleButton fx:id="privacyToggle" maxHeight="23.0" maxWidth="60" minWidth="23.0" onAction="#privacyToggleClicked" prefHeight="30.0" prefWidth="53.0">
-                     <graphic>
-                        <ImageView fx:id="toggleIcon" fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/toggle_on.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </ToggleButton>
-                  <Label fx:id="publicToggleLbl" text="Public" textFill="WHITE" />
-                  <Label fx:id="privateToggleLbl" disable="true" text="Private" textFill="#076101" visible="false" />
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <ImageView fx:id="collectionImage" fitHeight="378.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-               <VBox.margin>
-                  <Insets bottom="-5.0" left="5.0" right="5.0" />
-               </VBox.margin>
-               <image>
-                  <Image url="@imgs/defaultCollectionImage.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="addImgBtn" mnemonicParsing="false" onAction="#uploadImage" styleClass="top-bar-button" text="Add Image">
-               <VBox.margin>
-                  <Insets bottom="50.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="createCollectionBtn" maxHeight="90.0" maxWidth="115.0" minHeight="40.0" mnemonicParsing="false" onAction="#createNewCollection" prefHeight="40.0" prefWidth="115.0" styleClass="top-bar-button" text="Create Collection" />
-         </children>
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
-         <BorderPane.margin>
-            <Insets top="30.0" />
-         </BorderPane.margin>
-      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>

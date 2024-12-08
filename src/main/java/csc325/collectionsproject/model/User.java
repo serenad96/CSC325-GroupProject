@@ -1,21 +1,18 @@
 package csc325.collectionsproject.model;
 
-import javafx.scene.image.ImageView;
 import java.util.Objects;
 
 public class User {
     public String username;
     public String password;
     public String profilePicString;
-
-    //profile picture
-    public Collection collection; //should be showcase
+    public String favCollectionString;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.profilePicString = "";
-        this.collection = new Collection("Test Collection","TestDescription");
+        this.favCollectionString = "";
     }
 
     public String getUsername() {
@@ -40,9 +37,13 @@ public class User {
         this.profilePicString = profilePicString;
     }
 
-    public Collection getCollection() { return collection; }
+    public String getFavCollectionString() {
+        return favCollectionString;
+    }
 
-    public void setCollection(Collection collection) { this.collection = collection; }
+    public void setFavCollectionString(String favCollectionString) {
+        this.favCollectionString = favCollectionString;
+    }
 
     @Override
     public String toString() {

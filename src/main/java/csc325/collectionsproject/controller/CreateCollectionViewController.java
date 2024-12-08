@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.control.TextArea;
 
 import javafx.stage.FileChooser;
 
@@ -27,7 +28,10 @@ public class CreateCollectionViewController {
     private Button addImgBtn, backBtn, createCollectionBtn, profileBtn;
 
     @FXML
-    private TextField collectionDesc, collectionName;
+    private TextField collectionName;
+
+    @FXML
+    private TextArea collectionDesc;
 
     @FXML
     private ToggleButton privacyToggle;
@@ -116,7 +120,6 @@ public class CreateCollectionViewController {
         File file = imgChooser.showOpenDialog(collectionImage.getScene().getWindow());
         if (file != null) {
             collectionImage.setImage(new Image(file.toURI().toString()));
-            //String filePath = "src/main/resources/csc325/collectionsproject/imgs";
         } else {
             System.out.println("Image Upload Error");
         }

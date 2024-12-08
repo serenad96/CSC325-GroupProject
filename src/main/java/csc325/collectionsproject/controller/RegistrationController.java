@@ -63,6 +63,10 @@ public class RegistrationController {
                 UserSession session = UserSession.getInstance();
                 UserSession.getInstance().setLoggedInUser(user);
                 System.out.println("User logged in to session: " + session.getLoggedInUser());
+                String storedFavCollection = (String) data.get("Favorite Collection");
+                session.getLoggedInUser().setFavCollectionString(storedFavCollection);
+                System.out.println("Fav collection : " + storedFavCollection);
+
                 //user session code end
                 switchToProfileView();
                 System.out.println("Log-in Successful!");
