@@ -111,7 +111,7 @@ public class ProfileController {
 
             // Get the controller of the item component
             CollectionComponentController newCollectionController = loader.getController();
-            newCollectionController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/trilo.jpg");
+            newCollectionController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/defaultCollectionImage.jpg");
             newCollectionController.setLabel(itemName);
             //newItemController.setLabel(labelText != null ? labelText : "Collection Item Here");
 

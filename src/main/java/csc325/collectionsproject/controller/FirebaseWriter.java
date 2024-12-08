@@ -14,8 +14,7 @@ import java.util.concurrent.ExecutionException;
 
 public class FirebaseWriter {
 
-   // int itemRating
-    public void addCollectionItemToCollection(String collectionName, String itemName, String itemDescription) throws ExecutionException, InterruptedException {
+    public void addCollectionItemToCollection(String collectionName, String itemName, String itemDescription, int itemRating) throws ExecutionException, InterruptedException {
 
         UserSession session = UserSession.getInstance();
         User active = session.getLoggedInUser();
@@ -29,23 +28,11 @@ public class FirebaseWriter {
 
         data.put("Item Description", itemDescription);
         data.put("Item Name", itemName);
-        //data.put("Item Rating", itemRating);
+        data.put("Item Rating", itemRating);
 
         //asynchronously write data
         ApiFuture<WriteResult> result = docRef.set(data);
 
-/*
-        //asynchronously read data
-        ApiFuture<DocumentSnapshot> future = docRef.get();
-
-        DocumentSnapshot document = future.get();
-        if (document.exists()) {
-            //System.out.println("Document data: " + document.getData());
-        } else {
-            System.out.println("Collection not found!");
-        }
-
-         */
     }
 
     public void addCollectionToUser(String collectionTitle, String collectionDescription) {
