@@ -1,10 +1,9 @@
 package csc325.collectionsproject.controller;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.*;
 import csc325.collectionsproject.CollectionsApplication;
+import csc325.collectionsproject.model.CollectionSession;
 import csc325.collectionsproject.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +19,7 @@ import javafx.stage.FileChooser;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class ProfileController {
@@ -29,7 +29,7 @@ public class ProfileController {
     @FXML
     private GridPane itemGrid;
     @FXML
-    private Label profileNameLabel;
+    private Label profileNameLabel, favCollectionLbl;
     @FXML
     private ImageView profilePicture, primaryCollectionImage, showcaseItem1, showcaseItem2, showcaseItem3;
 
@@ -40,7 +40,7 @@ public class ProfileController {
     private int row = 0;
     private int column = 0;
 
-    public void initialize() {
+    public void initialize() throws ExecutionException, InterruptedException {
 
         UserSession session = UserSession.getInstance();
         profileNameLabel.setText("Welcome " + session.getLoggedInUser().getUsername() + "!");
@@ -50,6 +50,20 @@ public class ProfileController {
         for (String collectionName : collectionNames) {
             addItem("", collectionName); // Call addItem for each item
         }
+
+        //Display Favorite Collection
+        String favCollection = getFavoriteCollection();
+
+        if (favCollection != null) { // Check if user has a favorite collection, if not prompt them to add one
+            favCollectionLbl.setText(favCollection);
+            viewPrimaryCollectionBtn.setManaged(true);
+        } else {
+            favCollectionLbl.setText("Set a Collection as Favorite and it will show here!");
+            viewPrimaryCollectionBtn.setManaged(false);
+        }
+
+
+
 
         //Remembers last uploaded profile picture
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/csc325/collectionsproject/profilePicImageState.txt"))) {
@@ -97,6 +111,24 @@ public class ProfileController {
         return collectionNames;
     }
 
+    public String getFavoriteCollection() throws ExecutionException, InterruptedException {
+        //Get Active User
+        UserSession active = UserSession.getInstance();
+        String username = active.getLoggedInUser().getUsername();
+
+        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users")
+                .document(username);
+
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot itemSnapshot = future.get();
+
+        // Retrieve favorite collection from the document
+        Map<String,Object> data=itemSnapshot.getData();
+        String favCollection = (String) data.get("Favorite Collection");
+
+        return favCollection;
+    }
+
     @FXML
     void addCollectionToGrid(ActionEvent event) {
         addItem("", "Collection uwu!!!"); // Call addItem for each item
@@ -139,8 +171,22 @@ public class ProfileController {
 
 
     @FXML
-    void openPrimaryCollection(ActionEvent event) throws IOException {
-        switchToCollectionView();
+    void openFavoriteCollection(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
+
+        //Start CollectionSession
+        CollectionSession session = CollectionSession.getInstance();
+
+        //Get Favorite Collection
+        String favCollection = getFavoriteCollection();
+
+        //Set Selected Collection Name
+        session.setSelectedCollectionName(favCollection);
+
+        if (favCollection != null) {
+            switchToCollectionView();
+        } else {
+            System.out.println("");
+        }
     }
 
     @FXML

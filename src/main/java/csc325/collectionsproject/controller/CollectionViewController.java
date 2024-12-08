@@ -25,6 +25,7 @@ import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
 public class CollectionViewController {
+    public Button setFavoriteCollection;
     @FXML
     private Button addItemBtn, newCollectionBtn, profileBtn, deleteCollectionBtn, addItemInGridBtn;
 
@@ -223,6 +224,9 @@ public class CollectionViewController {
         }
     }
 
+    public void setFavoriteCollection(ActionEvent actionEvent) {
+        FirebaseWriter fbwriter = new FirebaseWriter();
 
-
+        fbwriter.setFavoriteCollection();
+    }
 }

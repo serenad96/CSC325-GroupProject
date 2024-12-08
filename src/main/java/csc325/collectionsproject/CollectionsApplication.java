@@ -44,7 +44,7 @@ public class CollectionsApplication extends Application {
         scene = new Scene(fxmlLoader.load(), 1260, 840);
 
         stage.setMaximized(true);
-        stage.setTitle("CollectionsApp");
+        stage.setTitle("Collection Perfection");
         stage.setScene(scene);
         stage.show();
 
