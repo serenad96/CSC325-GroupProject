@@ -43,7 +43,7 @@
                   <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                </padding>
             </Label>
-            <Label fx:id="collectionDescLbl" prefWidth="713.0" text="Description">
+            <Label fx:id="collectionDescLbl" alignment="CENTER" contentDisplay="CENTER" prefWidth="713.0" style="-fx-background-color: GREEN; -fx-background-radius: 10;" text="Description" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>

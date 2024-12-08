@@ -120,7 +120,6 @@ public class CreateCollectionViewController {
         File file = imgChooser.showOpenDialog(collectionImage.getScene().getWindow());
         if (file != null) {
             collectionImage.setImage(new Image(file.toURI().toString()));
-            //String filePath = "src/main/resources/csc325/collectionsproject/imgs";
         } else {
             System.out.println("Image Upload Error");
         }
