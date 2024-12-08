@@ -16,8 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
@@ -179,10 +177,12 @@ public class CollectionViewController {
             controller.switchToProfileView();
 
         }
-
-
     }
 
+    @FXML
+    public void viewItemDetails() throws IOException {
+        switchToItemView();
+    }
 
     @FXML
     public void switchToAddItemView() throws IOException {
@@ -197,6 +197,11 @@ public class CollectionViewController {
     @FXML
     public void switchToCreateCollectionView() throws IOException {
         CollectionsApplication.setRoot("create-collection-view");
+    }
+
+    @FXML
+    public void switchToItemView() throws IOException {
+        CollectionsApplication.setRoot("item-view");
     }
 
     @FXML

@@ -8,6 +8,7 @@ module csc325.collectionsproject {
     requires google.cloud.core;
     requires com.google.api.apicommon;
     requires java.sql;
+    requires java.desktop;
 
     opens csc325.collectionsproject to javafx.fxml;
     exports csc325.collectionsproject;

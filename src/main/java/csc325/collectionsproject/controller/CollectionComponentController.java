@@ -50,6 +50,7 @@ public class CollectionComponentController {
 
             //Switching to Collection View
             pcontroller.switchToCollectionView();
+
         }
 
         public void setImage(String imageUrl) {
