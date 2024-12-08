@@ -24,7 +24,7 @@
             </ImageView>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
             <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" styleClass="top-bar-button" text="New Collection" />
-            <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" styleClass="top-bar-button" text="Add Item To This Collection" />
+            <Button fx:id="addItemBtn" mnemonicParsing="false" onAction="#addNewItem" styleClass="top-bar-button" text="Add Item" />
             <Button fx:id="deleteCollectionBtn" mnemonicParsing="false" onAction="#deleteCollection" styleClass="top-bar-button" text="Delete Collection" />
          </items>
       </ToolBar>
@@ -55,6 +55,7 @@
                   <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="200.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="200.0" />
                </rowConstraints>
                <children>
                   <Button fx:id="addItemInGridBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createNewItem" styleClass="addItem2" text="Add New Item" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -64,6 +65,7 @@
                   </Button>
                </children>
             </GridPane>
+            <Button fx:id="backBtn" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#switchToProfileView" text="&lt;- Back" />
          </children>
          <padding>
             <Insets bottom="30.0" left="10.0" right="10.0" top="10.0" />
