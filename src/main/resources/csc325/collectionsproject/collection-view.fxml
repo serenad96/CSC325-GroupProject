@@ -78,7 +78,7 @@
                   </Button>
                </children>
             </GridPane>
-            <Button fx:id="backBtn" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#switchToProfileView" text="&lt;- Back" />
+            <Button fx:id="backBtn" styleClass="addItem2" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#switchToProfileView" text="&lt;- Back" />
          </children>
          <padding>
             <Insets bottom="30.0" left="10.0" right="10.0" top="10.0" />
