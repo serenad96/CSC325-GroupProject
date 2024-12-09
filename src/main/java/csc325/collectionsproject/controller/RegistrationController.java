@@ -77,10 +77,6 @@ public class RegistrationController {
     }
 
     @FXML
-    void writeBtnClicked(ActionEvent event) {
-        System.out.println("Write clicked");
-    }
-    @FXML
     void registerButtonClicked(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
         registerUser();
     }
