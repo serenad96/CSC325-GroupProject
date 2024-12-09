@@ -10,9 +10,12 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
 public class ItemViewController {
@@ -88,9 +91,21 @@ public class ItemViewController {
     public void deleteItem(ActionEvent actionEvent) throws IOException {
         //Call Firebase Writer
         FirebaseWriter fbWriter = new FirebaseWriter();
-        //Delete Item
-        fbWriter.removeCollectionItemFromCollection();
-        //Switch to Collection View
-        switchToCollectionView();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION); //Create popup when delete button is clicked
+        alert.setTitle("Delete Warning");
+        alert.setHeaderText("Are you sure?");
+        String s ="This will be deleted forever! (a long time)";
+        alert.setContentText(s);
+
+        Optional<ButtonType> result=alert.showAndWait();
+        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+
+            //Delete Item
+            fbWriter.removeCollectionItemFromCollection();
+
+            //Switch to Collection View
+            switchToCollectionView();
+        }
     }
 }
