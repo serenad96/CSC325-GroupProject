@@ -21,8 +21,8 @@ Hello potential user! Collection Perfection is a program developed to allow for 
  - Register for an Account (or log-in)
 
 ## Additional Resources
-Initial Project Submission:
-[https://docs.google.com/document/d/1IO2AgEgT3ckqxsMnQ8nS0QOUxvDkMYklEKp69lwrgwk/edit?usp=sharing](https://docs.google.com/document/d/1IO2AgEgT3ckqxsMnQ8nS0QOUxvDkMYklEKp69lwrgwk/edit?usp=sharing)
+[Initial Project Submission](https://docs.google.com/document/d/1IO2AgEgT3ckqxsMnQ8nS0QOUxvDkMYklEKp69lwrgwk/edit?usp=sharing)  
+[IEEE Software Requirements Specification](https://docs.google.com/document/d/1fquEf529GFjADmP6-Aj-5UlPbXjP92FlJCXgQ_1P69c/edit?usp=sharing)
 
 # Code Contributors
 
