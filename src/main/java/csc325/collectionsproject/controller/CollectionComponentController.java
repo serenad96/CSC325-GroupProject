@@ -30,7 +30,7 @@ public class CollectionComponentController {
     private AnchorPane collectionPane;
 
         private static final String DEFAULT_IMAGE_PATH =
-                csc325.collectionsproject.controller.CollectionComponentController.class.getResource("/csc325/collectionsproject/imgs/trilo.jpg").toExternalForm();
+                csc325.collectionsproject.controller.CollectionComponentController.class.getResource("/csc325/collectionsproject/imgs/cats-10.png").toExternalForm();
 
         @FXML
         void viewCollection(MouseEvent event) throws IOException {

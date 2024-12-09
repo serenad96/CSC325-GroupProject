@@ -84,7 +84,7 @@
                                        <children>
                                           <ImageView fx:id="showcaseItem1" fitHeight="225.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@imgs/pipermelonart.png" />
+                                                <Image url="@imgs/cats-01.png" />
                                              </image>
                                           </ImageView>
                                           <ImageView fx:id="showcaseItem2" fitHeight="225.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
