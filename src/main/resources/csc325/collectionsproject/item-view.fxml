@@ -16,7 +16,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="600.0" styleClass="item-view" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csc325.collectionsproject.controller.ItemViewController">
    <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+      <ToolBar minHeight="62.4" prefHeight="40.0" prefWidth="200.0" styleClass="top-bar" BorderPane.alignment="CENTER">
         <items>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
             <Button fx:id="setFavItemBtn" mnemonicParsing="false" styleClass="top-bar-button" text="Set As Favorite" />
