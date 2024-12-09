@@ -12,6 +12,10 @@ import java.io.IOException;
 
 public class FirestoreContext {
 
+    /**
+     * This initializes the Firestore database with a service key for storing information in the program.
+     * @return
+     */
     public Firestore firebase() {
         try {
             FileInputStream serviceAccount =

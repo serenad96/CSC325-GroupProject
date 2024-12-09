@@ -8,8 +8,21 @@ import csc325.collectionsproject.model.Collection;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * This class is for methods that heavily utilize Google Firebase
+ */
 public class FirebaseWriter {
 
+    /**
+     * Creates a Collection Item within a Collection in Google Firebase
+     *
+     * @param collectionName gets a name for the collection that the item will be added to
+     * @param itemName sets a name for a collection item
+     * @param itemDescription sets a description for a collection item
+     * @param itemRating sets a rating for a collection item
+     * @throws ExecutionException Execution Exception
+     * @throws InterruptedException Interrupted Exception
+     */
     public void addCollectionItemToCollection(String collectionName, String itemName, String itemDescription, int itemRating) throws ExecutionException, InterruptedException {
 
         UserSession session = UserSession.getInstance();
@@ -31,6 +44,12 @@ public class FirebaseWriter {
 
     }
 
+    /**
+     * Creates a Collection within a User in Google Firebase
+     *
+     * @param collectionTitle sets a name for a collection
+     * @param collectionDescription sets a description for a collection
+     */
     public void addCollectionToUser(String collectionTitle, String collectionDescription) {
         // Create a new Collection object in Java
         Collection collection = new Collection(collectionTitle, collectionDescription);
@@ -57,7 +76,9 @@ public class FirebaseWriter {
 
     }
 
-
+    /**
+     * Deletes a Collection and the Items contained inside within Firebase
+     */
     public void removeCollectionFromUser() {
         // Gets Username from current session
         UserSession session = UserSession.getInstance();
@@ -84,6 +105,9 @@ public class FirebaseWriter {
 
     }
 
+    /**
+     * Deletes a CollectionItem within Firebase
+     */
     public void removeCollectionItemFromCollection() {
         // Gets Username from current session
         UserSession session = UserSession.getInstance();
@@ -104,7 +128,12 @@ public class FirebaseWriter {
 
     }
 
-    //THIS CODE DOES N O T DELETE ONE OF OUR COLLECTIONS!!! IT IS A FIREBASE METHOD TO DELETE STUFF IN THERE!!! ok luv u guys <3
+    /**
+     * Deletes all the items within a Collection before deleting the Collection itself
+     *
+     * @param collection the collection that is going to be deleted
+     * @param batchSize the size of the segments the collection will be deleted in to prevent out-of-memory errors
+     */
     void deleteCollection(CollectionReference collection, int batchSize) {
         try {
             // retrieve a small batch of documents to avoid out-of-memory errors
@@ -125,6 +154,9 @@ public class FirebaseWriter {
         }
     }
 
+    /**
+     * Sets a Collection as the Favorite Collection
+     */
     void setFavoriteCollection() {
         // Gets Username from current session
         UserSession session = UserSession.getInstance();

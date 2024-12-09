@@ -10,6 +10,10 @@ public class ResourceManager {
     private static final String ICONS_PATH = "/csc325/collectionsproject/icons/";
     private static final Map<String, Image> resources = new HashMap<>();
 
+    /**
+     * This initializes icons utilized by the program on CollectionApplication start() running, so that there
+     * are no runtime errors when loading icons dynamically at runtime.
+     */
     public static void initialize() {
         String[] iconFiles = {
                 "toggle_on.png",
@@ -41,6 +45,11 @@ public class ResourceManager {
         }
     }
 
+    /**
+     * Returns the requested preloaded icon.
+     * @param fileName The String name of the Icon being requested by the program.
+     * @return Returns the requested icon Image.
+     */
     public static Image getImage(String fileName) {
         return resources.get(fileName);
     }

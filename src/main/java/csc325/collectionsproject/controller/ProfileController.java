@@ -40,8 +40,14 @@ public class ProfileController {
     private int row = 0;
     private int column = 0;
 
-    public void initialize() throws ExecutionException, InterruptedException {
 
+    /**
+     * Initializes User profile state, displaying a User's data on their page,
+     * including all of their stored Collections, Favorite Collection and locally saved Profile Picture.
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    public void initialize() throws ExecutionException, InterruptedException {
         UserSession session = UserSession.getInstance();
         profileNameLabel.setText("Welcome " + session.getLoggedInUser().getUsername() + "!");
 
@@ -76,6 +82,10 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Query Firebase to retrieve all of a user's collections to display on their Profile-View.
+     * @return
+     */
     public List<String> getAllCollections() {
         List<String> collectionNames = new ArrayList<>(); // Store item names
         try {
@@ -109,25 +119,12 @@ public class ProfileController {
         return collectionNames;
     }
 
-//    public String getFavoriteCollection() throws ExecutionException, InterruptedException {
-//        //Get Active User
-//        UserSession active = UserSession.getInstance();
-//        String username = active.getLoggedInUser().getUsername();
-//
-//        DocumentReference docRef = CollectionsApplication.fstoreDB.collection("Users")
-//                .document(username);
-//
-//        ApiFuture<DocumentSnapshot> future = docRef.get();
-//        DocumentSnapshot itemSnapshot = future.get();
-//
-//        // Retrieve favorite collection from the document
-//        Map<String,Object> data=itemSnapshot.getData();
-//        String favCollection = (String) data.get("Favorite Collection");
-//        active.getLoggedInUser().setFavCollectionString(favCollection);
-//
-//        return favCollection;
-//    }
-
+    /**
+     * Adds a Collection-Component to the Profile grid upon successful Collection Creation that dynamically sizes according to a
+     * user's data.
+     * @param imageUrl
+     * @param itemName
+     */
     public void addItem(String imageUrl, String itemName) {
         try {
             // Load the FXML for the item component
@@ -138,7 +135,6 @@ public class ProfileController {
             CollectionComponentController newCollectionController = loader.getController();
             newCollectionController.setImage(imageUrl != null ? imageUrl : "/csc325/collectionsproject/imgs/defaultCollectionImage.jpg");
             newCollectionController.setLabel(itemName);
-            //newItemController.setLabel(labelText != null ? labelText : "Collection Item Here");
 
             // Add the item to the grid at the next available position
             itemGrid.add(itemNode, column, row);
@@ -163,6 +159,14 @@ public class ProfileController {
     }
 
 
+    /**
+     * Displays a user's favorite collection on their profile
+     * @param event Handles display of View Favorite Collection Button depending on whether a User has selected
+     *              a favorite Collection.
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @FXML
     void openFavoriteCollection(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
 
@@ -182,16 +186,29 @@ public class ProfileController {
         }
     }
 
+
+    /**
+     * Switches program to Collection-View
+     * @throws IOException
+     */
     @FXML
     public void switchToCollectionView() throws IOException {
         CollectionsApplication.setRoot("collection-view");
     }
 
+    /**
+     * Switches program to Create-Collection-View
+     * @throws IOException
+     */
     @FXML
     public void switchToCreateCollectionView() throws IOException {
         CollectionsApplication.setRoot("create-collection-view");
     }
 
+    /**
+     * Handles profile picture uploading, and storing it locally to circumvent Firebase storage issues.
+     * @param event Select Upload Profile Picture button.
+     */
     @FXML
      void uploadImage(ActionEvent event) {
         FileChooser imgChooser = new FileChooser();
