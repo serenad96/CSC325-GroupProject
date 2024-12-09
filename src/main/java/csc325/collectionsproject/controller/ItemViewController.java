@@ -18,6 +18,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
+/**
+ * Deletes a Collection within Firebase-------------
+ */
 public class ItemViewController {
 
     public Button deleteItemBtn;
@@ -27,12 +30,20 @@ public class ItemViewController {
     @FXML
     private Label itemNameLbl, itemDescLbl, itemRatingLabel, itemTagsLbl;
 
-
+    /**
+     * Deletes a Collection within Firebase
+     */
     @FXML
     private void initialize() throws ExecutionException, InterruptedException {
         getItemInfo();
     }
 
+    /**
+     * Gets the Item Name, Item Rating, and Item Description of the selected Item
+     *
+     * @throws ExecutionException Execution Exception
+     * @throws InterruptedException Interrupted Exception
+     */
     public void getItemInfo() throws ExecutionException, InterruptedException {
         // Use the singleton instance to get the active username
         UserSession active = UserSession.getInstance();
@@ -73,21 +84,42 @@ public class ItemViewController {
 
     }
 
+    /**
+     * Switches the program to the Collection View
+     *
+     * @throws IOException IO Exception
+     */
     @FXML
     public void switchToCollectionView() throws IOException {
         CollectionsApplication.setRoot("collection-view");
     }
 
+    /**
+     * Switches the program to the Collection View
+     *
+     * @throws IOException IO Exception
+     */
     @FXML
     void goBack(ActionEvent event) throws IOException {
         switchToCollectionView();
     }
 
+    /**
+     * Switches the program to the Profile View
+     *
+     * @throws IOException IO Exception
+     */
     @FXML
     public void switchToProfileView(ActionEvent event) throws IOException  {
         CollectionsApplication.setRoot("profile-view");
     }
 
+    /**
+     * Presents a Pop-up asking the User if they want to delete the current Item, if they select OK it will delete the Item and send them back to Collection View
+     *
+     * @param actionEvent a user clicks on the delete item button
+     * @throws IOException IO Exception
+     */
     public void deleteItem(ActionEvent actionEvent) throws IOException {
         //Call Firebase Writer
         FirebaseWriter fbWriter = new FirebaseWriter();
