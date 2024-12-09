@@ -238,6 +238,14 @@
     -fx-background-color: linear-gradient(to bottom right, #90ee90, GREEN);
 }
 
+.orange-button{
+    -fx-background-color: #bdbdbd;
+}
+.orange-button:hover{
+    -fx-text-fill: white;
+    -fx-background-color: ORANGE;
+}
+
 /* Item View */
 
 .item-view{
