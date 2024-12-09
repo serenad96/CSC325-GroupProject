@@ -32,7 +32,13 @@ public class CollectionComponentController {
         private static final String DEFAULT_IMAGE_PATH =
                 csc325.collectionsproject.controller.CollectionComponentController.class.getResource("/csc325/collectionsproject/imgs/cats-10.png").toExternalForm();
 
-        @FXML
+
+    /**
+     * @param event Mouse event linked to clicking on an individual CollectionComponent displayed in the Collection Grid on the Profile View.
+     *              This is how you access an individual collection.
+     * @throws IOException
+     */
+    @FXML
         void viewCollection(MouseEvent event) throws IOException {
             //Start CollectionSession
             CollectionSession session = CollectionSession.getInstance();
@@ -53,7 +59,10 @@ public class CollectionComponentController {
 
         }
 
-        public void setImage(String imageUrl) {
+    /**
+     * @param imageUrl sets an image for a collection, or provides a default if left blank.
+     */
+    public void setImage(String imageUrl) {
             //should this be a new Image()? How to get the info from collection image?
             if (imageUrl == null || imageUrl.isEmpty()) {
                 // Use the default image if no URL is provided
@@ -63,7 +72,11 @@ public class CollectionComponentController {
             }
         }
 
-        public void setLabel(String text) {
+    /**
+     *
+     * @param text The name of the collection that is being accessed
+     */
+    public void setLabel(String text) {
             collectionNameLbl.setText(text);
         }
 
