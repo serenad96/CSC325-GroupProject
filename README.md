@@ -16,7 +16,7 @@ Hello potential user! Collection Perfection is a program developed to allow for 
 
 ### Instructions
  - Pull this code into your Intellij IDEA
- - Connect a key.json file for a firebase database to store data
+ - Paste a key.json file for a firestore database into the project file directory to store data
  - Launch the code from the file **CollectionsApplication.java**
  - Register for an Account (or log-in)
 
