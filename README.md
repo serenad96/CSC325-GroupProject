@@ -20,6 +20,18 @@ Hello potential user! Collection Perfection is a program developed to allow for 
  - Launch the code from the file **CollectionsApplication.java**
  - Register for an Account (or log-in)
 
+## Screenshots
+Log-In Screen:  
+[Screenshot 1]()  
+Profile Screen:  
+[Screenshot 2]()  
+Create Collection Screen:  
+[Screenshot 3]()  
+Create Item Screen:  
+[Screenshot 4]()  
+Collection View Screen:  
+[Screenshot 5]()  
+
 ## Additional Resources
 [Initial Project Submission](https://docs.google.com/document/d/1IO2AgEgT3ckqxsMnQ8nS0QOUxvDkMYklEKp69lwrgwk/edit?usp=sharing)  
 [IEEE Software Requirements Specification](https://docs.google.com/document/d/1fquEf529GFjADmP6-Aj-5UlPbXjP92FlJCXgQ_1P69c/edit?usp=sharing)
