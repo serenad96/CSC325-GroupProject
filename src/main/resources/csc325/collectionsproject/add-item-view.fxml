@@ -29,7 +29,7 @@
             </ImageView>
             <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#switchToProfileView" styleClass="top-bar-button" text="Profile" />
           <Button fx:id="newCollectionBtn" mnemonicParsing="false" onAction="#switchToCreateCollectionView" styleClass="top-bar-button" text="New Collection" />
-            <Button fx:id="collectionViewBtn" mnemonicParsing="false" onAction="#switchToCollectionView" styleClass="top-bar-button" text="Collection View" />
+            <Button fx:id="collectionViewBtn" mnemonicParsing="false" onAction="#switchToCollectionView" styleClass="top-bar-button" text="View Collection" />
         </items>
          <BorderPane.margin>
             <Insets bottom="60.0" />
@@ -54,7 +54,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="backBtn" styleClass="orange-button" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#goBack" text="&lt;- Back" GridPane.rowIndex="6">
+                  <Button fx:id="backBtn" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#goBack" styleClass="orange-button" text="&lt;- Back" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets bottom="40.0" left="25.0" />
                      </GridPane.margin>
@@ -111,7 +111,7 @@
                         <Image url="@imgs/cats-05.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="addImgBtn" styleClass="orange-button" mnemonicParsing="false" onAction="#uploadImage" text="Add Image">
+                  <Button fx:id="addImgBtn" mnemonicParsing="false" onAction="#uploadImage" styleClass="orange-button" text="Add Image">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
@@ -169,7 +169,7 @@
                         </ToggleButton>
                      </children>
                   </HBox>
-                  <Button fx:id="addNewItemBtn" styleClass="orange-button" maxHeight="90.0" maxWidth="100.0" minHeight="40.0" mnemonicParsing="false" onAction="#addNewItem" prefHeight="40.0" prefWidth="90.0" text="ADD NEW ITEM">
+                  <Button fx:id="addNewItemBtn" maxHeight="90.0" maxWidth="100.0" minHeight="40.0" mnemonicParsing="false" onAction="#addNewItem" prefHeight="40.0" prefWidth="90.0" styleClass="orange-button" text="ADD NEW ITEM">
                      <VBox.margin>
                         <Insets bottom="70.0" />
                      </VBox.margin>
