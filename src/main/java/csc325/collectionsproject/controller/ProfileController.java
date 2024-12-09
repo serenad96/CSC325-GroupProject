@@ -128,12 +128,6 @@ public class ProfileController {
 //        return favCollection;
 //    }
 
-    @FXML
-    void addCollectionToGrid(ActionEvent event) {
-        addItem("", "Collection uwu!!!"); // Call addItem for each item
-
-    }
-
     public void addItem(String imageUrl, String itemName) {
         try {
             // Load the FXML for the item component
