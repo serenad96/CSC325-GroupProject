@@ -10,6 +10,12 @@ public class CollectionSession {
         // Private constructor (to prevent instantiation before registration/login events occur)
         private CollectionSession() {}
 
+    /**
+     * Initializes a singleton instance for locally storing an active Collection's information.
+     * This is to circumvent querying Firebase whenever a Collection's information is needed multiple times.
+     * @return The instance that holds a active session which is set any time a collection is accessed in the program.
+     *
+     */
         // Method to get the singleton instance
         public static csc325.collectionsproject.model.CollectionSession getInstance() {
             if (instance == null) {
