@@ -9,6 +9,11 @@ public class Collection {
     public ArrayList<CollectionItem> collectionItems = new ArrayList<>();
     public ArrayList<String> collectionTags;
 
+    /**
+     * Used in setting the active collection in CollectionSession to locally keep the actively focused Collection.
+     * @param collectionTitle Title of the Collection
+     * @param collectionDescription Description of the Collection
+     */
     public Collection(String collectionTitle, String collectionDescription) {
         this.collectionTitle = collectionTitle;
         this.collectionDescription = collectionDescription;

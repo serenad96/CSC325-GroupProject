@@ -8,6 +8,14 @@ public class User {
     public String profilePicString;
     public String favCollectionString;
 
+
+    /**
+     * This is the class that stores a User's information, including their username, password, profilePicture, and favorite collection.
+     * Profile Picture is set during run time and saved locally by saving the String.
+     * Favorite collection is set during run time.
+     * @param username The username that a User creates
+     * @param password The password that a User creates
+     */
     public User(String username, String password) {
         this.username = username;
         this.password = password;
