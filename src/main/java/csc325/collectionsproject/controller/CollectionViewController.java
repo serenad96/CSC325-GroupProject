@@ -44,16 +44,33 @@ public class CollectionViewController {
     String selectedCollectionName;
 
 
+    /**
+     * Brings the user to the Add Item to Collection View
+     * @param event triggered when the "Add Item" button is clicked
+     * @throws IOException
+     */
     @FXML
     void addNewItem(ActionEvent event) throws IOException {
         switchToAddItemView();
     }
 
+    /**
+     *
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+
+    /**
+     * Initialzes collection view by loading up the selected collection's details
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public void initialize() throws ExecutionException, InterruptedException {
         //Retrieve the collectionName from the Collection Session
         CollectionSession session = CollectionSession.getInstance();
         String selectedCollection = session.getSelectedCollectionName();
         getCollectionDesc();
+
 
         //Get Selected Collection Name
         List<String> itemNames = getCollectionItems(); // Fetch item names in collection
@@ -83,6 +100,12 @@ public class CollectionViewController {
 
     }
 
+    /**
+     * Fetches all items in the currently selected collection from the Firestore database
+     * @return The Items within a collection
+     * @throws ExecutionException if database query execution fails
+     * @throws InterruptedException
+     */
     public List<String> getCollectionItems() throws ExecutionException, InterruptedException {
         List<String> itemNames = new ArrayList<>(); // Store item names
         try {
@@ -127,6 +150,11 @@ public class CollectionViewController {
         return itemNames;
     }
 
+    /**
+     * Fetches the description of the currently selected collection
+     * @throws ExecutionException if database query execution fails
+     * @throws InterruptedException
+     */
     public void getCollectionDesc() throws ExecutionException, InterruptedException {
         // Use the singleton instance to get the active username
         UserSession active = UserSession.getInstance();
@@ -156,7 +184,11 @@ public class CollectionViewController {
     }
 
 
-
+    /**
+     * Deleted the currently selected collection after user confirmation
+     * @throws IOException if navigation to another view fails
+     * @throws InterruptedException if deletion process fails/is interrupted
+     */
     public void deleteCollection() throws IOException, InterruptedException {
     FirebaseWriter firebaseWriter = new FirebaseWriter();
     RegistrationController controller = new RegistrationController();
@@ -176,6 +208,10 @@ public class CollectionViewController {
         }
     }
 
+    /**
+     * Navigates to the Item View to display the details of a selected item.
+     * @throws IOException
+     */
     @FXML
     public void viewItemDetails() throws IOException {
         switchToItemView();
@@ -206,7 +242,11 @@ public class CollectionViewController {
         switchToAddItemView();
     }
 
-    //just pass a CollectionItem here when it works, or we can get the data from the database? whats easier
+    /**
+     * Adds an item to the grid display of the collection
+     * @param imageUrl
+     * @param itemName
+     */
     //collection view grid logic uwu happy thanksgiving
     public void addItem(String imageUrl, String itemName) {
         try {
@@ -238,6 +278,10 @@ public class CollectionViewController {
         }
     }
 
+    /**
+     * Marks the current collection as the user's favorite collection
+     * @param actionEvent triggered by clicking the "Set As Favorite"
+     */
     @FXML
     public void setFavoriteCollection(ActionEvent actionEvent) {
         FirebaseWriter fbwriter = new FirebaseWriter();

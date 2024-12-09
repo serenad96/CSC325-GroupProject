@@ -12,6 +12,9 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
+/**
+ * This Class is used to Display Items within a Collection
+ */
 public class ItemComponentController {
 
     @FXML
@@ -32,26 +35,11 @@ public class ItemComponentController {
     private static final String DEFAULT_IMAGE_PATH =
             ItemComponentController.class.getResource("/csc325/collectionsproject/imgs/pipermelonart.png").toExternalForm();
 
-    @FXML
-    void viewCollection(MouseEvent event) throws IOException {
-        //Start CollectionSession
-        CollectionSession session = CollectionSession.getInstance();
-
-        //Calling Profile Controller
-        ProfileController pcontroller = new ProfileController();
-
-        //Get item name from view label
-        String selectedCollectionName = itemNameLbl.getText();
-                //Displays Clicked Collections Name
-                System.out.println(selectedCollectionName);
-
-        //Set Selected Collection Name
-        session.setSelectedCollectionName(selectedCollectionName);
-
-        //Switching to Collection View
-        pcontroller.switchToCollectionView();
-    }
-
+    /**
+     * Populates the Item Component with the Item information
+     *
+     * @param mouseEvent a user clicks on the Item in Collection View
+     */
     @FXML
     public void viewItem(MouseEvent mouseEvent) throws IOException {
         //Start CollectionSession
@@ -70,6 +58,11 @@ public class ItemComponentController {
         cview.viewItemDetails();
     }
 
+    /**
+     * Sets the image for the Item Component
+     *
+     * @param imageUrl URL of the image of the image being represented
+     */
     public void setImage(String imageUrl) {
         //should this be a new Image()? How to get the info from collection image?
         if (imageUrl == null || imageUrl.isEmpty()) {
@@ -80,6 +73,11 @@ public class ItemComponentController {
         }
     }
 
+    /**
+     * Sets the text in the Item Component to the items name
+     *
+     * @param text Item Name
+     */
     public void setLabel(String text) {
         itemNameLbl.setText(text);
     }
