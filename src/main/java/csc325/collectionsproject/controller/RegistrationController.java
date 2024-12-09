@@ -27,13 +27,25 @@ public class RegistrationController {
 
     }
 
+    /**
+     * This method handles a user's login validation, extracted to validateLogin() method
+     * @param event This is clicking on the Login button
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @FXML
     void loginClicked(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
-      System.out.println("Login clicked");
         validateLogIn();
-
     }
 
+    /**
+     * Logic for validating a User's login information with stored Firebase data.
+     * Utilizes the values input in usernameTF and passwordTF TextField's to verify this information.
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws IOException
+     */
     void validateLogIn() throws ExecutionException, InterruptedException, IOException {
 
         String username = usernameTF.getText().trim();
@@ -67,26 +79,36 @@ public class RegistrationController {
 
                 //user session code end
                 switchToProfileView();
-                System.out.println("Log-in Successful!");
             } else {
-                System.out.println("Incorrect password.");
                 loginStatusLabel.setText("Login Info not found. Try again.");
             }
         }
 
     }
 
+    /**
+     * This is clicking on the register button, with the validation logic extracted to registerUser().
+     * @param event This is clicking on the "Register User" button.
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @FXML
     void registerButtonClicked(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
         registerUser();
     }
 
+    /**
+     * This is the Registration validation logic, that checks that a User's selected Username does not already
+     * exist in the Firebase Database. Utilizes the values input in usernameTF and passwordTF TextField's to verify
+     * this information.
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public void registerUser() throws IOException, ExecutionException, InterruptedException {
         //Firebase doesnt do case insensitive checks, so we have to store a lower case key in user WITH username
-
         //This validation needs to switch username variables to usernameKey variables for case sensitivity to work
-
-
          String username = usernameTF.getText().trim();
          String password = passwordTF.getText().trim();
          String usernameKey = usernameTF.getText().trim().toLowerCase();
@@ -95,8 +117,6 @@ public class RegistrationController {
         CollectionReference usersCollection = database.collection("Users");
         ApiFuture<QuerySnapshot> querySnapshot = usersCollection.whereEqualTo("Username", username).get();
         QuerySnapshot snapshot = querySnapshot.get();
-
-        //  if(snapshot.isEmpty()) { loginStatusLabel.setText("Incorrect Username or Password. Try again."); }
 
         // Iterate through document and validates login
         List<QueryDocumentSnapshot> documents = snapshot.getDocuments();
@@ -121,6 +141,10 @@ public class RegistrationController {
             ApiFuture<WriteResult> result = docRef.set(data);
     }
 
+    /**
+     * This switches the program to the Profile-View upon successful user login.
+     * @throws IOException
+     */
     @FXML
     public void switchToProfileView() throws IOException {
         CollectionsApplication.setRoot("profile-view");
