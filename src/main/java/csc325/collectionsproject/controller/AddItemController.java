@@ -46,9 +46,9 @@ public class AddItemController {
 
         private ToggleGroup ratingToggleGwoup;
         int ratingValue;
-       // private CollectionViewController collectionController;
 
-
+        /** Initializes the controller, sets up toggle group for ratings
+         * Method is called automatically after FXML file is loaded */
         @FXML
         private void initialize() {
                 //i makea da rating pizza
@@ -68,12 +68,16 @@ public class AddItemController {
                 collectionNameLbl.setText("Add Item to " + selected);
         }
 
-        //individual collection controller instance for a specific collection
-//        public void setCollectionController(CollectionViewController collectionController) {
-//                this.collectionController = collectionController;
-//        }
 
-        //This is clicking the add new item button in the minibar
+        /**
+         * Handles adding a new item to the selected collection
+         * Writes the item details to Firestore and navigates back to the collection view
+         *
+         * @param event truggered by clicking the "Add Item" button
+         * @throws IOException if there's an issue loading the next view
+         * @throws ExecutionException if there is an issue writing to firestore
+         * @throws InterruptedException
+         */
         @FXML
         void addNewItem(ActionEvent event) throws IOException, ExecutionException, InterruptedException {
                 CollectionSession session = CollectionSession.getInstance();
@@ -96,7 +100,9 @@ public class AddItemController {
                 switchToCollectionView();
         }
 
-        // Retrieve the collection name from Firestore
+        /**
+         * @return the name of a collection
+         */
         public String getCollectionName() {
                 try {
 
@@ -129,6 +135,10 @@ public class AddItemController {
                 return null;
         }
 
+        /**
+         * Switch to collection view, profile view, create view respectfully
+         * @throws IOException
+         */
         @FXML
         public void switchToCollectionView() throws IOException {
                 CollectionsApplication.setRoot("collection-view");
@@ -142,15 +152,20 @@ public class AddItemController {
                 CollectionsApplication.setRoot("create-collection-view");
         }
 
-        @FXML
-        void itemPrivacyToggleClicked(ActionEvent event) {
-        }
-
+        /**
+         * On the add item screen, returns the user back to collection view
+         * @param event
+         * @throws IOException
+         */
         @FXML
         void goBack(ActionEvent event) throws IOException {
                 switchToCollectionView();
         }
 
+        /**
+         * Handles GUI for when a rating is clicked
+         * @param event triggered when a star is clicked from the 1-5 rating
+         */
         @FXML
         void ratingClicked(ActionEvent event) {
                 // Get the selected button from the ToggleGroup
@@ -234,6 +249,10 @@ public class AddItemController {
         }
 
 
+        /**
+         * Handles uploading an image for an item
+         * @param event triggered by selecting the "Upload Image" button
+         */
         @FXML
         void uploadImage(ActionEvent event) {
                 FileChooser imgChooser = new FileChooser();
@@ -247,6 +266,5 @@ public class AddItemController {
                         System.out.println("Gay baby error");
                 }
 
-                //Need to make images save
         }
 }

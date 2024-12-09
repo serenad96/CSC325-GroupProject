@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 /**
+ * This is the main application class for Collection Perfection
+ * This clsass initilizes Firebase Firestore, Firebase Authenitcation, and the GUI
  * @author Selin Saracoglu, Aubrey Morra, Serena D'Avanzo
  */
 
@@ -33,6 +35,13 @@ public class CollectionsApplication extends Application {
     public static FirebaseAuth fauth;
     private final FirestoreContext contxtFirebase = new FirestoreContext();
 
+    /**
+     * Starts the JavaFX application
+     * @param stage the primary stage for the application
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @Override
     public void start(Stage stage) throws IOException, ExecutionException, InterruptedException {
         //Initialize Firestore, authorization, db
@@ -53,10 +62,21 @@ public class CollectionsApplication extends Application {
 
     }
 
+    /**
+     * Sets the root to the specified FXML file
+     * @param fxml
+     * @throws IOException
+     */
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
+    /**
+     * Loads an FXML file and returns it root node
+     * @param fxml the name of the FXML file to load
+     * @return
+     * @throws IOException
+     */
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CollectionsApplication.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();

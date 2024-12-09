@@ -44,11 +44,27 @@ public class CollectionViewController {
     String selectedCollectionName;
 
 
+    /**
+     * Brings the user to the Add Item to Collection View
+     * @param event triggered when the "Add Item" button is clicked
+     * @throws IOException
+     */
     @FXML
     void addNewItem(ActionEvent event) throws IOException {
         switchToAddItemView();
     }
 
+    /**
+     *
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+
+    /**
+     * Initialzes collection view by loading up the selected collection's details
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public void initialize() throws ExecutionException, InterruptedException {
         //Retrieve the collectionName from the Collection Session
         CollectionSession session = CollectionSession.getInstance();
