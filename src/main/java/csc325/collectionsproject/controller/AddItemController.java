@@ -48,6 +48,7 @@ public class AddItemController {
         int ratingValue;
        // private CollectionViewController collectionController;
 
+
         @FXML
         private void initialize() {
                 //i makea da rating pizza

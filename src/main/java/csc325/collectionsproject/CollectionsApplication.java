@@ -21,11 +21,11 @@ import com.google.cloud.firestore.Firestore;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import java.util.concurrent.ExecutionException;
+
+/**
+ * @author Selin Saracoglu, Aubrey Morra, Serena D'Avanzo
+ */
 
 public class CollectionsApplication extends Application {
     public static Scene scene;    // Firestore reference
