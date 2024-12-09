@@ -22,15 +22,15 @@ Hello potential user! Collection Perfection is a program developed to allow for 
 
 ## Screenshots
 Log-In Screen:  
-[Screenshot 1]()
+[Screenshot 1]()  
 Profile Screen:  
-[Screenshot 2]()
+[Screenshot 2]()  
 Create Collection Screen:  
-[Screenshot 3]()
+[Screenshot 3]()  
 Create Item Screen:  
-[Screenshot 4]()
+[Screenshot 4]()  
 Collection View Screen:  
-[Screenshot 5]()
+[Screenshot 5]()  
 
 ## Additional Resources
 [Initial Project Submission](https://docs.google.com/document/d/1IO2AgEgT3ckqxsMnQ8nS0QOUxvDkMYklEKp69lwrgwk/edit?usp=sharing)  
